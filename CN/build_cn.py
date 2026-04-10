@@ -243,8 +243,10 @@ def main():
     hour_12 = now.hour % 12 or 12
     am_pm = "AM" if now.hour < 12 else "PM"
     data["Date"] = f"{now.month}/{now.day}/{now.year} {hour_12}:{now.minute:02d}:{now.second:02d} {am_pm}"
-    data["VersionNumber"] = version
-    print(f"Set VersionNumber: {version}")
+    data["VersionNumber"] = f"EN v14.2.1 / CN {version}"
+    data["SaveName"] = f"40K 10e 競技模組 CN {version} (基於 EN v1.7.4)"
+    print(f"Set SaveName: {data['SaveName']}")
+    print(f"Set VersionNumber: {data['VersionNumber']}")
     print(f"Set Date: {data['Date']}")
 
     # 8. Save output
