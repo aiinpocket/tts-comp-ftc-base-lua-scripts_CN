@@ -17,7 +17,7 @@ challengerDiscardPosition = { x = 79.0, y = 1.5, z = -2.0 }
 redUsingFixed = false
 blueUsingFixed = false
 
-enableBtn = { label="ENABLE\nGT\nSCORESHEET\n\n(click here)\n\nDon't enable if you\nwant to keep track\nof VPs manually\non counters ", width = 6500,	height = 9500, click_function = 'enableSheet', font_size = 1600,
+enableBtn = { label="啟用\n錦標賽\n計分板\n\n（點此啟用）\n\n若要手動使用\n計數器追蹤VP\n請勿啟用 ", width = 6500,	height = 9500, click_function = 'enableSheet', font_size = 1600,
 		function_owner = self,	position = {1, -0.05, -1}, rotation = {0, 90, 180},	tooltip = "", color="Black", font_color="White"
 }
 
@@ -75,7 +75,7 @@ playerOneTitle = {
 	index = 0,
 	width = 3000,
 	height = 500,
-	label = "Player 1",
+	label = "玩家 1",
 	click_function = 'p1',
 	font_size = 400,
 	function_owner = self,
@@ -87,7 +87,7 @@ playerTwoTitle = {
 	index = 1,
 	width = 3000,
 	height = 500,
-	label = "Player 2",
+	label = "玩家 2",
 	click_function = 'p2',
 	font_size = 400,
 	function_owner = self,
@@ -107,7 +107,7 @@ playerTotal = {
 		function_owner = self,
 		position = {10, -0.05, -4},
 		rotation = {0, 90, 180},
-		tooltip = "Player 1"
+		tooltip = "玩家 1"
 	},
 	{
 		index = 3,
@@ -119,7 +119,7 @@ playerTotal = {
 		function_owner = self,
 		position = {10, -0.05, 2},
 		rotation = {0, 90, 180},
-		tooltip = "Player 2"
+		tooltip = "玩家 2"
 	}
 }
 
@@ -657,8 +657,8 @@ function getParams()
 
 	if params == nil then
 		params = {
-			P1 = "Player 1",
-			P2 = "Player 2"
+			P1 = "玩家 1",
+			P2 = "玩家 2"
 		}
 
 		self.setDescription(JSON.encode_pretty(params))
@@ -679,11 +679,11 @@ function pName(p, obj, clicker, alt)
 
 	if alt then
 		if p == 1 then
-			playerOneTitle.label = "Player 1"
-			params.P1 = "Player 1"
+			playerOneTitle.label = "玩家 1"
+			params.P1 = "玩家 1"
 		else
-			playerTwoTitle.label = "Player 2"
-			params.P2 = "Player 2"
+			playerTwoTitle.label = "玩家 2"
+			params.P2 = "玩家 2"
 		end
 	else
 		local playerName = Player[clicker].steam_name
@@ -1048,12 +1048,12 @@ end
 function checkChallenger()
 	if playerSum(2) - playerSum(1) > 5 then
 		-- Blue winning by 6+ - red is the challenger
-		broadcastToAll(Player.Red.steam_name .. " is the challenger!", {1,0,0})
+		broadcastToAll(Player.Red.steam_name .. " 是挑戰者！", {1,0,0})
 	elseif playerSum(1) - playerSum(2) > 5 then
 		-- Red winning by 6+ - blue is the challenger
-		broadcastToAll(Player.Blue.steam_name .. " is the challenger!", {0,0,1})
+		broadcastToAll(Player.Blue.steam_name .. " 是挑戰者！", {0,0,1})
 	elseif getObjectFromGUID("fe7926") ~= nil then
-		broadcastToAll("Gonna credit me this time Jamie? ;-)", {1,1,1})
+		broadcastToAll("這次要記我功勞嗎 Jamie？;-)", {1,1,1})
 	end
 end
 

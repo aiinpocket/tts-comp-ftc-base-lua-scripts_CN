@@ -5,12 +5,12 @@
 lastRolls={}
 scaleBtn=3
 printLastBtn={
-    label="Last roll", click_function="printLast", function_owner=self,
+    label="上次擲骰", click_function="printLast", function_owner=self,
     position={-2.5,0.1,-0.87}, rotation={0,0,0}, height=50, width=400,
     font_size=60, color={0,0,0}, font_color={1,1,1}, scale={scaleBtn,scaleBtn,scaleBtn}
 }
 printLast5Btn={
-    label="Last 5 rolls", click_function="printLast5", function_owner=self,
+    label="最近 5 次擲骰", click_function="printLast5", function_owner=self,
     position={2.5,0.1,-0.87}, rotation={0,0,0}, height=50, width=400,
     font_size=60, color={0,0,0}, font_color={1,1,1}, scale={scaleBtn,scaleBtn,scaleBtn}
 }

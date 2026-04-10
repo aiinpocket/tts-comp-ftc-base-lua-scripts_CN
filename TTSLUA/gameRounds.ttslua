@@ -41,17 +41,17 @@ function checkGameEnd()
         startObject.call("writeMenus")
     end
     if self.Counter.getValue() == 6 then
-        broadcastToAll("Check if game ends now", "Yellow")
+        broadcastToAll("檢查遊戲是否結束", "Yellow")
         continueBtn.label="Continue\n3+"
         writeButtons()
     end
     if self.Counter.getValue() == 7 then
-        broadcastToAll("Check if game ends now", "Yellow")
+        broadcastToAll("檢查遊戲是否結束", "Yellow")
         continueBtn.label="Continue\n4+"
         writeButtons()
     end
     if self.Counter.getValue() > 7 then--]]
-        broadcastToAll("GAME OVER", "Red")
+        broadcastToAll("遊戲結束", "Red")
         gameOver()
 
     end
@@ -62,13 +62,13 @@ function gameOver()
     startObject.setVar("checkEnd", false)
     startObject.call("writeMenus")
     if  counterA.Counter.getValue() > counterB.Counter.getValue() then
-        broadcastToAll("Red Player WINS !", "Green")
+        broadcastToAll("紅方玩家獲勝！", "Green")
     end
     if  counterA.Counter.getValue() < counterB.Counter.getValue() then
-        broadcastToAll("Blue Player WINS !", "Green")
+        broadcastToAll("藍方玩家獲勝！", "Green")
     end
     if  counterA.Counter.getValue() == counterB.Counter.getValue() then
-        broadcastToAll("Game ends in a DRAW !", "Green")
+        broadcastToAll("遊戲以平局結束！", "Green")
     end
 end
 

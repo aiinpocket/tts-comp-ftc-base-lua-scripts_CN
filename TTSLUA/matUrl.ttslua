@@ -80,7 +80,7 @@ function createUI()
     createDeleteButton()
     createWarningButton()
     if obj_surface == nil then
-        broadcastToAll("THIS TERRAIN IS MEANT TO BE USED WITH BCB BASE MAP V2.0+\nLoad BCB base map and additive load this one.", "Orange")
+        broadcastToAll("此地形適用於 BCB 底圖 V2.0 以上版本\n請載入 BCB 底圖，再追加載入此地形。", "Orange")
     end
 end
 
@@ -88,7 +88,7 @@ function createWarningButton()
     button_parameters = {}
     button_parameters.click_function = 'none'
     button_parameters.function_owner = self
-    button_parameters.label = "THIS TERRAIN IS MEANT TO BE USED WITH BCB BASE MAP V2.0+\nLoad BCB base map and additive load this one."
+    button_parameters.label = "此地形適用於 BCB 底圖 V2.0 以上版本\n請載入 BCB 底圖，再追加載入此地形。"
     button_parameters.position = {7.5+Xoffset,Yoffset,0}
     button_parameters.rotation = {0,270,0}
     button_parameters.width = 0
@@ -104,7 +104,7 @@ function createTitleButton()
     button_parameters = {}
     button_parameters.click_function = 'none'
     button_parameters.function_owner = self
-    button_parameters.label = "Copy/paste the link below to load the mat image \n (for BCB v2.0 template it's automatic)"
+    button_parameters.label = "複製/貼上下方連結以載入桌墊圖片\n（BCB v2.0 範本會自動載入）"
     button_parameters.position = {0+Xoffset,Yoffset,0}
     button_parameters.rotation = {0,270,0}
     button_parameters.width = 4400
@@ -200,7 +200,7 @@ function changeMat(new)
         Wait.frames(updateSurfaceMat, 5)
     else
         if self.getDescription()=="" then
-            broadcastToAll("Invalid URL or no table", "Red")
+            broadcastToAll("無效的 URL 或無桌面", "Red")
         end
     end
     setLighting()

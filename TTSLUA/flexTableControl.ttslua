@@ -95,17 +95,17 @@ function click_applySurface(_, color, alt)
     if permissionCheck(color) then
         if not alt then
             updateSurface()
-            broadcastToAll("New MAT Image Applied", {0.2,0.9,0.2})
+            broadcastToAll("已套用新桌墊圖片", {0.2,0.9,0.2})
         else
             --updateSurfaceTable()
-            --broadcastToAll("New TABLE Image Applied", {0.2,0.9,0.2})
+            --broadcastToAll("已套用新桌面圖片", {0.2,0.9,0.2})
         end
     end
 end
 function click_applySurfaceTable(_, color, alt)
     if permissionCheck(color) then
             updateSurfaceTable()
-            broadcastToAll("New TABLE Image Applied", {0.2,0.9,0.2})
+            broadcastToAll("已套用新桌面圖片", {0.2,0.9,0.2})
     end
 end
 
@@ -116,14 +116,14 @@ function click_saveSurface(_, color)
         local url = self.getInputs()[2].value
         if nickname == "" then
             --No nickname
-            broadcastToAll("Please supply a nickname for this save.", {0.9,0.2,0.2})
+            broadcastToAll("請為此儲存提供名稱。", {0.9,0.2,0.2})
         else
             --Nickname exists
 
             if findInImageDataIndex(url, nickname) == nil then
                 --Save doesn't exist already
                 table.insert(tableImageData, {url=url, name=nickname})
-                broadcastToAll("Image URL saved to memory.", {0.2,0.9,0.2})
+                broadcastToAll("圖片 URL 已儲存至記憶。", {0.2,0.9,0.2})
                 --Refresh buttons
                 self.clearButtons()
                 createOpenCloseButton()
@@ -131,7 +131,7 @@ function click_saveSurface(_, color)
                 --createScaleButtons()
             else
                 --Save exists already
-                broadcastToAll("Memory already contains a save with this Name or URL. Delete it first.", {0.9,0.2,0.2})
+                broadcastToAll("記憶中已存在相同名稱或 URL 的儲存。請先刪除。", {0.9,0.2,0.2})
             end
         end
     end
@@ -144,10 +144,10 @@ function click_loadMemory(_, color, index, alt)
         self.editInput({index=1, value=tableImageData[index].url})
         if not alt then
             updateSurface()
-            broadcastToAll("New MAT Image Applied", {0.2,0.9,0.2})
+            broadcastToAll("已套用新桌墊圖片", {0.2,0.9,0.2})
         else
             updateSurfaceTable()
-            broadcastToAll("New TABLE Image Applied", {0.2,0.9,0.2})
+            broadcastToAll("已套用新桌面圖片", {0.2,0.9,0.2})
         end
     end
 end
@@ -160,7 +160,7 @@ function click_deleteMemory(_, color, index)
         createOpenCloseButton()
         createSurfaceButtons()
         --createScaleButtons()
-        broadcastToAll("Element Removed from Memory", {0.2,0.9,0.2})
+        broadcastToAll("已從記憶中移除項目", {0.2,0.9,0.2})
     end
 end
 
@@ -191,20 +191,20 @@ function click_applyScale(_, color)
         local newWidth = tonumber(self.getInputs()[3].value)
         local newDepth = tonumber(self.getInputs()[4].value)
         if type(newWidth) ~= "number" then
-            broadcastToAll("Invalid Width", {0.9,0.2,0.2})
+            broadcastToAll("無效的寬度", {0.9,0.2,0.2})
             return
         elseif type(newDepth) ~= "number" then
-            broadcastToAll("Invalid Depth", {0.9,0.2,0.2})
+            broadcastToAll("無效的深度", {0.9,0.2,0.2})
             return
         elseif newWidth<0.1 or newDepth<0.1 then
-            broadcastToAll("Scale cannot go below 0.1", {0.9,0.2,0.2})
+            broadcastToAll("比例不能低於 0.1", {0.9,0.2,0.2})
             return
         elseif newWidth>12 or newDepth>12 then
-            broadcastToAll("Scale should not go over 12 (world size limitation)", {0.9,0.2,0.2})
+            broadcastToAll("比例不應超過 12（世界大小限制）", {0.9,0.2,0.2})
             return
         else
             changeTableScale(math.abs(newWidth), math.abs(newDepth))
-            broadcastToAll("Scale applied.", {0.2,0.9,0.2})
+            broadcastToAll("已套用比例。", {0.2,0.9,0.2})
         end
     end
 end
@@ -392,11 +392,11 @@ end
 function createOpenCloseButton()
     local tooltip = "Open Table Control Panel"
 
-    local _label="Table and\nTerrain\nControls"
-    local label="OPEN\n".._label
+    local _label="桌面與\n地形\n控制"
+    local label="開啟\n".._label
     if controlActive then
         tooltip = "Close Table Control Panel"
-        label="CLOSE\n".._label
+        label="關閉\n".._label
     end
     self.createButton({
         label=label, click_function="click_toggleControl", function_owner=self,
@@ -412,7 +412,7 @@ function createSurfaceInput()
         nickname = tableImageData[findInImageDataIndex(currentURL)].name
     end
     self.createInput({
-        label="Nickname", input_function="none", function_owner=self,
+        label="名稱", input_function="none", function_owner=self,
         alignment=3, position={0,0,5}, height=224, width=4000,
         font_size=200, tooltip="Enter nickname for table image (only used for save)",
         value=nickname
@@ -428,30 +428,30 @@ end
 function createSurfaceButtons()
     --Label
     self.createButton({
-        label="Tabletop Surface Image", click_function="none",
+        label="桌面表面圖片", click_function="none",
         position={0,0,4}, height=0, width=0, font_size=300, font_color={1,1,1}
     })
     --Functional
     local btn_width=1000
     local btn_font = 150
     self.createButton({
-        label="Apply Image\nTo Mat", click_function="click_applySurface",
+        label="套用圖片\n至桌墊", click_function="click_applySurface",
         function_owner=self, tooltip="Apply URL as table image",
         position={0,0,7}, height=440, width=btn_width, font_size=btn_font,
     })
     self.createButton({
-        label="Apply Image\nTo Table", click_function="click_applySurfaceTable",
+        label="套用圖片\n至桌面", click_function="click_applySurfaceTable",
         function_owner=self, tooltip="Apply URL as table image",
         position={3,0,7}, height=440, width=btn_width, font_size=btn_font,
     })
     self.createButton({
-        label="Save Image\nTo Memory", click_function="click_saveSurface",
+        label="儲存圖片\n至記憶", click_function="click_saveSurface",
         function_owner=self, tooltip="Record URL into memory (requires nickname)",
         position={-3,0,7}, height=440, width=btn_width, font_size=btn_font,
     })
     --Label
     self.createButton({
-        label="Load From Memory\nLeft click: Mat / Right click: Table", click_function="none",
+        label="從記憶載入\n左鍵：桌墊 / 右鍵：桌面", click_function="none",
         position={0,0,8.3}, height=0, width=0, font_size=250, font_color={1,1,1}
     })
     --Saves, created dynamically from memory file
@@ -471,7 +471,7 @@ function createSurfaceButtons()
         local func = function(x,y) click_deleteMemory(x,y,i) end
         self.setVar(funcName, func)
         self.createButton({
-            label="DELETE", click_function=funcName,
+            label="刪除", click_function=funcName,
             function_owner=self, tooltip="",
             position={3.6,0,9.5+0.5*(i-1)}, height=240, width=600,
             font_size=160, font_color={1,0,0}, color={0.8,0.8,0.8}
@@ -483,11 +483,11 @@ function enableExtractMenu()
     if exportObj ~= nil then
         exportObj.setVar("YNButtonsExtract", false)
         local tmpTbl=exportObj.getTable("extractBtn")
-        tmpTbl.label="EXTRACT\nTERRAIN"
+        tmpTbl.label="匯出\n地形"
         exportObj.setTable("extractBtn", tmpTbl)
         exportObj.setVar("YNButtonsDelete", false)
         local tmpTbl=exportObj.getTable("deleteBtn")
-        tmpTbl.label="DELETE\nTERRAIN"
+        tmpTbl.label="刪除\n地形"
         exportObj.setTable("deleteBtn", tmpTbl)
         exportObj.call("createMenu")
 
@@ -519,7 +519,7 @@ end
 function createScaleButtons()
     --Labels
     self.createButton({
-        label="Table Scale", click_function="none",
+        label="桌面比例", click_function="none",
         position={-8,0,1}, height=0, width=0, font_size=300, font_color={1,1,1}
     })
     self.createButton({
@@ -528,13 +528,13 @@ function createScaleButtons()
         position={-8,0,2}, height=0, width=0, font_size=300, font_color={1,1,1}
     })
     self.createButton({
-        label="Move Hands:", click_function="none",
+        label="移動手牌區：", click_function="none",
         position={-8.3,0,3}, height=0, width=0, font_size=200, font_color={1,1,1}
     })
     --Disabled due to me removing the feature for technical reasons
     --[[
     self.createButton({
-        label="Scale Hands:", click_function="none",
+        label="縮放手牌區：", click_function="none",
         position={-8.3,0,4}, height=0, width=0, font_size=200, font_color={1,1,1}
     })
     ]]
@@ -557,7 +557,7 @@ function createScaleButtons()
     ]]
     --Apply button
     self.createButton({
-        label="Apply Scale", click_function="click_applyScale",
+        label="套用比例", click_function="click_applyScale",
         function_owner=self, tooltip="Apply width/depth to table",
         position={-8,0,4}, height=440, width=1400, font_size=200,
     })

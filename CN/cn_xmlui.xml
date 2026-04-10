@@ -1,103 +1,103 @@
-<!-- Xml UI. See documentation: https://api.tabletopsimulator.com/ui/introUI/ -->
-<Defaults>
-<Button width="550" height="300" fontSize="40" onClick="" fontStyle="Bold"/>
-<Text fontSize="100" color="#000000" fontStyle="Bold"/>
-</Defaults>
-
-<Panel id="redirect" active="false" position="0 0 0" scale="0.6 0.6 0.6" offsetXY="0 0" color="#dbeaf9" width="1200" height="800" rectAlignment="MiddleCenter">
-<Text offsetXY="0 350" fontSize="80" color="#E74C3C" fontStyle="Bold">WARNING</Text>
-
-<Text id="coreRedirect" offsetXY="0 0" fontSize="40" color="#ECF0F1">
-PLEASE WAIT FOR LOADING
-</Text>
-
-<Button id="closeRedirectBtn" active="true" offsetXY="0 -400" color="#1A1A1A" textColor="#FFFFFF" width="500" height="100" fontSize="40" fontStyle="Bold" onClick="closeRedir" outline="#E74C3C" outlineSize="5" roundEdges="true">CLOSE</Button>
-</Panel>
-
-<Panel id="main" active="false" position="0 0 0" scale="0.5 0.5 0.5" offsetXY="0 0" color="#dbeaf9" outline="#34495E" outlineSize="8" width="1600" height="1000" rectAlignment="MiddleCenter" visibility="Diamonds">
-<Text offsetXY="0 400" fontSize="70" color="#2C3E50" fontStyle="Bold">CHOOSE YOUR SEAT</Text>
-
-<Button id="redBtn" offsetXY="-400 150" color="#DA1917" textColor="#FFFFFF" width="500" height="150" fontSize="45" roundEdges="true" onClick="placeToRed">Red Player</Button>
-<Button id="blueBtn" offsetXY="400 150" color="#1E87FF" textColor="#FFFFFF" width="500" height="150" fontSize="45" roundEdges="true" onClick="placeToBlue">Blue Player</Button>
-
-<Text fontSize="50" color="#E74C3C" offsetXY="0 -50" fontStyle="Bold">USE OTHER PLAYER COLORS AT YOUR OWN RISK!</Text>
-
-<Button id="greyBtn" offsetXY="0 -200" color="#BDC3C7" textColor="#2C3E50" width="1000" height="150" fontSize="45" roundEdges="true" onClick="placeToGray">Spectator</Button>
-
-<Button id="closeBtn" offsetXY="0 -500" color="#2C3E50" textColor="#FFFFFF" width="500" height="100" fontSize="40" fontStyle="Bold" onClick="closeMenu" outline="#34495E" outlineSize="5" roundEdges="true">CLOSE MENU</Button>
-</Panel>
-
-<Panel id="trackingConsentPopup" active="false" position="0 0 0" scale="0.5 0.5 0.5" offsetXY="0 0" color="#dbeaf9" outline="#34495E" outlineSize="8" width="1600" height="1000" rectAlignment="MiddleCenter" visibility="Black">
-<Text id="trackingConsentTitle" offsetXY="0 315" fontSize="54" color="#2C3E50" fontStyle="Bold">UNLOCK GAME STATS AND MATCH FEATURES</Text>
-<Button id="trackingConsentAllowBtn" offsetXY="-320 95" color="#4CAF50" textColor="#FFFFFF" width="500" height="132" fontSize="34" roundEdges="true" onClick="allowTrackingConsent">STORE MY PROFILE</Button>
-<Button id="trackingConsentDeclineBtn" offsetXY="320 95" color="#E57373" textColor="#FFFFFF" width="500" height="132" fontSize="33" roundEdges="true" onClick="declineTrackingConsent">KEEP IT PRIVATE</Button>
-
-<Text offsetXY="-320 -25" fontSize="30" color="#44576B" fontStyle="Bold">IF YOU ALLOW</Text>
-<Text offsetXY="-350 -145" fontSize="20" color="#5D6D7E" alignment="UpperCenter" width="660" height="175">
-• Gain a profile performance page on stats.hutber.com
-• https://stats.hutber.com/tts/userprofile
-• View post-game details and performance analysis
-• Steam ID and display name are stored but not shown by default
-• Optional public profile visibility and searchability
-• Consent choice and policy version
-</Text>
-
-<Text offsetXY="320 -25" fontSize="30" color="#44576B" fontStyle="Bold">IF YOU KEEP IT PRIVATE</Text>
-<Text offsetXY="350 -145" fontSize="20" color="#5D6D7E" alignment="UpperCenter" width="660" height="175">
-• No personal information is stored on stats.hutber.com
-• Dice, scores, and match state are still logged in-game
-• Public profile visibility stays off
-• Matchmaking and list retrieval stay off
-</Text>
-
-<Button id="trackingConsentCloseBtn" offsetXY="0 -300" color="#2C3E50" textColor="#FFFFFF" width="440" height="86" fontSize="34" fontStyle="Bold" onClick="closeTrackingConsentPopup" outline="#34495E" outlineSize="5" roundEdges="true">CLOSE</Button>
-</Panel>
-
-<Panel id="passTurn" active="true" position="525 495 0" scale="0.5 0.5 0.5" offsetXY="40 0" color="#00000000" visibility="Black">
-<Button id="passTurnBtn" offsetXY="0 0" color="#C0392B" textColor="#FFFFFF" width="200" height="180" fontSize="40" fontStyle="Bold" roundEdges="true" onClick="nextPhase"></Button>
-<Text id="passTurnTxt" offsetXY="0 0" color="#FFFFFF" width="180" height="180" fontSize="35" fontStyle="Bold" onClick="nextPhase">NEXT PHASE</Text>
-</Panel>
-
-<Panel id="Chess Stopwatch" active="false" scale="1 1 1" width="180" height="120" rectAlignment="UpperRight" offsetXY="-270 0" allowDragging="true" restrictDraggingToParentBounds="false" returnToOriginalPositionWhenReleased="false">
-<VerticalLayout spacing="5" padding="5">
-<Panel id="ChsStpPanel1" color="Blue">
-<Button id="ChsStpBtn1" scale="1 1 1" width="180" height="60" onClick="" color="rgba(0,0,0,0)"/>
-<Text id="ChsStpWatch1" text="0:00:00" fontSize="40" color="White"/>
-</Panel>
-<Panel id="ChsStpPanel2" color="Red">
-<Button id="ChsStpBtn2" scale="1 1 1" width="180" height="60" onClick="" color="rgba(0,0,0,0)"/>
-<Text id="ChsStpWatch2" text="0:00:00" fontSize="40" color="White"/>
-</Panel>
-</VerticalLayout>
-</Panel>
-
-<Panel id="feedbackPopup" active="false" width="400" height="420" rectAlignment="MiddleCenter" allowDragging="false" color="#000000EE">
-<VerticalLayout spacing="5" padding="10">
-<VerticalLayout spacing="5" padding="10" childControlHeight="false" childForceExpandHeight="false">
-<InputField id="feedbackName" placeholder="Name" onValueChanged="onNameChanged" />
-<InputField id="feedbackEmail" value="jamie@hutber.com" placeholder="Email" onValueChanged="onEmailChanged" />
-<Dropdown id="feedbackType" onValueChanged="onTypeChanged">
-<Option value="">Type</Option>
-<Option value="bug">Bug</Option>
-<Option value="feature">Feature Request</Option>
-<Option value="other">Other</Option>
-<Option value="single">Are you single?</Option>
-</Dropdown>
-<InputField id="feedbackMessage" placeholder="Your feedback" lineType="MultiLineNewline" height="150" onValueChanged="onMessageChanged" />
-<Dropdown id="feedbackLike" onValueChanged="onLikeChanged">
-<Option value="">Do you hate the Lethal Face?</Option>
-<Option value="loveit">Actually its not that bad (I love it)</Option>
-<Option value="Yes">Yes</Option>
-<Option value="No">No</Option>
-<Option value="I fucking HATE IT">I fucking HATE IT</Option>
-<Option value="You bastard">I don't like you</Option>
-</Dropdown>
-</VerticalLayout>
-<HorizontalLayout spacing="2" height="40">
-<Button id="feedbackSubmitBtn" text="Submit" onClick="" width="120" height="40"/>
-<Button id="feedbackCloseBtn" text="Close" onClick="" width="120" height="40"/>
-</HorizontalLayout>
-</VerticalLayout>
+<!-- Xml UI. See documentation: https://api.tabletopsimulator.com/ui/introUI/ -->
+<Defaults>
+<Button width="550" height="300" fontSize="40" onClick="" fontStyle="Bold"/>
+<Text fontSize="100" color="#000000" fontStyle="Bold"/>
+</Defaults>
+
+<Panel id="redirect" active="false" position="0 0 0" scale="0.6 0.6 0.6" offsetXY="0 0" color="#dbeaf9" width="1200" height="800" rectAlignment="MiddleCenter">
+<Text offsetXY="0 350" fontSize="80" color="#E74C3C" fontStyle="Bold">警告</Text>
+
+<Text id="coreRedirect" offsetXY="0 0" fontSize="40" color="#ECF0F1">
+請等待載入中
+</Text>
+
+<Button id="closeRedirectBtn" active="true" offsetXY="0 -400" color="#1A1A1A" textColor="#FFFFFF" width="500" height="100" fontSize="40" fontStyle="Bold" onClick="closeRedir" outline="#E74C3C" outlineSize="5" roundEdges="true">關閉</Button>
+</Panel>
+
+<Panel id="main" active="false" position="0 0 0" scale="0.5 0.5 0.5" offsetXY="0 0" color="#dbeaf9" outline="#34495E" outlineSize="8" width="1600" height="1000" rectAlignment="MiddleCenter" visibility="Diamonds">
+<Text offsetXY="0 400" fontSize="70" color="#2C3E50" fontStyle="Bold">選擇你的座位</Text>
+
+<Button id="redBtn" offsetXY="-400 150" color="#DA1917" textColor="#FFFFFF" width="500" height="150" fontSize="45" roundEdges="true" onClick="placeToRed">紅方玩家</Button>
+<Button id="blueBtn" offsetXY="400 150" color="#1E87FF" textColor="#FFFFFF" width="500" height="150" fontSize="45" roundEdges="true" onClick="placeToBlue">藍方玩家</Button>
+
+<Text fontSize="50" color="#E74C3C" offsetXY="0 -50" fontStyle="Bold">使用其他玩家顏色風險自負！</Text>
+
+<Button id="greyBtn" offsetXY="0 -200" color="#BDC3C7" textColor="#2C3E50" width="1000" height="150" fontSize="45" roundEdges="true" onClick="placeToGray">旁觀者</Button>
+
+<Button id="closeBtn" offsetXY="0 -500" color="#2C3E50" textColor="#FFFFFF" width="500" height="100" fontSize="40" fontStyle="Bold" onClick="closeMenu" outline="#34495E" outlineSize="5" roundEdges="true">關閉選單</Button>
+</Panel>
+
+<Panel id="trackingConsentPopup" active="false" position="0 0 0" scale="0.5 0.5 0.5" offsetXY="0 0" color="#dbeaf9" outline="#34495E" outlineSize="8" width="1600" height="1000" rectAlignment="MiddleCenter" visibility="Black">
+<Text id="trackingConsentTitle" offsetXY="0 315" fontSize="54" color="#2C3E50" fontStyle="Bold">解鎖遊戲統計與對局功能</Text>
+<Button id="trackingConsentAllowBtn" offsetXY="-320 95" color="#4CAF50" textColor="#FFFFFF" width="500" height="132" fontSize="34" roundEdges="true" onClick="allowTrackingConsent">儲存我的個人檔案</Button>
+<Button id="trackingConsentDeclineBtn" offsetXY="320 95" color="#E57373" textColor="#FFFFFF" width="500" height="132" fontSize="33" roundEdges="true" onClick="declineTrackingConsent">保持隱私</Button>
+
+<Text offsetXY="-320 -25" fontSize="30" color="#44576B" fontStyle="Bold">若您同意</Text>
+<Text offsetXY="-350 -145" fontSize="20" color="#5D6D7E" alignment="UpperCenter" width="660" height="175">
+• 在 stats.hutber.com 獲得個人表現頁面
+• https://stats.hutber.com/tts/userprofile
+• 查看賽後詳情與表現分析
+• Steam ID 和顯示名稱會被儲存，但預設不公開
+• 可選擇是否公開個人檔案
+• 同意選項與隱私政策版本
+</Text>
+
+<Text offsetXY="320 -25" fontSize="30" color="#44576B" fontStyle="Bold">若您保持隱私</Text>
+<Text offsetXY="350 -145" fontSize="20" color="#5D6D7E" alignment="UpperCenter" width="660" height="175">
+• 你的對局將不會被儲存
+• 不會產生表現頁面
+• 你可以隨時啟用此功能
+• 個人資料不會被儲存於 stats.hutber.com
+</Text>
+
+<Button id="trackingConsentCloseBtn" offsetXY="0 -300" color="#2C3E50" textColor="#FFFFFF" width="440" height="86" fontSize="34" fontStyle="Bold" onClick="closeTrackingConsentPopup" outline="#34495E" outlineSize="5" roundEdges="true">關閉</Button>
+</Panel>
+
+<Panel id="passTurn" active="true" position="525 495 0" scale="0.5 0.5 0.5" offsetXY="40 0" color="#00000000" visibility="Black">
+<Button id="passTurnBtn" offsetXY="0 0" color="#C0392B" textColor="#FFFFFF" width="200" height="180" fontSize="40" fontStyle="Bold" roundEdges="true" onClick="nextPhase"></Button>
+<Text id="passTurnTxt" offsetXY="0 0" color="#FFFFFF" width="180" height="180" fontSize="35" fontStyle="Bold" onClick="nextPhase">下一階段</Text>
+</Panel>
+
+<Panel id="Chess Stopwatch" active="false" scale="1 1 1" width="180" height="120" rectAlignment="UpperRight" offsetXY="-270 0" allowDragging="true" restrictDraggingToParentBounds="false" returnToOriginalPositionWhenReleased="false">
+<VerticalLayout spacing="5" padding="5">
+<Panel id="ChsStpPanel1" color="Blue">
+<Button id="ChsStpBtn1" scale="1 1 1" width="180" height="60" onClick="" color="rgba(0,0,0,0)"/>
+<Text id="ChsStpWatch1" text="0:00:00" fontSize="40" color="White"/>
+</Panel>
+<Panel id="ChsStpPanel2" color="Red">
+<Button id="ChsStpBtn2" scale="1 1 1" width="180" height="60" onClick="" color="rgba(0,0,0,0)"/>
+<Text id="ChsStpWatch2" text="0:00:00" fontSize="40" color="White"/>
+</Panel>
+</VerticalLayout>
+</Panel>
+
+<Panel id="feedbackPopup" active="false" width="400" height="420" rectAlignment="MiddleCenter" allowDragging="false" color="#000000EE">
+<VerticalLayout spacing="5" padding="10">
+<VerticalLayout spacing="5" padding="10" childControlHeight="false" childForceExpandHeight="false">
+<InputField id="feedbackName" placeholder="名稱" onValueChanged="onNameChanged" />
+<InputField id="feedbackEmail" value="jamie@hutber.com" placeholder="電子郵件" onValueChanged="onEmailChanged" />
+<Dropdown id="feedbackType" onValueChanged="onTypeChanged">
+<Option value="">類型</Option>
+<Option value="bug">錯誤回報</Option>
+<Option value="feature">功能建議</Option>
+<Option value="other">其他</Option>
+<Option value="single">你單身嗎？</Option>
+</Dropdown>
+<InputField id="feedbackMessage" placeholder="訊息" lineType="MultiLineNewline" height="150" onValueChanged="onMessageChanged" />
+<Dropdown id="feedbackLike" onValueChanged="onLikeChanged">
+<Option value="">你討厭致命面孔嗎？</Option>
+<Option value="loveit">其實還不錯（我喜歡）</Option>
+<Option value="Yes">是</Option>
+<Option value="No">否</Option>
+<Option value="I fucking HATE IT">我超級討厭</Option>
+<Option value="You bastard">我不喜歡你</Option>
+</Dropdown>
+</VerticalLayout>
+<HorizontalLayout spacing="2" height="40">
+<Button id="feedbackSubmitBtn" text="送出" onClick="" width="120" height="40"/>
+<Button id="feedbackCloseBtn" text="關閉" onClick="" width="120" height="40"/>
+</HorizontalLayout>
+</VerticalLayout>
 </Panel>
 
 <Panel id="phaseInfoPanel" active="false" position="0 460 0" scale="0.7 0.7 0.7" color="#1A1A1ADD" width="1100" height="450" rectAlignment="UpperCenter" allowDragging="true" restrictDraggingToParentBounds="false" returnToOriginalPositionWhenReleased="false">

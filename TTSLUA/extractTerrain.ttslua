@@ -33,7 +33,7 @@ function onLoad()
     self.interactable = false
     self.setScale({1,0.5,1})
 end
-extractLbl="EXTRACT\nTERRAIN"
+extractLbl="匯出\n地形"
 subtitleLbl="Confirm size first"
 subtitleLbl=""
 scaleBtn={6,6,6}
@@ -54,22 +54,22 @@ backgroundBtn={
     font_size=300, color={0.4,0.4,0.4,0.7}, font_color={1,1,1}, scale=scaleBtn
 }
 confirmYesBtnExtract={
-    label="Yes", click_function="extract", function_owner=self,
+    label="是", click_function="extract", function_owner=self,
     position={-7+offsetX,0,29}, rotation={0,0,0}, height=750, width=820,
     font_size=300, color={0,0.6,0}, font_color={1,1,1}, scale=scaleBtn
 }
 confirmNoBtnExtract={
-    label="No", click_function="hideYNButtonsExtract", function_owner=self,
+    label="否", click_function="hideYNButtonsExtract", function_owner=self,
     position={7+offsetX,0,29}, rotation={0,0,0}, height=750, width=820,
     font_size=300, color={0.6,0,0}, font_color={1,1,1}, scale=scaleBtn
 }
 infoBtn={
-    label="TERRAIN\nEXPORTING\nINSTRUCTIONS", click_function="showInstructions", function_owner=self,
+    label="地形\n匯出\n說明", click_function="showInstructions", function_owner=self,
     position={0+offsetX,0,36}, rotation={0,0,0}, height=1000, width=2000,
     font_size=200, color={0,0,0}, font_color={1,1,1}, scale=scaleBtn
 }
 
-deleteLbl="DELETE\nTERRAIN"
+deleteLbl="刪除\n地形"
 deleteBtn={
     label=deleteLbl, click_function="showYNButtonsDelete", function_owner=self,
     position={0+offsetX,0,46}, rotation={0,0,0}, height=750, width=2000,
@@ -77,12 +77,12 @@ deleteBtn={
 }
 
 confirmYesBtnDelete={
-    label="Yes", click_function="deleteTerrain", function_owner=self,
+    label="是", click_function="deleteTerrain", function_owner=self,
     position={-7+offsetX,0,57}, rotation={0,0,0}, height=750, width=820,
     font_size=300, color={0,0.6,0}, font_color={1,1,1}, scale=scaleBtn
 }
 confirmNoBtnDelete={
-    label="No", click_function="hideYNButtonsDelete", function_owner=self,
+    label="否", click_function="hideYNButtonsDelete", function_owner=self,
     position={7+offsetX,0,57}, rotation={0,0,0}, height=750, width=820,
     font_size=300, color={0.6,0,0}, font_color={1,1,1}, scale=scaleBtn
 }
@@ -95,12 +95,12 @@ mirrorBtn={
 }
 
 confirmYesBtnMirror={
-    label="Yes", click_function="mirrorTerrain", function_owner=self,
+    label="是", click_function="mirrorTerrain", function_owner=self,
     position={-43+offsetX,0,29}, rotation={0,0,0}, height=750, width=820,
     font_size=300, color={0,0.6,0}, font_color={1,1,1}, scale=scaleBtn
 }
 confirmNoBtnMirror={
-    label="No", click_function="hideYNButtonsMirror", function_owner=self,
+    label="否", click_function="hideYNButtonsMirror", function_owner=self,
     position={-29+offsetX,0,29}, rotation={0,0,0}, height=750, width=820,
     font_size=300, color={0.6,0,0}, font_color={1,1,1}, scale=scaleBtn
 }
@@ -138,21 +138,21 @@ function writeMenu()
     if YNButtonsExtract==false then
         extractBtn.label=extractLbl
     else
-        extractBtn.label="Are you sure?"
+        extractBtn.label="你確定嗎？"
         self.createButton(confirmYesBtnExtract)
         self.createButton(confirmNoBtnExtract)
     end
     if YNButtonsDelete == false then
         deleteBtn.label=deleteLbl
     else
-        deleteBtn.label="Are you sure?"
+        deleteBtn.label="你確定嗎？"
         self.createButton(confirmYesBtnDelete)
         self.createButton(confirmNoBtnDelete)
     end
     if YNButtonsMirror==false then
         mirrorBtn.label=mirrorLbl
     else
-        mirrorBtn.label="Are you sure?"
+        mirrorBtn.label="你確定嗎？"
         self.createButton(confirmYesBtnMirror)
         self.createButton(confirmNoBtnMirror)
     end
@@ -216,7 +216,7 @@ function hideYNButtonsMirror()
 end
 
 function extract()
-    broadcastToAll("EXTRACTING TERRAIN\nwait a few seconds ...", "Yellow")
+    broadcastToAll("正在匯出地形\n請稍候...", "Yellow")
     mat=getObjectFromGUID(Global.getVar("mat_GUID"))
     createDebugMat()
     local startMenu=getObjectFromGUID(Global.getVar("startMenu_GUID"))
@@ -305,13 +305,13 @@ function deleteTable()
 end
 
 function deleteSelf()
-    broadcastToAll("DONE", "Yellow")
+    broadcastToAll("完成", "Yellow")
     WebRequest.get("http://campaign40k.altervista.org/campaign/statistics.php?name=40KMap", none)
     self.destroy()
 end
 
 function deleteTerrain()
-    broadcastToAll("DELETING TERRAIN\nwait a few seconds ...", "Red")
+    broadcastToAll("正在刪除地形\n請稍候...", "Red")
     local startMenu=getObjectFromGUID(Global.getVar("startMenu_GUID"))
     startMenu.call("recallAll")
     Wait.time(deleteTerrain2, 2)
@@ -329,7 +329,7 @@ function deleteTerrain3()
             obj.destroy()
         end
     end
-    broadcastToAll("DONE", "Red")
+    broadcastToAll("完成", "Red")
 end
 
 
@@ -373,7 +373,7 @@ function checkMirror2()
     writeMenu()
 
     if not (next(unlockedTerrain) == nil) then
-        broadcastToAll("WARNING: Unlocked Terrain will be deleted", "Red")
+        broadcastToAll("警告：未鎖定的地形將被刪除", "Red")
     end
 end
 
@@ -409,7 +409,7 @@ function mirrorTerrain()
 
     YNButtonsMirror = false
     writeMenu()
-    broadcastToAll("DONE", "Red")
+    broadcastToAll("完成", "Red")
 end
 
 

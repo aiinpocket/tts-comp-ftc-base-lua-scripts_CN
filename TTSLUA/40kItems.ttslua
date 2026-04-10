@@ -30,7 +30,7 @@ end
 --Make setup button
 function createSetupButton()
     self.createButton({
-        label="Setup", click_function="buttonClick_setup", function_owner=self,
+        label="設置", click_function="buttonClick_setup", function_owner=self,
         position={0,0.3,-2}, rotation={0,180,0}, height=350, width=800,
         font_size=250, color={0,0,0}, font_color={1,1,1}
     })
@@ -81,17 +81,17 @@ end
 --Creates submit and cancel buttons
 function createSetupActionButtons()
     self.createButton({
-        label="Cancel", click_function="buttonClick_cancel", function_owner=self,
+        label="取消", click_function="buttonClick_cancel", function_owner=self,
         position={0,0.3,-2}, rotation={0,180,0}, height=350, width=1100,
         font_size=250, color={0,0,0}, font_color={1,1,1}
     })
     self.createButton({
-        label="Submit", click_function="buttonClick_submit", function_owner=self,
+        label="確認", click_function="buttonClick_submit", function_owner=self,
         position={0,0.3,-2.8}, rotation={0,180,0}, height=350, width=1100,
         font_size=250, color={0,0,0}, font_color={1,1,1}
     })
     self.createButton({
-        label="Reset", click_function="buttonClick_reset", function_owner=self,
+        label="重置", click_function="buttonClick_reset", function_owner=self,
         position={-2,0.3,0}, rotation={0,270,0}, height=350, width=800,
         font_size=250, color={0,0,0}, font_color={1,1,1}
     })
@@ -133,13 +133,13 @@ function buttonClick_cancel()
         createMemoryActionButtons()
     end
     removeAllHighlights()
-    broadcastToAll("Selection Canceled", {1,1,1})
+    broadcastToAll("已取消選擇", {1,1,1})
 end
 
 --Saves selections
 function buttonClick_submit()
     if next(memoryList) == nil then
-        broadcastToAll("You cannot submit without any selections.", {0.75, 0.25, 0.25})
+        broadcastToAll("沒有選擇任何項目，無法確認。", {0.75, 0.25, 0.25})
     else
         self.clearButtons()
         createMemoryActionButtons()
@@ -149,7 +149,7 @@ function buttonClick_submit()
             local obj = getObjectFromGUID(guid)
             if obj ~= nil then obj.highlightOff() end
         end
-        broadcastToAll(count.." Objects Saved", {1,1,1})
+        broadcastToAll("已儲存 "..count.." 個物件", {1,1,1})
         updateSave()
     end
 end
@@ -160,7 +160,7 @@ function buttonClick_reset()
     self.clearButtons()
     createSetupButton()
     removeAllHighlights()
-    broadcastToAll("Tool Reset", {1,1,1})
+    broadcastToAll("工具已重置", {1,1,1})
     updateSave()
 end
 
@@ -171,17 +171,17 @@ end
 --Creates recall and place buttons
 function createMemoryActionButtons()
     self.createButton({
-        label="Show Maps", click_function="buttonClick_place", function_owner=self,
+        label="顯示地圖", click_function="buttonClick_place", function_owner=self,
         position={0,0.3,-2}, rotation={0,180,0}, height=350, width=1400,
         font_size=250, color={0,0,0}, font_color={1,1,1}
     })
     self.createButton({
-        label="Recall", click_function="buttonClick_recall", function_owner=self,
+        label="召回", click_function="buttonClick_recall", function_owner=self,
         position={0,0.3,-2.8}, rotation={0,180,0}, height=350, width=800,
         font_size=250, color={0,0,0}, font_color={1,1,1}
     })
     self.createButton({
-        label="Setup", click_function="buttonClick_setup", function_owner=self,
+        label="設置", click_function="buttonClick_setup", function_owner=self,
         position={-2,0.3,0}, rotation={0,270,0}, height=350, width=800,
         font_size=250, color={0,0,0}, font_color={1,1,1}
     })

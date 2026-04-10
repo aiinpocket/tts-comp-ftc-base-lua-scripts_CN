@@ -296,7 +296,7 @@ function makeAnnouncement()
     --"0.03: Added GW/WTC maps",
     --"0.02: Added control board to control feature",
     }
-    printToAll("NEW FEATURES:", "Yellow")
+    printToAll("新功能：", "Yellow")
     for i, new in ipairs(features) do
         printToAll("- "..new, "Yellow")
     end
@@ -308,10 +308,10 @@ end
 
 positionValue={0,-9.52,0}
 sizeData={
-    {id=1, name='King of the Colosseum - 36" x 36"', scale={1,1,1}, defaultObjectives=0},
-    {id=2, name='C o m b a t     P a t r o l - 44" x 30"', scale={1.22,1,0.83}, defaultObjectives=0},
-    {id=3, name='I n c u r s i o n - 44" x 60"', scale={0.83*2,1,1.22}, defaultObjectives=0},
-    {id=4, name='S t r i k e     F o r c e - 44" x 60"', scale={0.83*2,1,1.22}, defaultObjectives=0},
+    {id=1, name='鬥 獸 場 之 王 - 36" x 36"', scale={1,1,1}, defaultObjectives=0},
+    {id=2, name='戰 鬥 巡 邏 - 44" x 30"', scale={1.22,1,0.83}, defaultObjectives=0},
+    {id=3, name='突 襲 - 44" x 60"', scale={0.83*2,1,1.22}, defaultObjectives=0},
+    {id=4, name='打 擊 部 隊 - 44" x 60"', scale={0.83*2,1,1.22}, defaultObjectives=0},
     {id=5, name='O n s l a u g h t - 44" x 90"', scale={0.83*3,1,1.22}, defaultObjectives=0},
 }
 
@@ -325,7 +325,7 @@ numberSizes=#sizeData
 sizeConfirmed=false
 sizeMenuBtn = {
     index=1,
-    label="S E L E C T     B A T T L E F I E L D     S I Z E",
+    label="選 擇 戰 場 大 小",
     click_function="none",
     function_owner=self,
     position={menuSizeX, menuSizeY ,menuSizeZ-2.05},
@@ -339,7 +339,7 @@ sizeMenuBtn = {
 }
 sizeMenuBtn = {
     index=1,
-    label="S E L E C T     B A T T L E F I E L D     S I Z E",
+    label="選 擇 戰 場 大 小",
     click_function="none",
     function_owner=self,
     position={menuSizeX, menuSizeY ,menuSizeZ-2.05},
@@ -354,7 +354,7 @@ sizeMenuBtn = {
 
 sizeBtn = {
     index= i,
-    label="Zone",
+    label="區域",
     click_function="none",
     function_owner=self,
     position={-menuSizeX, menuSizeY ,menuSizeZ},
@@ -400,7 +400,7 @@ sizeDownBtn = {
 
 confirmBtn = {
     index          = i,
-    label          = "1 Vs 1",
+    label          = "1 對 1",
     click_function = "confirmSizeGame",
     function_owner = self,
     position       = { -menuSizeX - 6.5, menuSizeY, menuSizeZ + 3 },
@@ -418,7 +418,7 @@ confirmBtn = {
 
 confirmBtn2 = {
     index          = i,
-    label          = "CRUSADE\n(Coming Soon) ((Maybe))",
+    label          = "聖戰模式\n（即將推出）（也許）",
     click_function = "comingSoon",
     function_owner = self,
     position       = { -menuSizeX + 6.5, menuSizeY, menuSizeZ + 3  },
@@ -436,7 +436,7 @@ confirmBtn2 = {
 
 confirmBtn3 = {
     index          = i,
-    label          = "2 Vs 2",
+    label          = "2 對 2",
     click_function = "confirmDoublesGame",
     function_owner = self,
     position       = { -menuSizeX - 6.5, menuSizeY, menuSizeZ + 7.5 },
@@ -453,7 +453,7 @@ confirmBtn3 = {
 
 confirmBtn4 = {
     index          = i,
-    label          = "SINGLE PLAYER /\nHOTSEAT",
+    label          = "單人遊戲 /\n熱座模式",
     click_function = "confirmForSingles",
     function_owner = self,
     position       = { -menuSizeX + 6.5, menuSizeY, menuSizeZ + 7.5 },
@@ -540,7 +540,7 @@ function setupClickEvents(spawnedObject)
 
     -- Create the button
     spawnedObject.createButton({
-        label = showMapsToggle and "Show Maps" or "Clear Map Selection",
+        label = showMapsToggle and "顯示地圖" or "清除地圖選擇",
         click_function = "onObjectClick",
         function_owner = self,
         position = {0, 3, -27},
@@ -637,7 +637,7 @@ function confirmDoublesGame()
     -- Place tokens, shuffle team cards, or any other setup
     placeGameTokens()
 
-    broadcastToAll("2v2 Doubles Game Mode Initialized!", {0.5, 0, 0.5})
+    broadcastToAll("2對2 雙人模式已初始化！", {0.5, 0, 0.5})
     confirmSizeMat("game")
     --deleting the Combat Patrol Mission book unless on the appropriate map size
     if sizeData[mapSizeSelected].id ~= 1 then
@@ -687,7 +687,7 @@ function confirmDoublesGame()
 end
 
 function comingSoon()
-    broadcastToAll("Not yet! ;) But it is on my list of things to do!")
+    broadcastToAll("還沒好喔！;) 但這在我的待辦清單上！")
 end
 
 function createCounter(position, label)
@@ -708,7 +708,7 @@ function shuffleAndDealTeamCards()
     for i, player in ipairs(players) do
         teamDeck.deal(1, player.color)
     end
-    broadcastToAll("Teams have been randomized and dealt!", {0, 1, 0})
+    broadcastToAll("隊伍已隨機分配並發牌！", {0, 1, 0})
 end
 
 
@@ -719,7 +719,7 @@ function placeGameTokens()
 
     local cardsTeams = getObjectFromGUID("c59f7a")
     cardsTeams.shuffle()
-    broadcastToAll("Team cards have been shuffled! Safe to Draw.", {0, 1, 0})
+    broadcastToAll("隊伍卡牌已洗牌！可以安全抽牌。", {0, 1, 0})
     if cardsTeams then
         cardsTeams.setPosition({42, 0.9, 37})
         ttsDebugLog("cardsTeams new position: " .. tostring(cardsTeams.getPosition()))
@@ -729,14 +729,14 @@ function placeGameTokens()
 
     local tokenBag = getObjectFromGUID("f8ddf5")
     if not tokenBag then
-        broadcastToAll("Error: Token bag not found (GUID: f8ddf5).", {1, 0, 0})
+        broadcastToAll("錯誤：找不到標記袋（GUID: f8ddf5）。", {1, 0, 0})
         return
     end
 
     -- Extract the token object from the bag
     local tokenTemplate = tokenBag.takeObject({guid = "7a8aba"})
     if not tokenTemplate then
-        broadcastToAll("Error: Token template (GUID: 7a8aba) not found in bag.", {1, 0, 0})
+        broadcastToAll("錯誤：在袋中找不到標記模板（GUID: 7a8aba）。", {1, 0, 0})
         return
     end
 
@@ -758,7 +758,7 @@ end
 
 function setupExtraDeepStrikeMaps()
     -- Logic to spawn and manage extra deep strike/transport maps if required
-    broadcastToAll("Extra Deep Strike Maps Enabled!", {0, 0.5, 1})
+    broadcastToAll("額外深入打擊地圖已啟用！", {0, 0.5, 1})
 end
 
 function confirmForSingles()
@@ -855,7 +855,7 @@ function updateDeployObjectivesSelection()
 end
 
 function switchToTerrainEditor()
-    printToAll("Deleting unnecessary things.\nPLEASE WAIT..", "Yellow")
+    printToAll("正在刪除不必要的物件。\n請稍候..", "Yellow")
     local pos={}
     for i, obj in ipairs(getAllObjects()) do
         pos=obj.getPosition()
@@ -864,7 +864,7 @@ function switchToTerrainEditor()
         end
     end
     Global.setVectorLines({})
-    printToAll("DONE!", "Yellow")
+    printToAll("完成！", "Yellow")
 end
 
 -- END size changer
@@ -1031,7 +1031,7 @@ DeployZonesCombatPatrol = {
 }
 
 DeployZonesColosseum = {
-    {name = "King of the Colosseum", objectivesID = 301, draw = {
+    {name = "鬥獸場之王", objectivesID = 301, draw = {
         --[[1]]{type = "line", color = "Teal", position = "-z", fromSide = 9},
         --[[2]]{type = "line", color = "Red", position = "z", fromSide = 9}}},
     {name = "None", draw = {type = "none"}},
@@ -1106,7 +1106,7 @@ deployDownBtn = {
     font_size = 300, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
 deployOffsetMenuBtn = {
-    index = 1, label = "Deploy\nHeight", click_function = "none", function_owner = self,
+    index = 1, label = "部署\n高度", click_function = "none", function_owner = self,
     position = {-menuX - 1.4*arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 1000,
     font_size = 150, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
@@ -2128,7 +2128,7 @@ objectivesData = {
     }
 
     objectivesOffsetMenuBtn = {
-    index = 1, label = "Obj.\nHeight", click_function = "none", function_owner = self,
+    index = 1, label = "目標\n高度", click_function = "none", function_owner = self,
     position = {-menuX + 1.4*arrowOffset, 5, menuZ}, rotation = {0, 0, 0}, height = 450, width = 1000,
     font_size = 150, color = {0, 0, 0}, font_color = {1, 1, 1}
 }
@@ -2147,8 +2147,8 @@ objectivesOffsetDownBtn = {
 local nineInchColor = {0x59/255, 0xDE/255, 0xCF/255}
 nineFromDeployBtn = {
     index = 1,
-    label = '9" from DZ',
-    tooltip = 'Toggle 9" lines offset from current deployment lines',
+    label = '距部署區 9"',
+    tooltip = '切換距當前部署線 9" 偏移線',
     click_function = "toggleNineFromDeployment",
     function_owner = self,
     position = { -menuX, 5, menuZ + (secondRowOffset * 3) },
@@ -2305,7 +2305,7 @@ packSelected = nil
 missionPackData = nil
 
 selectPariahNexusBtn = {
-    label = "Play\nPariah Nexus",
+    label = "遊玩\n棄民連結",
     click_function = "selectPariahNexus",
     function_owner = self,
     position = {2, 5, -16.5},
@@ -2320,7 +2320,7 @@ selectPariahNexusBtn = {
 selectedMission = 0
 canChangeMission = true
 missionHeaderBtn = {
-    label = "M I S S I O N   S E L E C T I O N",
+    label = "任 務 選 擇",
     click_function = "none",
     function_owner = self,
     position = {2.20, 5, -17.1},
@@ -2332,7 +2332,7 @@ missionHeaderBtn = {
     font_color = {0, 0, 0},
 }
 randomiseMissionBtn = {
-    label = "Fully\nRandom",
+    label = "完全\n隨機",
     click_function = "randomiseMission",
     function_owner = self,
     position = {-3.00, 5, -16.2},
@@ -2380,7 +2380,7 @@ missionSelectionUpBtn = {
     font_color = {0, 0, 0}
 }
 randomTournamentMissionBtn = {
-    label = "Random\nGW",
+    label = "隨機\nGW",
     click_function = "randomTournamentMission",
     function_owner = self,
     position = {3.70, 5, -16.2},
@@ -2392,7 +2392,7 @@ randomTournamentMissionBtn = {
     font_color = {1, 0, 0}
 }
 randomWTCMissionBtn = {
-    label = "Random\nWTC",
+    label = "隨機\nWTC",
     click_function = "randomWTCMission",
     function_owner = self,
     position = {5.35, 5, -16.2},
@@ -2404,7 +2404,7 @@ randomWTCMissionBtn = {
     font_color = {1, 1, 1}
 }
 randomUKTCMissionBtn = {
-    label = "Random\nUKTC",
+    label = "隨機\nUKTC",
     click_function = "randomUKTCMission",
     function_owner = self,
     position = {7, 5, -16.2},
@@ -2587,8 +2587,8 @@ end
 -- ************
 
 simulation = false -- is used to test in single player
-redFirstLbl = "R  e  d    p l a y e r    f i r s t\n(click to toggle)"
-blueFirstLbl = "B l u e    p l a y e r    f i r s t\n(click to toggle)"
+redFirstLbl = "紅 方 先 手\n（點擊切換）"
+blueFirstLbl = "藍 方 先 手\n（點擊切換）"
 inGame = false
 gameTurnCounter = nil
 armyMover = ""
@@ -2630,25 +2630,25 @@ trackedActionRoundFivePosRed = {-13, 5, 3.8}
 trackedActionRoundFivePosBlue = {13, 5, 3.8}
 
 endTrackedGameBtn = {
-    index = 1, label = "Get Game Stats and Finish Game", tooltip = "Send final game result to API", click_function = "endTrackedGame", function_owner = self,
+    index = 1, label = "取得遊戲統計並結束遊戲", tooltip = "傳送最終遊戲結果至 API", click_function = "endTrackedGame", function_owner = self,
     position = {0, 5, 3.8}, rotation = {0, 0, 0}, height = 700, width = 5600,
     font_size = 280, color = {0.1, 0.1, 0.1}, font_color = {1, 1, 1}
 }
 
 confirmTrackedResultRedBtn = {
-    index = 1, label = "Finish Game", tooltip = "Round 5 only. Click twice to confirm.", click_function = "confirmTrackedResultRed", function_owner = self,
+    index = 1, label = "結束遊戲", tooltip = "僅限第 5 回合。點擊兩次以確認。", click_function = "confirmTrackedResultRed", function_owner = self,
     position = {-25, 5, 1.6}, rotation = {0, 0, 0}, height = 650, width = 3200,
     font_size = 300, color = {0.55, 0.05, 0.05}, font_color = {1, 1, 1}, visibility = "Red"
 }
 
 confirmTrackedResultBlueBtn = {
-    index = 1, label = "Finish Game", tooltip = "Round 5 only. Click twice to confirm.", click_function = "confirmTrackedResultBlue", function_owner = self,
+    index = 1, label = "結束遊戲", tooltip = "僅限第 5 回合。點擊兩次以確認。", click_function = "confirmTrackedResultBlue", function_owner = self,
     position = {25, 5, 1.6}, rotation = {0, 0, 0}, height = 650, width = 3200,
     font_size = 300, color = {0.05, 0.15, 0.55}, font_color = {1, 1, 1}, visibility = "Blue"
 }
 -- END include: includes/startMenu/ttsGameTrackingState.lua
 
-phases = {"Command", "Movement", "Shooting", "Charge", "Fight"}
+phases = {"指揮", "移動", "射擊", "衝鋒", "近戰"}
 currentPhase = 1
 
 -- === CN Phase Guide (CA 2025 規則提示) ===
@@ -2786,7 +2786,7 @@ end
 -- === END CN Pregame Guide ===
 
 startBtn = {
-    index = 1, label = "S T A R T  G A M E", click_function = "startGame", function_owner = self,
+    index = 1, label = "開 始 遊 戲", click_function = "startGame", function_owner = self,
     position = {0, 5, - 1}, rotation = {0, 0, 0}, height = 750, width = 5000,
     font_size = 500, color = {0, 0.6, 0}, font_color = {1, 1, 1}
 }
@@ -2796,25 +2796,25 @@ firstPlayerBtn = {
     font_size = 300, color = {1, 0, 0}, font_color = {1, 1, 1}
 }
 feedbackBtn = {
-    index = 1, label = "Feedback", click_function = "openFeedbackPopup", function_owner = self,
+    index = 1, label = "意見回饋", click_function = "openFeedbackPopup", function_owner = self,
     position = {17, 5, 2.8}, rotation = {0, 0, 0}, height = 550, width = 5000,
     font_size = 300, color = {0.2, 0.2, 0.2}, font_color = {1, 1, 1}
 }
 feedbackBtnDefaultPos = {17, 5, 2.8}
 feedbackBtnIngamePos = {0, 5, 2.8}
-nextPhaseLbl = "P A S S\nT U R N"
+nextPhaseLbl = "結 束\n回 合"
 nextPhaseBtn = {
-    index = 1, label = nextPhaseLbl, tooltip = "Left click - Next phase\nRight click - Skip to next turn", click_function = "nextPhase", function_owner = self,
+    index = 1, label = nextPhaseLbl, tooltip = "左鍵 - 下一階段\n右鍵 - 跳到下一回合", click_function = "nextPhase", function_owner = self,
     position = {0, 5, 0}, rotation = {0, 0, 0}, height = 1500, width = 5000,
     font_size = 600, color = {1, 0, 0}, font_color = {1, 1, 1}
 }
 IncrementRedCpBtn = {
-    index = 1, label = "Gain a CP", tooltip = "Increment Red CP counter\nWill only increment once per Round", click_function = "incrementRedCp", function_owner = self,
+    index = 1, label = "獲得指揮點", tooltip = "增加紅方指揮點\n每回合只能增加一次", click_function = "incrementRedCp", function_owner = self,
     position = {-46.2, 5, -3.75}, rotation = {0, 0, 0}, height = 1650, width = 3000,
     font_size = 600, color = {1, 0, 0}, font_color = {1, 1, 1}
 }
 IncrementBlueCpBtn = {
-    index = 1, label = "Gain a CP", tooltip = "Increment Blue CP counter\nWill only increment once per Round", click_function = "incrementBlueCp", function_owner = self,
+    index = 1, label = "獲得指揮點", tooltip = "增加藍方指揮點\n每回合只能增加一次", click_function = "incrementBlueCp", function_owner = self,
     position = {46.2, 5, -3.75}, rotation = {0, 0, 0}, height = 1650, width = 3000,
     font_size = 600, color = {0, 0, 1}, font_color = {1, 1, 1}
 }
@@ -2898,9 +2898,9 @@ function writeIngameMenu()
     local visibleTo=nextPhaseBtn.color
     Global.UI.setAttribute("passTurn", "visibility", visibleTo)
     Global.UI.setAttribute("passTurnBtn", "color", nextPhaseBtn.color)
-    nextPhaseBtn.label = phases[currentPhase].."\nNEXT PHASE"
+    nextPhaseBtn.label = phases[currentPhase].."\n下一階段"
     if currentPhase == #phases then
-        nextPhaseBtn.label = phases[currentPhase].."\nPASS TURN"
+        nextPhaseBtn.label = phases[currentPhase].."\n結束回合"
     end
     Global.UI.setValue("passTurnTxt", nextPhaseBtn.label)
     self.createButton(nextPhaseBtn)
@@ -3137,24 +3137,24 @@ function setTrackedActionButtonContent(button, side)
         if hasTwoRegisteredTrackedPlayers() then
             if endApprovalPending then
                 if endApprovalRequestedBy == side then
-                    button.label = "End Requested"
-                    button.tooltip = "Waiting for other player to approve."
+                    button.label = "已請求結束"
+                    button.tooltip = "等待對方玩家同意。"
                 else
-                    button.label = "Approve End Game"
-                    button.tooltip = "Approve end game request."
+                    button.label = "同意結束遊戲"
+                    button.tooltip = "同意結束遊戲請求。"
                 end
             else
-                button.label = "Request End Game"
-                button.tooltip = "Ask opponent to approve end game."
+                button.label = "請求結束遊戲"
+                button.tooltip = "要求對手同意結束遊戲。"
             end
         else
-            button.label = "Finish Game"
-            button.tooltip = "Click twice to confirm."
+            button.label = "結束遊戲"
+            button.tooltip = "點擊兩次以確認。"
         end
         return
     end
-    button.label = "Confirm Win/Loss"
-    button.tooltip = side .. " player confirms final result. Click twice to confirm."
+    button.label = "確認勝負"
+    button.tooltip = side .. " 玩家確認最終結果。點擊兩次以確認。"
 end
 
 function createTrackedResultConfirmButtons()
@@ -3489,7 +3489,7 @@ function recordTrackedConsentChoice(params)
 
     local entry = getTrackedConsentEntry(side)
     if entry.steamId == nil or entry.steamId == "" then
-        broadcastToColor("No Steam player is seated on " .. side .. ".", side, "Yellow")
+        broadcastToColor("沒有 Steam 玩家坐在 " .. side .. " 位置。", side, "Yellow")
         notifyTrackedConsentBoards()
         return false
     end
@@ -3497,12 +3497,12 @@ function recordTrackedConsentChoice(params)
         entry.status = "declined"
         entry.updatedAt = os.time()
         notifyTrackedConsentBoards()
-        broadcastToColor("You will stay private for this session. Profile logging can still be enabled later.", side, "Yellow")
+        broadcastToColor("本次遊戲將保持隱私。稍後仍可啟用個人檔案記錄。", side, "Yellow")
         return true
     end
 
     if not WebRequest then
-        broadcastToColor("Profile logging preference could not be saved right now.", side, "Yellow")
+        broadcastToColor("目前無法儲存個人檔案記錄偏好。", side, "Yellow")
         entry.status = "error"
         notifyTrackedConsentBoards()
         return false
@@ -3525,7 +3525,7 @@ function recordTrackedConsentChoice(params)
             entry.status = "error"
             entry.updatedAt = os.time()
             notifyTrackedConsentBoards()
-            broadcastToColor("Could not save your profile logging preference. Try again.", side, "Yellow")
+            broadcastToColor("無法儲存您的個人檔案記錄偏好。請重試。", side, "Yellow")
             return
         end
 
@@ -3545,7 +3545,7 @@ function recordTrackedConsentChoice(params)
             entry.updatedAt = os.time()
             notifyTrackedConsentBoards()
             ttsDebugLog("[ttsConsent] unexpected save response for " .. side .. ": " .. rawText)
-            broadcastToColor("Unexpected response while saving your profile logging preference.", side, "Yellow")
+            broadcastToColor("儲存個人檔案記錄偏好時收到非預期的回應。", side, "Yellow")
             return
         end
 
@@ -3554,7 +3554,7 @@ function recordTrackedConsentChoice(params)
         notifyTrackedConsentBoards()
 
         if entry.status == "accepted" then
-            broadcastToColor("Profile logging enabled for your Steam account on this map.", side, "Green")
+            broadcastToColor("已在此地圖上為您的 Steam 帳號啟用個人檔案記錄。", side, "Green")
         end
     end)
 
@@ -3852,7 +3852,7 @@ function autoFinishTrackedGameIfPending()
     if not shouldAutoFinishTrackedGame() then
         return
     end
-    ttsGameLog("Round 5 primary/secondary scores for both players were entered 2 minutes ago. Auto-finishing game now.", "Yellow")
+    ttsGameLog("雙方玩家的第 5 回合主要/次要分數已於 2 分鐘前輸入。現在自動結束遊戲。", "Yellow")
     endTrackedGame()
 end
 
@@ -3870,7 +3870,7 @@ function evaluateTrackedAutoEndState()
     end
 
     trackedAutoEndPending = true
-    ttsGameLog("Round 5 primary/secondary scores detected for both players. Auto-finish in 2 minutes unless finished manually.", "Yellow")
+    ttsGameLog("已偵測到雙方玩家的第 5 回合主要/次要分數。除非手動結束，否則將在 2 分鐘後自動結束。", "Yellow")
     trackedAutoEndTimerId = Wait.time(autoFinishTrackedGameIfPending, ttsAutoEndDelaySeconds)
     ttsDebugLog("[ttsGame] auto-end countdown started (" .. tostring(ttsAutoEndDelaySeconds) .. "s)")
 end
@@ -4080,8 +4080,8 @@ function startTrackedGameSync()
         end
 
         ttsGameLog(
-            "Tracked stats need an explicit choice first. Use the control board on " ..
-            table.concat(missingSides, " and ") .. " to Allow or Decline tracking.",
+            "追蹤統計需要先明確選擇。請使用 " ..
+            table.concat(missingSides, " 和 ") .. " 的控制面板來允許或拒絕追蹤。",
             "Yellow"
         )
     end)
@@ -4195,34 +4195,34 @@ function printTrackedMatchSummary(context, scoreSummary)
     redTotal = redTotal or 0
     blueTotal = blueTotal or 0
 
-    ttsGameLog("======== MATCH COMPLETE ========", "Yellow")
-    ttsGameLog("Final Score: " .. tostring(redTotal) .. " - " .. tostring(blueTotal), "White")
+    ttsGameLog("======== 比賽結束 ========", "Yellow")
+    ttsGameLog("最終比分：" .. tostring(redTotal) .. " - " .. tostring(blueTotal), "White")
 
     if redTotal > blueTotal then
-        ttsGameLog("Winner: " .. redName .. " (+" .. tostring(redTotal - blueTotal) .. " VP)", redPlayer.seatColor)
+        ttsGameLog("勝者：" .. redName .. "（+" .. tostring(redTotal - blueTotal) .. " VP）", redPlayer.seatColor)
     elseif blueTotal > redTotal then
-        ttsGameLog("Winner: " .. blueName .. " (+" .. tostring(blueTotal - redTotal) .. " VP)", bluePlayer.seatColor)
+        ttsGameLog("勝者：" .. blueName .. "（+" .. tostring(blueTotal - redTotal) .. " VP）", bluePlayer.seatColor)
     else
-        ttsGameLog("Result: draw", "Yellow")
+        ttsGameLog("結果：平局", "Yellow")
     end
 
-    local missionInfo = (context and context.missionType) or "Unknown mission"
-    local deploymentInfo = (context and context.deploymentCard) or "Unknown deployment"
+    local missionInfo = (context and context.missionType) or "未知任務"
+    local deploymentInfo = (context and context.deploymentCard) or "未知部署"
     local roundInfo = toTrackedNumber(context and context.round, scoreSummary and scoreSummary.roundsPlayed)
     ttsGameLog(
-        "Mission: " .. tostring(missionInfo) ..
-        " | Deployment: " .. tostring(deploymentInfo) ..
-        " | Rounds: " .. tostring(roundInfo),
+        "任務：" .. tostring(missionInfo) ..
+        " | 部署：" .. tostring(deploymentInfo) ..
+        " | 回合數：" .. tostring(roundInfo),
         "Yellow"
     )
 
-    ttsGameLog("----- RED PLAYER: " .. redPlayer.displayName .. " -----", redPlayer.seatColor)
+    ttsGameLog("----- 紅方玩家：" .. redPlayer.displayName .. " -----", redPlayer.seatColor)
     local redDiceLine = buildTrackedDiceSummaryLine(redDice)
     if redDiceLine then
         ttsGameLog(redDiceLine, "White")
     end
 
-    ttsGameLog("----- BLUE PLAYER: " .. bluePlayer.displayName .. " -----", bluePlayer.seatColor)
+    ttsGameLog("----- 藍方玩家：" .. bluePlayer.displayName .. " -----", bluePlayer.seatColor)
     local blueDiceLine = buildTrackedDiceSummaryLine(blueDice)
     if blueDiceLine then
         ttsGameLog(blueDiceLine, "White")
@@ -4231,11 +4231,11 @@ function printTrackedMatchSummary(context, scoreSummary)
     if redDice and blueDice and redDice.delta ~= nil and blueDice.delta ~= nil then
         local deltaGap = redDice.delta - blueDice.delta
         if math.abs(deltaGap) < 0.25 then
-            ttsGameLog("Dice luck: effectively even")
+            ttsGameLog("骰運：基本持平")
         else
             local favoredName = deltaGap > 0 and redName or blueName
             local favoredColor = deltaGap > 0 and redPlayer.seatColor or bluePlayer.seatColor
-            ttsGameLog("Dice luck favored: " .. favoredName, favoredColor)
+            ttsGameLog("骰運偏向：" .. favoredName, favoredColor)
         end
     end
 
@@ -4250,13 +4250,13 @@ function printTrackedMatchSummary(context, scoreSummary)
     local blueSecondary = toTrackedNumber(scoreSummary.blue.secondary)
     local blueChallenger = toTrackedNumber(scoreSummary.blue.challenger)
 
-    ttsGameLog("Red P/S/C " .. redPrimary .. "/" .. redSecondary .. "/" .. redChallenger, "White")
-    ttsGameLog("Blue P/S/C " .. bluePrimary .. "/" .. blueSecondary .. "/" .. blueChallenger, "White")
+    ttsGameLog("紅方 主/次/挑 " .. redPrimary .. "/" .. redSecondary .. "/" .. redChallenger, "White")
+    ttsGameLog("藍方 主/次/挑 " .. bluePrimary .. "/" .. blueSecondary .. "/" .. blueChallenger, "White")
 
     local laneDiffs = {
-        { label = "Primary", diff = redPrimary - bluePrimary },
-        { label = "Secondary", diff = redSecondary - blueSecondary },
-        { label = "Challenger", diff = redChallenger - blueChallenger },
+        { label = "主要", diff = redPrimary - bluePrimary },
+        { label = "次要", diff = redSecondary - blueSecondary },
+        { label = "挑戰者", diff = redChallenger - blueChallenger },
     }
     local decidingLane = laneDiffs[1]
     for i = 2, #laneDiffs do
@@ -4267,9 +4267,9 @@ function printTrackedMatchSummary(context, scoreSummary)
     if decidingLane.diff ~= 0 then
         local sideName = decidingLane.diff > 0 and redName or blueName
         local sideColor = decidingLane.diff > 0 and redPlayer.seatColor or bluePlayer.seatColor
-        ttsGameLog("Where it was won: " .. decidingLane.label .. " (" .. sideName .. " +" .. math.abs(decidingLane.diff) .. ")", sideColor)
+        ttsGameLog("勝因所在：" .. decidingLane.label .. "（" .. sideName .. " +" .. math.abs(decidingLane.diff) .. "）", sideColor)
     else
-        ttsGameLog("Where it was won: even split across primary/secondary/challenger")
+        ttsGameLog("勝因所在：主要/次要/挑戰者均分")
     end
 
     local redRounds = scoreSummary.red.rounds or {}
@@ -4311,9 +4311,9 @@ function printTrackedMatchSummary(context, scoreSummary)
     if biggestSwingRound ~= nil and biggestSwing ~= 0 then
         local swingSide = biggestSwing > 0 and redName or blueName
         local swingColor = biggestSwing > 0 and redPlayer.seatColor or bluePlayer.seatColor
-        ttsGameLog("Biggest round swing: round " .. tostring(biggestSwingRound) .. " (" .. swingSide .. " +" .. tostring(math.abs(biggestSwing)) .. ")", swingColor)
+        ttsGameLog("最大回合波動：第 " .. tostring(biggestSwingRound) .. " 回合（" .. swingSide .. " +" .. tostring(math.abs(biggestSwing)) .. "）", swingColor)
     end
-    ttsGameLog("Rounds won | Red: " .. tostring(redRoundsWon) .. " | Blue: " .. tostring(blueRoundsWon) .. " | Lead changes: " .. tostring(leadChanges))
+    ttsGameLog("回合勝場 | 紅方：" .. tostring(redRoundsWon) .. " | 藍方：" .. tostring(blueRoundsWon) .. " | 領先交換：" .. tostring(leadChanges))
 end
 
 function endTrackedGame()
@@ -4356,7 +4356,7 @@ function endTrackedGame()
 
         ttsDebugLog("[ttsGame] end complete for game_id=" .. tostring(trackedGameId))
         printTrackedMatchSummary(context, scoreSummary)
-        ttsGameLog("Red and Blue players: click Confirm Win/Loss to validate the result.")
+        ttsGameLog("紅方和藍方玩家：請點擊「確認勝負」以驗證結果。")
         stopTrackedSnapshotTimer()
         lastEndedTrackedGameId = trackedGameId
         trackedGameId = nil
@@ -4400,14 +4400,14 @@ function confirmTrackedResultForSide(expectedSide, clickedSide)
 
     if clickedSide ~= expectedSide then
         if clickedSide and clickedSide ~= "" then
-            broadcastToColor("Only the " .. expectedSide .. " player can confirm this button.", clickedSide, "Yellow")
+            broadcastToColor("只有 " .. expectedSide .. " 玩家可以確認此按鈕。", clickedSide, "Yellow")
         end
         return
     end
 
     if isTrackedGameActive() then
         if trackedGameId == nil then
-            broadcastToColor("Game tracking not ready yet. Try again in a second.", clickedSide, "Yellow")
+            broadcastToColor("遊戲追蹤尚未準備好。請稍後重試。", clickedSide, "Yellow")
             clearTrackedActionArms()
             return
         end
@@ -4418,18 +4418,18 @@ function confirmTrackedResultForSide(expectedSide, clickedSide)
                 endApprovalPending = true
                 endApprovalRequestedBy = expectedSide
                 local otherSide = getOtherTrackedSide(expectedSide)
-                ttsGameLog(expectedSide .. " requested to end the game. " .. otherSide .. " must approve.", "Yellow")
+                ttsGameLog(expectedSide .. " 請求結束遊戲。" .. otherSide .. " 必須同意。", "Yellow")
                 writeMenus()
                 return
             end
 
             if endApprovalRequestedBy == expectedSide then
                 local otherSide = getOtherTrackedSide(expectedSide)
-                broadcastToColor("Waiting for " .. otherSide .. " to approve end game.", clickedSide, "Yellow")
+                broadcastToColor("等待 " .. otherSide .. " 同意結束遊戲。", clickedSide, "Yellow")
                 return
             end
 
-            ttsGameLog(expectedSide .. " approved ending the game.", expectedSide)
+            ttsGameLog(expectedSide .. " 同意結束遊戲。", expectedSide)
             endApprovalPending = false
             endApprovalRequestedBy = nil
             endTrackedGame()
@@ -4444,7 +4444,7 @@ function confirmTrackedResultForSide(expectedSide, clickedSide)
             else
                 trackedActionArmBlue = true
             end
-            broadcastToColor("Click again to confirm: finish game now.", clickedSide, "Yellow")
+            broadcastToColor("再次點擊以確認：立即結束遊戲。", clickedSide, "Yellow")
             return
         end
         clearTrackedActionArms()
@@ -4460,7 +4460,7 @@ function confirmTrackedResultForSide(expectedSide, clickedSide)
         else
             trackedActionArmBlue = true
         end
-        broadcastToColor("Click again to confirm your result.", clickedSide, "Yellow")
+        broadcastToColor("再次點擊以確認您的結果。", clickedSide, "Yellow")
         return
     end
     clearTrackedActionArms()
@@ -4477,12 +4477,12 @@ function confirmTrackedResultForSide(expectedSide, clickedSide)
         resultConfirmedBlue = true
     end
 
-    ttsGameLog(expectedSide .. " confirmed the final result.", expectedSide)
+    ttsGameLog(expectedSide .. " 確認了最終結果。", expectedSide)
     sendTrackedResultConfirmationSnapshot("resultConfirm" .. expectedSide)
 
     if resultConfirmedRed and resultConfirmedBlue then
         resultConfirmationPending = false
-        ttsGameLog("Both players confirmed the final result.", "Green")
+        ttsGameLog("雙方玩家已確認最終結果。", "Green")
         sendTrackedResultConfirmationSnapshot("resultConfirmBoth")
     end
 
@@ -4513,10 +4513,10 @@ function startGame(obj, player, alt)
             forceStartCounter = forceStartCounter + 1
             local remaining = 3 - forceStartCounter
             if remaining > 0 then
-                broadcastToAll("Please Lock in your Secondaries. Click "..remaining.." more times to force start the game", {1,0,0})
+                broadcastToAll("請鎖定您的次要目標。再點擊 "..remaining.." 次以強制開始遊戲", {1,0,0})
                 return
             else
-                broadcastToAll("Force starting the game!", {1,0,0})
+                broadcastToAll("強制開始遊戲！", {1,0,0})
             end
             end
         else
@@ -4532,7 +4532,7 @@ function startGame(obj, player, alt)
 
 
         if not Player["Red"].seated or not Player["Blue"].seated then
-            broadcastToAll("Must have both players seated", {1, 0, 0})
+            broadcastToAll("必須雙方玩家都已就座", {1, 0, 0})
             if not simulation then
                 return
             end
@@ -4559,7 +4559,7 @@ function startGame(obj, player, alt)
     startCustomTurns()
     destroyDeployZones()
     hidePregameGuide()
-    broadcastToAll(phases[currentPhase].." phase", "Yellow")
+    broadcastToAll(phases[currentPhase].." 階段", "Yellow")
     showPhaseGuide(phases[currentPhase])
     resetActivationTokens()
     Notes.setNotes("")
@@ -4592,7 +4592,7 @@ function incrementRedCp(params)
         redCpIncrementTracker = true
         redCpCounter.Counter.increment()
     else
-        broadcastToAll("Red has already gained a CP this battle round!", "Yellow")
+        broadcastToAll("紅方本戰鬥回合已獲得指揮點！", "Yellow")
     end
 end
 
@@ -4602,7 +4602,7 @@ function incrementBlueCp(params)
         blueCpIncrementTracker = true
         blueCpCounter.Counter.increment()
     else
-        broadcastToAll("Blue has already gained a CP this battle round!", "Yellow")
+        broadcastToAll("藍方本戰鬥回合已獲得指揮點！", "Yellow")
     end
 end
 
@@ -4617,7 +4617,7 @@ function nextPhase(obj, player_color_click, alt_click)
         currentPhase = 1
         passTurn(obj, player_color_click, alt_click)
     end
-    broadcastToAll(phases[currentPhase].." phase", "Yellow")
+    broadcastToAll(phases[currentPhase].." 階段", "Yellow")
     showPhaseGuide(phases[currentPhase])
     writeMenus()
 end
@@ -4628,7 +4628,7 @@ function passTurn(obj, player_color_click, alt_click)
     if(singlesMode != "singles") then
         if player_color_click ~= currentTurn then
             if simulation then
-                broadcastToAll("INTRUDER", "Pink")
+                broadcastToAll("入侵者", "Pink")
             else
                 return
             end
@@ -4647,9 +4647,9 @@ function passTurn(obj, player_color_click, alt_click)
         if cpEveryTurn then
             redCpCounter.Counter.increment()
             purplePCounter.Counter.increment() -- Increment Purple CP
-            Wait.time(function() broadcastToAll("Both CPs incremented!", "White") end, 0.3)
+            Wait.time(function() broadcastToAll("雙方指揮點已增加！", "White") end, 0.3)
         else
-            Wait.time(function() broadcastToAll("Blue CPs incremented!", "Blue") end, 0.3)
+            Wait.time(function() broadcastToAll("藍方指揮點已增加！", "Blue") end, 0.3)
         end
     else
         currentTurn = "Red"
@@ -4659,19 +4659,19 @@ function passTurn(obj, player_color_click, alt_click)
         if cpEveryTurn then
             blueCpCounter.Counter.increment()
             orangePCounter.Counter.increment() -- Increment Orange CP
-            Wait.time(function() broadcastToAll("Both CPs incremented!", "White") end, 0.3)
+            Wait.time(function() broadcastToAll("雙方指揮點已增加！", "White") end, 0.3)
         else
-            Wait.time(function() broadcastToAll("Red CPs incremented!", "Red") end, 0.3)
+            Wait.time(function() broadcastToAll("紅方指揮點已增加！", "Red") end, 0.3)
         end
     end
 
     if simulation then
-        broadcastToAll("It's " .. currentTurn .. " turn", currentTurn)
+        broadcastToAll("輪到 " .. currentTurn .. " 了", currentTurn)
     else
         if Player[currentTurn].steam_name then
-            broadcastToAll("It's " .. Player[currentTurn].steam_name .. " turn", currentTurn)
+            broadcastToAll("輪到 " .. Player[currentTurn].steam_name .. " 了", currentTurn)
         else
-            broadcastToAll("It's " .. currentTurn .. " turn", currentTurn)
+            broadcastToAll("輪到 " .. currentTurn .. " 了", currentTurn)
         end
     end
     local snapshotRound = getRoundNumber()
@@ -4829,12 +4829,12 @@ function submitFeedback(player, color, alt)
 
     -- Validate email using a simple pattern match
     if not email or email == "" or not email:match("^[%w%.%-_]+@[%w%.%-_]+%.[%a]+$") then
-        broadcastToAll("Please enter a valid email address", {1, 0, 0})
+        broadcastToAll("請輸入有效的電子郵件地址", {1, 0, 0})
         return
     end
 
     if not feedbackMessage or feedbackMessage == "" then
-        broadcastToAll("Please enter a message", {1, 0, 0})
+        broadcastToAll("請輸入訊息", {1, 0, 0})
         return
     end
 
@@ -4844,7 +4844,7 @@ function submitFeedback(player, color, alt)
         else
             local ok,data = pcall(JSON.decode, response.text)
             local msg = ok and data and data.message
-                      or ("Unexpected response: "..response.text)
+                      or ("非預期的回應："..response.text)
             broadcastToAll(msg, {0,1,0})
         end
     end)

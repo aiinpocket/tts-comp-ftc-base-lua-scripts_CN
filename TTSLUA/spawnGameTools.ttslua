@@ -55,29 +55,29 @@ spawnWoundsBtnB={label=spawnWBtnLbl, click_function="spawnWounds", function_owne
 XposHideArmy = XposReset+3
 ZposHideArmy = ZposReset-2.5
 hideShowArmyBtnLbl="ARMY\nfor reserves/embarked"
-hideArmyBtnR={ label="HIDE "..hideShowArmyBtnLbl, click_function="hideArmyR", function_owner=self,
+hideArmyBtnR={ label="隱藏 "..hideShowArmyBtnLbl, click_function="hideArmyR", function_owner=self,
             position={XposHideArmy,Ypos,ZposHideArmy}, rotation={0,0,0},
             height=500, width=2400,
             font_size=200, color="Red", font_color={1,1,1}
 }
-hideArmyBtnB={ label="HIDE "..hideShowArmyBtnLbl, click_function="hideArmyB", function_owner=self,
+hideArmyBtnB={ label="隱藏 "..hideShowArmyBtnLbl, click_function="hideArmyB", function_owner=self,
             position={XposHideArmy+Xoffset,Ypos,-ZposHideArmy}, rotation={0,180,0},
             height=500, width=2400,
             font_size=200, color="Red", font_color={1,1,1}
 }
 
-showArmyBtnR={ label="SHOW "..hideShowArmyBtnLbl, click_function="showArmyR", function_owner=self,
+showArmyBtnR={ label="顯示 "..hideShowArmyBtnLbl, click_function="showArmyR", function_owner=self,
             position={XposHideArmy-6,Ypos,ZposHideArmy}, rotation={0,0,0},
             height=500, width=2400,
             font_size=200, color="Green", font_color={1,1,1}
 }
-showArmyBtnB={ label="SHOW "..hideShowArmyBtnLbl, click_function="showArmyB", function_owner=self,
+showArmyBtnB={ label="顯示 "..hideShowArmyBtnLbl, click_function="showArmyB", function_owner=self,
             position={XposHideArmy+Xoffset-6,Ypos,-ZposHideArmy}, rotation={0,180,0},
             height=500, width=2400,
             font_size=200, color="Green", font_color={1,1,1}
 }
 
-linkMiniBtn={ label="Link", click_function="linkMini", function_owner=self,
+linkMiniBtn={ label="連結", click_function="linkMini", function_owner=self,
             position={0,1,-2}, rotation={0,180,0}, height=200, width=300,
             font_size=100, color={0,0,0}, font_color={1,1,1}
 }

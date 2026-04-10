@@ -47,37 +47,37 @@ local VALID_BASE_SIZES_IN_MM = {
 }
 
 clearAllDiceBtn={
-    label="Clear mat\n(right click)", click_function="clearDiceAll", function_owner=self,
+    label="清除骰墊\n（右鍵）", click_function="clearDiceAll", function_owner=self,
     position={-4.6, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=400,
     font_size=60, color={0,0,0}, font_color={1,1,1}
 }
 
-rollAllLabel = "Roll all dice"
-rollAllTooltip = "Left-click to roll all dice. Right-click to switch to selecting dice."
-selectAllLabel = "Select all dice"
-selectAllTooltip = "Left-click to select all dice. Right-click to switch to rolling dice."
+rollAllLabel = "擲所有骰子"
+rollAllTooltip = "左鍵擲所有骰子。右鍵切換為選擇骰子。"
+selectAllLabel = "選擇所有骰子"
+selectAllTooltip = "左鍵選擇所有骰子。右鍵切換為擲骰子。"
 rollOrSelectAllBtn={
     label=rollAllLabel, tooltip=rollAllTooltip, click_function="RollOrSelectDice", function_owner=self,
     position={-3.5, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=520,
     font_size=60, color={1,1,1}, font_color={0,0,0}
 }
 
-orderedRollLabel = "Ordered roll"
-orderedRollTooltip = "Roll all dice, and display them in the order they're rolled in rather than by results."
+orderedRollLabel = "依序擲骰"
+orderedRollTooltip = "擲所有骰子，依擲骰順序顯示而非依結果排列。"
 orderedRollBtn={
     label=orderedRollLabel, tooltip=orderedRollTooltip, click_function="RollDiceOrdered", function_owner=self,
     position={-2.4, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=520,
     font_size=60, color={1,1,1}, font_color={0,0,0}
 }
-orderedRollGroup2Label = "In 2s"
-orderedRollGroup2Tooltip = "Roll all dice, and display them in the order they're rolled in rather than by results, grouped into 2s."
+orderedRollGroup2Label = "每2顆"
+orderedRollGroup2Tooltip = "擲所有骰子，依擲骰順序顯示而非依結果排列，每2顆為一組。"
 orderedRollGroup2Btn={
     label=orderedRollGroup2Label, tooltip=orderedRollGroup2Tooltip, click_function="RollDiceOrderedGroup2", function_owner=self,
     position={-1.6, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
     font_size=60, color={1,1,1}, font_color={0,0,0}
 }
-orderedRollGroup3Label = "In 3s"
-orderedRollGroup3Tooltip = "Roll all dice, and display them in the order they're rolled in rather than by results, grouped into 3s."
+orderedRollGroup3Label = "每3顆"
+orderedRollGroup3Tooltip = "擲所有骰子，依擲骰順序顯示而非依結果排列，每3顆為一組。"
 orderedRollGroup3Btn={
     label=orderedRollGroup3Label, tooltip=orderedRollGroup3Tooltip, click_function="RollDiceOrderedGroup3", function_owner=self,
     position={-1.1, Yoffset ,-0.87}, rotation={0,0,0}, height=50, width=250,
@@ -144,20 +144,20 @@ color4Btn={
 }
 pipColorBtn=
 {
-  index=17, label="White", click_function="swapPipColor", function_owner=self,
+  index=17, label="白色", click_function="swapPipColor", function_owner=self,
   position={colorBtnOffset + 0.35 * 4 + 0.1, Yoffset, -0.87}, rotation={0, 0, 0}, height=50, width=250,
   font_size=60, color="White", font_color="Black"
 }
 
 customDiceBtn={
-    label="Custom Dice", click_function="customDice", function_owner=self,
+    label="自訂骰子", click_function="customDice", function_owner=self,
     position={colorBtnOffset+0.35*9, Yoffset ,-0.85}, rotation={0,0,0}, height=50, width=420,
     font_size=60, color={1,1,1}, font_color={0,0,0}
 }
 
 clearDiceBtnIncrement=0.28
-clearDiceBtnLabel="Del\n"
-clearDiceBtntooltip="LMB Delete this row\nRMB Delete this row and lowers/uppers"
+clearDiceBtnLabel="刪\n"
+clearDiceBtntooltip="左鍵 刪除此列\n右鍵 刪除此列及以下/以上"
 clearDiceBtn={
     label=clearDiceBtnLabel, tooltip=clearDiceBtntooltip, click_function="filledInLater", function_owner=self,
     position={-5.8, Yoffset ,-0.85}, rotation={0,0,0}, height=1000, width=1300, scale={0.1,0.1,0.1},
@@ -175,12 +175,12 @@ oneTimeUpper=true
 lowerSign=" (-)"
 upperSign=" (+)"
 lowerUpperBtn={
-    label="RMB\n- / +", tooltip="Changes to upper for the next click", click_function="toggleLowerUpper", function_owner=self,
+    label="右鍵\n- / +", tooltip="下次點擊時改為向上", click_function="toggleLowerUpper", function_owner=self,
     position={-5.62, Yoffset ,1.1}, rotation={0,0,0}, height=1000, width=2800, scale={0.1,0.1,0.1},
     font_size=500, color="White", font_color={0,0,0}
 }
 
-warningLbl="NO FAST REPETITIONS"
+warningLbl="禁止快速重複操作"
 warningLbl=""
 warningBtn={
     label=warningLbl, click_function="modifyMenu4", function_owner=self,
@@ -192,24 +192,24 @@ lowerUpper=true
 oneTimeUpper=true
 lethalButtonsOffset = -4
 
-lethalLabel = "Lethal Hits"
-lethalTip   = "Left-click: move dice >= 6. Right-click: move dice >= 5."
+lethalLabel = "致命打擊"
+lethalTip   = "左鍵：移動骰子 >= 6。右鍵：移動骰子 >= 5。"
 lethalHitsBtn={
     label=lethalLabel, tooltip=lethalTip, click_function="lethalHitsAction", function_owner=self,
     position={lethalButtonsOffset, Yoffset ,1.1}, rotation={0,0,0}, height=1000, width=2800, scale={0.1,0.1,0.1},
     font_size=500, color="White", font_color={0,0,0}
 }
 
-susLabel = "Sustained Hits"
-susTip   = "Left-click: move dice >= 6. Right-click: move dice >= 5."
+susLabel = "持續打擊"
+susTip   = "左鍵：移動骰子 >= 6。右鍵：移動骰子 >= 5。"
 sustainedHitsBtn={
     label=susLabel, tooltip=susTip, click_function="sustainedHitsAction", function_owner=self,
     position={lethalButtonsOffset + 0.7, Yoffset ,1.1}, rotation={0,0,0}, height=1000, width=3800, scale={0.1,0.1,0.1},
     font_size=500, color="White", font_color={0,0,0}
 }
 
-susLethalLabel = "Sustained & Lethal"
-susLethalTip   = "Left-click: move dice >= 6. Right-click: move dice >= 5. Applies to sustained and lethal combined."
+susLethalLabel = "持續與致命"
+susLethalTip   = "左鍵：移動骰子 >= 6。右鍵：移動骰子 >= 5。同時套用持續與致命打擊。"
 
 sustainedLethalHitsBtn = {
     label=susLethalLabel, tooltip=susLethalTip, click_function="sustainedLethalHitsAction", function_owner=self,
@@ -217,7 +217,7 @@ sustainedLethalHitsBtn = {
     font_size=500, color="White", font_color={0,0,0}
 }
 copyOthersDiceBtn = {
-    tooltip="Copy opposite player's dice",
+    tooltip="複製對方骰子",
     click_function = "importOpposDice",
     function_owner = self,
     position       = {-7.5, Yoffset, 0.86},
@@ -226,13 +226,13 @@ copyOthersDiceBtn = {
     color = (currentMat == "Red" and "Blue" or "Red"), -- Button changes color based on current player
     font_color = {1, 1, 1}, -- White text for high contrast
     hover_color = (currentMat == "Red") and {0, 0, 1, 1} or {1, 0, 0, 1},
-    label = (currentMat == "Red") and "Copy Blue's Dice" or "Copy Red's Dice",
+    label = (currentMat == "Red") and "複製藍方骰子" or "複製紅方骰子",
     press_color = {0.27, 0.27, 0.27, 1},
     scale = {0.5, 0.5, 0.5}
 }
 
 local hasObjectSaved = false
-savePositionLabel = "Save"
+savePositionLabel = "儲存"
 saveBtn={
     label=savePositionLabel, tooltip=savePositionTip, click_function="save", function_owner=self,
     position={-7.70, Yoffset ,-1.69}, rotation={0,0,0},
@@ -243,7 +243,7 @@ saveBtn={
     press_color = {0.27, 0.27, 0.27, 1}, -- Slightly lighter gray when pressed
     scale = {0.5, 0.5, 0.5}
 }
-restorePositionLabel = "Restore Position"
+restorePositionLabel = "恢復位置"
 restoreBtn={
     label=restorePositionLabel, click_function="restore", function_owner=self,
     position={-6.76, Yoffset ,-1.69}, rotation={0,0,0},
@@ -256,49 +256,49 @@ restoreBtn={
 }
 
 gap2Btn={
-    label='1" Gap', tooltip='Arrange models with 1" spacing', click_function='arrangeModelsWith1Inch', function_owner=self,
+    label='1" 間距', tooltip='以 1" 間距排列模型', click_function='arrangeModelsWith1Inch', function_owner=self,
     position={-7.7, Yoffset ,-1.15}, rotation={0,0,0}, height=1000, width=2500, scale={0.1,0.1,0.1},
     font_size=750, color='White', font_color={0,0,0}
 }
 
 gap1Btn={
-    label='2" Gap', tooltip='Arrange models with 2" spacing', click_function='arrangeModelsWith2Inch', function_owner=self,
+    label='2" 間距', tooltip='以 2" 間距排列模型', click_function='arrangeModelsWith2Inch', function_owner=self,
     position={-7.15, Yoffset ,-1.15}, rotation={0,0,0}, height=1000, width=2500, scale={0.1,0.1,0.1},
     font_size=750, color='White', font_color={0,0,0}
 }
 
 clearMeasureAllBtn={
-    label='Clear Bubbles', tooltip='Clear all measuring bubbles on the table', click_function='clearMeasuringCircles', function_owner=self,
+    label='清除泡泡', tooltip='清除桌面上所有量測泡泡', click_function='clearMeasuringCircles', function_owner=self,
     position={-6.325, Yoffset ,-1.15}, rotation={0,0,0}, height=1000, width=5200, scale={0.1,0.1,0.1},
     font_size=700, color='White', font_color={0,0,0}
 }
 
 measure1Btn={
-    label='1"', tooltip='Toggle 1" bubble', click_function='toggle1Bubble', function_owner=self,
+    label='1"', tooltip='切換 1" 泡泡', click_function='toggle1Bubble', function_owner=self,
     position={-7.82, Yoffset ,-1.40}, rotation={0,0,0}, height=1000, width=1400, scale={0.1,0.1,0.1},
     font_size=700, color='White', font_color={0,0,0}
 }
 
 measure3Btn={
-    label='3"', tooltip='Toggle 3" bubble', click_function='toggle3Bubble', function_owner=self,
+    label='3"', tooltip='切換 3" 泡泡', click_function='toggle3Bubble', function_owner=self,
     position={-7.52, Yoffset ,-1.40}, rotation={0,0,0}, height=1000, width=1400, scale={0.1,0.1,0.1},
     font_size=700, color='White', font_color={0,0,0}
 }
 
 measure6Btn={
-    label='6"', tooltip='Toggle 6" bubble', click_function='toggle6Bubble', function_owner=self,
+    label='6"', tooltip='切換 6" 泡泡', click_function='toggle6Bubble', function_owner=self,
     position={-7.22, Yoffset ,-1.40}, rotation={0,0,0}, height=1000, width=1400, scale={0.1,0.1,0.1},
     font_size=700, color='White', font_color={0,0,0}
 }
 
 measure9Btn={
-    label='9"', tooltip='Toggle 9" bubble', click_function='toggle9Bubble', function_owner=self,
+    label='9"', tooltip='切換 9" 泡泡', click_function='toggle9Bubble', function_owner=self,
     position={-6.92, Yoffset ,-1.40}, rotation={0,0,0}, height=1000, width=1400, scale={0.1,0.1,0.1},
     font_size=700, color='White', font_color={0,0,0}
 }
 
 measure12Btn={
-    label='12"', tooltip='Toggle 12" bubble', click_function='toggle12Bubble', function_owner=self,
+    label='12"', tooltip='切換 12" 泡泡', click_function='toggle12Bubble', function_owner=self,
     position={-6.59, Yoffset ,-1.40}, rotation={0,0,0}, height=1000, width=1600, scale={0.1,0.1,0.1},
     font_size=700, color='White', font_color={0,0,0}
 }
@@ -314,7 +314,7 @@ customBubbleInputBG = {
 
 -- Custom Bubble Input Field
 customBubbleInput = {
-    label = "Size", input_function = "setCustomBubbleSize", function_owner = self,
+    label = "大小", input_function = "setCustomBubbleSize", function_owner = self,
     position = {-6.27, Yoffset, -1.40}, rotation = {0, 0, 0},
     width = 900, height = 800, font_size = 500, alignment = 3, scale = {0.1, 0.1, 0.1},
     color = {1, 1, 1, 1}, font_color = {0.2, 0.2, 0.2}
@@ -322,7 +322,7 @@ customBubbleInput = {
 
 -- Custom Bubble Button
 customBubbleBtn = {
-    label = "Go", tooltip = "Apply custom bubble size", click_function = "applyCustomBubble", function_owner = self,
+    label = "確認", tooltip = "套用自訂泡泡大小", click_function = "applyCustomBubble", function_owner = self,
     position = {-6.07, Yoffset, -1.40}, rotation = {0, 0, 0},
     width = 800, height = 1000, font_size = 500,
     color = {0.13, 0.13, 0.13, 1}, font_color = {1, 1, 1},
@@ -333,7 +333,7 @@ customBubbleBtn = {
 function save(obj, player_color, alt)
     local selected = Player[player_color].getSelectedObjects()
     if not selected or #selected == 0 then
-        printToColor("Please first select a model to save its position", player_color)
+        printToColor("請先選擇一個模型以儲存其位置", player_color)
         return
     end
 
@@ -348,12 +348,12 @@ function save(obj, player_color, alt)
     end
 
     -- Single message
-    printToColor(#savedPositions .. " objects positions saved!", player_color)
+    printToColor(#savedPositions .. " 個物件位置已儲存！", player_color)
 end
 
 function restore(playerColor)
   if not savedPositions or #savedPositions == 0 then
-    broadcastToColor("No saved positions to restore.", playerColor, {1, 0.5, 0})
+    broadcastToColor("沒有已儲存的位置可恢復。", playerColor, {1, 0.5, 0})
     return
   end
 
@@ -367,8 +367,8 @@ function restore(playerColor)
 end
 
 local auto1D6 = {
-    label          = "Instant 1D6",
-    tooltip="Roll 1D6 Instantly",
+    label          = "快速 1D6",
+    tooltip="立即擲 1D6",
     click_function = "autoRoll1D6",
     function_owner = self,
     position       = {-7.5, Yoffset, 0.52},
@@ -382,8 +382,8 @@ local auto1D6 = {
 }
 
 local auto2D6 = {
-    label          = "Instant 2D6",
-    tooltip="Roll 2D6 Instantly",
+    label          = "快速 2D6",
+    tooltip="立即擲 2D6",
     click_function = "autoRoll2D6",
     function_owner = self,
     position       = {-7.5, Yoffset, 0.18},
@@ -398,8 +398,8 @@ local auto2D6 = {
 
 
 local revertRollBtn = {
-    label          = "Revert Roll",
-    tooltip="It takes 1 second after rolling to 'lock in'",
+    label          = "復原擲骰",
+    tooltip="擲骰後需 1 秒才能「鎖定」",
     click_function = "revertRoll",
     function_owner = self,
     position       = {-7.5, Yoffset, -0.16},
@@ -413,8 +413,8 @@ local revertRollBtn = {
 }
 
 local redoRollBtn = {
-    label          = "Redo Roll",
-    tooltip        = "Redo previously reverted roll",
+    label          = "重做擲骰",
+    tooltip        = "重做先前復原的擲骰",
     click_function = "redoRoll",
     function_owner = self,
     position       = {-6.0, Yoffset, -0.16},
@@ -438,7 +438,7 @@ local customDiceInputBG = {
 
 -- Input Field (Bright White)
 local customDiceInput = {
-    label = "Enter Dice #", input_function = "setCustomDiceCount", function_owner = self,
+    label = "輸入骰子數", input_function = "setCustomDiceCount", function_owner = self,
     position = {-7.5, Yoffset, -0.82}, rotation = {0, 0, 0},
     width = 1100, height = 225, font_size = 180, alignment = 2, scale = {0.5, 0.5, 0.5},
     color = {1, 1, 1, 1}, -- Pure white
@@ -447,7 +447,7 @@ local customDiceInput = {
 
 -- Modern Black "Spawn Dice" Button
 local customDiceSpawnButton = {
-    label = "Spawn Dice", click_function = "spawnCustomDice", function_owner = self,
+    label = "產生骰子", click_function = "spawnCustomDice", function_owner = self,
     position = {-7.5, Yoffset, -0.50}, rotation = {0, 0, 0},
     width = 1300, height = 300, font_size = 150,
     color = {0.13, 0.13, 0.13, 1}, -- Black button (not pure black for smoother look)
@@ -653,7 +653,7 @@ function importOpposDice(obj, player, alt)
         or   Global.getVar("redCustomDiceMat_GUID")
     local oppMat = getObjectFromGUID(oppMatGUID)
     if not oppMat then
-        printToColor("Opposite dice mat not found.", player, "Orange")
+        printToColor("找不到對方的骰墊。", player, "Orange")
         return
     end
     local mb = oppMat.getBounds()
@@ -673,7 +673,7 @@ function importOpposDice(obj, player, alt)
         lLo, lUp = lb.center.z - lb.size.z/2, lb.center.z + lb.size.z/2
         lYl, lYh = lb.center.y - lb.size.y/2, lb.center.y + lb.size.y/2 + 3
     else
-        printToColor("Warning: opposite lethal zone not found.", player)
+        printToColor("警告：找不到對方的致命區域。", player)
     end
 
     local toImport = {}
@@ -704,7 +704,7 @@ function importOpposDice(obj, player, alt)
     end
 
     if #toImport == 0 then
-        printToColor("No dice found on the opposite mat.", player, "Yellow")
+        printToColor("對方骰墊上找不到骰子。", player, "Yellow")
         return
     end
 
@@ -726,7 +726,7 @@ function importOpposDice(obj, player, alt)
         count = count + 1
     end
 
-    printToAll("Imported "..count.." dice from the opposite mat, including lethal hits.", {1,1,1})
+    printToAll("已從對方骰墊匯入 "..count.." 顆骰子，包含致命打擊。", {1,1,1})
 end
 
 
@@ -768,13 +768,13 @@ end
 function revertRoll(obj, player, alt)
     -- Undo one step in the previousRollStack. Use previousRollIndex to track position.
     if previousRollIndex == 0 or not previousRollStack or #previousRollStack == 0 then
-        printToColor("No previous roll found.", player, "Red")
+        printToColor("找不到先前的擲骰。", player, "Red")
         return
     end
 
     local snapshot = previousRollStack[previousRollIndex]
     if not snapshot or #snapshot == 0 then
-        printToColor("No previous roll data available.", player, "Red")
+        printToColor("沒有先前的擲骰資料。", player, "Red")
         return
     end
 
@@ -793,7 +793,7 @@ function revertRoll(obj, player, alt)
         spawned.setValue(data.val)
     end
 
-    printToColor("Reverted to roll #" .. tostring(previousRollIndex) .. " of " .. tostring(#previousRollStack), player, "Green")
+    printToColor("已復原至第 " .. tostring(previousRollIndex) .. " 次擲骰（共 " .. tostring(#previousRollStack) .. " 次）", player, "Green")
     -- Move pointer back so another click reverts another step
     previousRollIndex = math.max(0, previousRollIndex - 1)
     previousRollData = previousRollStack[previousRollIndex] or {}
@@ -802,17 +802,17 @@ end
 function redoRoll(obj, player, alt)
     -- Move forward in the previousRollStack if possible
     if not previousRollStack or #previousRollStack == 0 then
-        printToColor("No roll history available.", player, "Red")
+        printToColor("沒有擲骰歷史記錄。", player, "Red")
         return
     end
     if previousRollIndex >= #previousRollStack then
-        printToColor("No newer roll to redo.", player, "Red")
+        printToColor("沒有更新的擲骰可重做。", player, "Red")
         return
     end
     previousRollIndex = previousRollIndex + 1
     local snapshot = previousRollStack[previousRollIndex]
     if not snapshot or #snapshot == 0 then
-        printToColor("No roll data at this index.", player, "Red")
+        printToColor("此索引無擲骰資料。", player, "Red")
         return
     end
     for _, die in ipairs(getDice()) do die.destroy() end
@@ -828,7 +828,7 @@ function redoRoll(obj, player, alt)
         spawned.setColorTint(data.tint)
         spawned.setValue(data.val)
     end
-    printToColor("Redone to roll #" .. tostring(previousRollIndex) .. " of " .. tostring(#previousRollStack), player, "Green")
+    printToColor("已重做至第 " .. tostring(previousRollIndex) .. " 次擲骰（共 " .. tostring(#previousRollStack) .. " 次）", player, "Green")
     previousRollData = previousRollStack[previousRollIndex] or {}
 end
 function moveDiceToRoller(color, dice)
@@ -953,7 +953,7 @@ function setCustomDiceCount(_, player, value, _)
   if num and num > 0 and num <= 128 then
     customDiceCount = math.floor(num)
   else
-    printToColor("Invalid Number! Enter a number or expression between 1 and 128.", player, "Red")
+    printToColor("無效數字！請輸入 1 到 128 之間的數字或運算式。", player, "Red")
   end
 end
 
@@ -962,9 +962,9 @@ function spawnCustomDice(_, player, _)
         spawnDice(customDiceCount, player)
         customDiceCount = nil -- Reset custom dice count
         self.editInput({index = 0, value = ""}) -- Clear the input field (replace index if needed)
-        printToColor("Custom Dice Count reset after spawning.", player, "Yellow")
+        printToColor("產生後自訂骰子數已重置。", player, "Yellow")
     else
-        printToColor("No valid custom dice count set.", player, "Red")
+        printToColor("未設定有效的自訂骰子數。", player, "Red")
     end
 end
 
@@ -1000,7 +1000,7 @@ function autoRoll(obj, player, alt, numDice)
         local result = math.random(6)
         total = total + result
         table.insert(rolledResults, result)
-        printToAll(player .. " rolled a D6: " .. result, stringColorToRGB(player))
+        printToAll(player .. " 擲了 D6：" .. result, stringColorToRGB(player))
         local position = {
             x = startX + directionMultiplier * (i - 1) * 1.5,
             y = startY,
@@ -1031,10 +1031,10 @@ function autoRoll(obj, player, alt, numDice)
                 diceCount = 0
             end
         else
-            printToColor("Failed to spawn a die for roll " .. i, player, "Red")
+            printToColor("無法為第 " .. i .. " 次擲骰產生骰子", player, "Red")
         end
     end
-    printToAll(player .. " rolled a total of " .. total .. " (" .. numDice .. "D6)", stringColorToRGB(player))
+    printToAll(player .. " 擲出總計 " .. total .. "（" .. numDice .. "D6）", stringColorToRGB(player))
     submitResolvedRollBatch(rolledResults, player)
 end
 
@@ -1124,12 +1124,12 @@ function customDice(obj, player, alt)
             found = true
             newTint = die.getColorTint()
             newImage = image
-            printToColor("You have set a custom die!", player, "Yellow")
+            printToColor("已設定自訂骰子！", player, "Yellow")
             break
         else
             found = true
             newTint = die.getColorTint()
-            printToColor("You have set a custom colour!", player, "Yellow")
+            printToColor("已設定自訂顏色！", player, "Yellow")
         end
     end
 
@@ -1155,9 +1155,9 @@ function modifyBtns()
         if lowerUpper then sign = lowerSign else sign = upperSign end
         self.editButton({ index = (16+i*2), label = clearDiceBtnLabel .. i .. sign })
 
-        local selOrRollLabel = "Roll\n"
+        local selOrRollLabel = "擲骰\n"
         if not rollMode then
-            selOrRollLabel = "Sel\n"
+            selOrRollLabel = "選\n"
         end
         self.editButton({ index = (17+i*2), label = selOrRollLabel .. i .. sign })
     end
@@ -1225,8 +1225,8 @@ function SelectDeleteDiceX(action, n, selectOthers, lowUp, color)
     selDel = true
     if action == "Del" then selDel = false end
     local counter = {0,0,0,0,0,0}
-    local numberName = {"ones", "twos", "threes", "fours", "fives", "sixes"}
-    local text = Player[color].steam_name .. " deleted "
+    local numberName = {"一點", "二點", "三點", "四點", "五點", "六點"}
+    local text = Player[color].steam_name .. " 刪除了 "
     local somethingToPrint = false
 
     for i, die in ipairs(getDice()) do
@@ -1266,7 +1266,7 @@ end
 
 function clearDiceAll(obj, color, alt)
     if not alt then
-        printToColor("Use right click!", color, "Orange")
+        printToColor("請使用右鍵！", color, "Orange")
         return
     end
     createLethalText(true)
@@ -1296,8 +1296,8 @@ end
 
 function clearDiceX(n, deleteLower, color)
     local counter={0,0,0,0,0,0}
-    local numberName={"ones", "twos", "threes", "fours", "fives", "sixes"}
-    local text = Player[color].steam_name .. " deleted "
+    local numberName={"一點", "二點", "三點", "四點", "五點", "六點"}
+    local text = Player[color].steam_name .. " 刪除了 "
     local somethingToPrint=false
         for i, die in ipairs(getDice()) do
         if die.getValue() == n or (deleteLower and die.getValue()< n) then
@@ -1341,12 +1341,12 @@ function spawnDice(n,player)
     local currentTime = os.time()
     local disableTime = (playerDiceSpeed == "slow") and 0.6 or 0.2
     if currentTime-lastClick<disableTime then
-        printToColor("Wait a bit!", player, "Yellow")
+        printToColor("請稍等！", player, "Yellow")
         return
     end
     lastClick=currentTime
     local offset=#getDice()
-    if offset+n>128 then printToColor("Dice limit reached!", player, "Orange")  end
+    if offset+n>128 then printToColor("已達骰子上限！", player, "Orange")  end
     local grid=0
     local row=0
     local col=0
@@ -1470,7 +1470,7 @@ function sustainedHitsAction(_, color, alt)
                 table.insert(diceToClone, die)
             end
         end
-        printToAll("Warning: No previous roll match found — duplicated all current dice >= " .. threshold .. "+", {1,0.5,0.2})
+        printToAll("警告：找不到先前的擲骰匹配 — 已複製所有目前骰子 >= " .. threshold .. "+", {1,0.5,0.2})
     end
 
     local directionMultiplier = (currentMat == "Blue") and 1 or -1
@@ -1483,7 +1483,7 @@ function sustainedHitsAction(_, color, alt)
     end
 
     -- Log for all players
-    printToAll("Sustained Hits duplicated: " .. tostring(count) .. " (threshold " .. tostring(threshold) .. "+)")
+    printToAll("持續打擊已複製：" .. tostring(count) .. "（閾值 " .. tostring(threshold) .. "+）")
 end
 
 
@@ -1542,7 +1542,7 @@ function sustainedLethalHitsAction(_, color, alt)
                 table.insert(sixPositions, die.getPosition())
             end
         end
-        printToAll("Warning: No previous roll match found — duplicated all current dice >= " .. threshold .. "+", {1,0.5,0.2})
+        printToAll("警告：找不到先前的擲骰匹配 — 已複製所有目前骰子 >= " .. threshold .. "+", {1,0.5,0.2})
     end
 
     -- Move lethal hits using same left/right semantics
@@ -1556,7 +1556,7 @@ function sustainedLethalHitsAction(_, color, alt)
         die.clone({position = p, snap_to_grid = false})
         count = count + 1
     end
-    printToAll("Sustained & Lethal duplicated: " .. tostring(count) .. " (threshold " .. tostring(threshold) .. "+)")
+    printToAll("持續與致命已複製：" .. tostring(count) .. "（閾值 " .. tostring(threshold) .. "+）")
 end
 
 function getObjectsPositionToSave(player, hoveredObject)
@@ -1584,7 +1584,7 @@ function savePositionClicked(playerColor, hoveredObject)
             savePosition(v)
         end
         -- This will now print just once, with the total count:
-        printToColor(#objects .. " objects positions saved!", playerColor)
+        printToColor(#objects .. " 個物件位置已儲存！", playerColor)
     end
 end
 
@@ -1649,22 +1649,22 @@ end
 function onload()
     -- addHotkey("Toggle Floating Icon", toggleFloatingIcon)
 
-    addHotkey("Auto 2 Inch Gap", arrangeModelsWith2Inch)
-    addHotkey('Save position', savePositionClicked)
-    addHotkey('Restore position', restorePositionClicked)
-    addHotkey("Toggle 1 Inch Measurment Circle", function(playerColor, target)
+    addHotkey("自動 2 吋間距", arrangeModelsWith2Inch)
+    addHotkey('儲存位置', savePositionClicked)
+    addHotkey('恢復位置', restorePositionClicked)
+    addHotkey("切換 1 吋量測圈", function(playerColor, target)
         changeMeasurementCircle(1, target, nil, playerColor)
     end)
-    addHotkey("Toggle 3 Inch Measurment Circle", function(playerColor, target)
+    addHotkey("切換 3 吋量測圈", function(playerColor, target)
         changeMeasurementCircle(3, target, nil, playerColor)
     end)
-    addHotkey("Toggle 6 Inch Measurment Circle", function(playerColor, target)
+    addHotkey("切換 6 吋量測圈", function(playerColor, target)
         changeMeasurementCircle(6, target, nil, playerColor)
     end)
-    addHotkey("Toggle 9 Inch Measurment Circle", function(playerColor, target)
+    addHotkey("切換 9 吋量測圈", function(playerColor, target)
         changeMeasurementCircle(9, target, nil, playerColor)
     end)
-    addHotkey("Toggle 12 Inch Measurment Circle", function(playerColor, target)
+    addHotkey("切換 12 吋量測圈", function(playerColor, target)
         changeMeasurementCircle(12.01, target, nil, playerColor)
     end)
     lastClick=os.time()
@@ -1720,8 +1720,8 @@ function onload()
         self.createButton(clearDiceBtn)
 
         rollOrSelectDiceBtn.position[3] = rollOrSelectDiceBtn.position[3] + clearDiceBtnIncrement
-        rollOrSelectDiceBtn.label = "Roll\n" .. i .. sign
-        rollOrSelectDiceBtn.tooltip = "LMB Re-rolls this row\nRMB Re-rolls this row and lowers/uppers"
+        rollOrSelectDiceBtn.label = "擲骰\n" .. i .. sign
+        rollOrSelectDiceBtn.tooltip = "左鍵 重擲此列\n右鍵 重擲此列及以下/以上"
         rollOrSelectDiceBtn.click_function = "RollOrSelectDeleteDice" .. i
         self.createButton(rollOrSelectDiceBtn)
     end
@@ -1885,7 +1885,7 @@ function updateLethalHits()
             end
 
             if textDisplays[zone] then
-                textDisplays[zone].TextTool.setValue(" Lethal Hits (" .. tostring(diceCount) .. ")")
+                textDisplays[zone].TextTool.setValue(" 致命打擊 (" .. tostring(diceCount) .. ")")
             elseif textDisplays[zone] then
                 print("Error: Text display is missing for " .. zone .. ".")
             end
@@ -1954,7 +1954,7 @@ function setupLethalHitsDisplay(zone, lethalHitsObject)
         nickname = "LethalHitsText" .. zone
     })
 
-    textDisplay.TextTool.setValue("Lethal Hits (0)")
+    textDisplay.TextTool.setValue("致命打擊 (0)")
     textDisplay.TextTool.setFontSize(50)
     textDisplay.TextTool.setFontColor({1, 1, 1})
 
@@ -1968,7 +1968,7 @@ function setupLethalHitsDisplay(zone, lethalHitsObject)
         nickname = "N.B Lethal Hits"
     })
 
-    nbTextDisplay.TextTool.setValue("*Clear Mat when finished with lethal/sus hits")
+    nbTextDisplay.TextTool.setValue("*完成致命/持續打擊後請清除骰墊")
     nbTextDisplay.TextTool.setFontSize(25)
     nbTextDisplay.TextTool.setFontColor({1, 1, 1})
 
@@ -2205,7 +2205,7 @@ function lethalHitsAction(lethalHits, color, alt)
     sustainedLethalHitsThreshold = oldSustainedLethal
 
     -- Log for players how many lethal/sustained were moved
-    printToAll("Lethal hits moved: " .. tostring(moved) .. " (threshold " .. tostring(alt and 5 or 6) .. "+)")
+    printToAll("致命打擊已移動：" .. tostring(moved) .. "（閾值 " .. tostring(alt and 5 or 6) .. "+）")
 end
 
 function modifyMenu1()
@@ -2257,7 +2257,7 @@ function checkDice()
     if not data then
         setDefaultState()
         data = JSON.decode(self.getDescription())
-        printToAll('Warning - invalid description. Restored default configuration.', {0.8,0.5,0})
+        printToAll('警告 - 無效描述。已恢復預設設定。', {0.8,0.5,0})
     end
     if not self.resting then return end
 
@@ -2340,11 +2340,11 @@ end
 function swapPipColor()
     customDiceImage = nil
     if pipColorBtn.color == "Black" then
-        pipColorBtn.label = "White"
+        pipColorBtn.label = "白色"
         pipColorBtn.color = "White"
         pipColorBtn.font_color = "Black"
     else
-        pipColorBtn.label = "Black"
+        pipColorBtn.label = "黑色"
         pipColorBtn.color = "Black"
         pipColorBtn.font_color = "White"
     end
@@ -2367,13 +2367,13 @@ function arrangeModelsWith2Inch(a, b, c)
 
     local playerObj = Player[playerColor]
     if not playerObj then
-      print("Player object not found for color: " .. playerColor)
+      print("找不到玩家物件，顏色：" .. playerColor)
       return
     end
 
     local objs = playerObj.getSelectedObjects()
     if #objs < 2 then
-      print("Less than 2 objects selected; nothing to arrange.")
+      print("選擇的物件少於 2 個，無法排列。")
       return
     end
 
@@ -2498,7 +2498,7 @@ function arrangeModelsWith2Inch(a, b, c)
       item.obj.setPositionSmooth(item.newPos)
     end
 
-    print("Arranged " .. #items .. " models with a 2-inch gap along the detected orientation.")
+    print("已排列 " .. #items .. " 個模型，沿偵測方向以 2 吋間距排列。")
 end
 
 function arrangeModelsWith1Inch(a, b, c)
@@ -2511,13 +2511,13 @@ function arrangeModelsWith1Inch(a, b, c)
 
     local playerObj = Player[playerColor]
     if not playerObj then
-      print("Player object not found for color: " .. playerColor)
+      print("找不到玩家物件，顏色：" .. playerColor)
       return
     end
 
     local objs = playerObj.getSelectedObjects()
     if #objs < 2 then
-      print("Less than 2 objects selected; nothing to arrange.")
+      print("選擇的物件少於 2 個，無法排列。")
       return
     end
 
@@ -2616,7 +2616,7 @@ function arrangeModelsWith1Inch(a, b, c)
       item.obj.setPositionSmooth(item.newPos)
     end
 
-    print("Arranged " .. #items .. " models with a 1-inch gap along the detected orientation.")
+    print("已排列 " .. #items .. " 個模型，沿偵測方向以 1 吋間距排列。")
 end
 
 function determineBaseInInches(model)
@@ -2767,7 +2767,7 @@ function applyCustomBubble(_, player, _)
     if customBubbleSize > 0 then
         toggleMeasurementCircleForSelection(customBubbleSize, player)
     else
-        printToColor("Please enter a valid bubble size", player, "Red")
+        printToColor("請輸入有效的泡泡大小", player, "Red")
     end
 end
 
@@ -2861,5 +2861,5 @@ function clearMeasuringCircles(obj, playerColor, alt)
             clearedAll = clearedAll + 1
         end
     end
-    printToAll("Cleared vector lines on "..clearedAll.." objects.", {1,1,1})
+    printToAll("已清除 "..clearedAll.." 個物件上的向量線。", {1,1,1})
 end

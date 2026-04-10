@@ -259,7 +259,7 @@ function checkForMonitoredID()
         -- If monitoredID2 is found, it means a malicious script was detected
         if not detectedMissing then
             detectedMissing = true
-            broadcastToAll("Reminder!!! A infected object has been loaded.... please leave the game and clean all objects.", "Red")
+            broadcastToAll("警告！！！已載入被感染的物件……請離開遊戲並清除所有物件。", "Red")
 
             -- Stop further polling
             stopPolling()
@@ -268,11 +268,11 @@ function checkForMonitoredID()
         -- If monitoredID is missing, it means the detector was deleted, possible cheating
         if not detectedMissing then
             detectedMissing = true
-            broadcastToAll("Warning: Somebody is cheating!", "Red")
+            broadcastToAll("警告：有人在作弊！", "Red")
 
             -- Start issuing warnings every 10 seconds
             warningInterval = Wait.time(function()
-                broadcastToAll("Warning: Somebody is cheating!", "Red")
+                broadcastToAll("警告：有人在作弊！", "Red")
             end, 10, -1)
 
             -- Stop further polling
@@ -336,7 +336,7 @@ function tagSelectedAsRed(playerColor, target)
       obj.setGMNotes("Red")
       updateTeamModel(obj, "Red")
     end
-    printToColor("Tagged selected objects as Red", playerColor, "Red")
+    printToColor("已將選取的物件標記為紅方", playerColor, "Red")
   end
 
   function tagSelectedAsBlue(playerColor, target)
@@ -345,7 +345,7 @@ function tagSelectedAsRed(playerColor, target)
       obj.setGMNotes("Blue")
       updateTeamModel(obj, "Blue")
     end
-    printToColor("Tagged selected objects as Blue", playerColor, "Blue")
+    printToColor("已將選取的物件標記為藍方", playerColor, "Blue")
   end
 
 function spawnOppositeForGUID(guid)
@@ -561,7 +561,7 @@ end
 function placeToColor(player, color)
     player.changeColor(color)
     player.team="None"
-    broadcastToColor("READ INSTRUCTIONS FIRST!\n(Click Notebook at the top)", color, "Purple")
+    broadcastToColor("請先閱讀說明！\n（點擊頂部的筆記本）", color, "Purple")
     if color == "Red" or color == "Blue" then
         Wait.time(function()
             showTrackingConsentPopupForPlayer(player, color)
@@ -589,13 +589,13 @@ function placeToGray(player, value, id)
     if selectPariahNexus then
         selectPariahNexus()
     else
-        print("Error: selectPariahNexus function not found!")
+        print("錯誤：找不到 selectPariahNexus 函式！")
     end
 end
 
 function closeMenu(player, value, id)
     player.team="None"
-    broadcastToColor("READ INSTRUCTIONS FIRST!\n(Click Notebook at the top)", player.color, "Purple")
+    broadcastToColor("請先閱讀說明！\n（點擊頂部的筆記本）", player.color, "Purple")
     Wait.time(function()
         showTrackingConsentPopupForPlayer(player)
     end, 0.1)
@@ -664,7 +664,7 @@ function openTrackingConsentPopupForSeat(side)
         return
     end
 
-    Global.UI.setAttribute("trackingConsentTitle", "text", "UNLOCK GAME STATS AND MATCH FEATURES")
+    Global.UI.setAttribute("trackingConsentTitle", "text", "解鎖遊戲統計與對戰功能")
     Global.UI.setAttribute(
         "trackingConsentBody",
         "text",
@@ -730,7 +730,7 @@ end
 function allowTrackingConsent(player, value, id)
     local seat = player and player.color or nil
     if seat ~= "Red" and seat ~= "Blue" then
-        broadcastToColor("Only the seated Red or Blue player can choose tracking.", player.color, "Yellow")
+        broadcastToColor("只有就座的紅方或藍方玩家可以選擇追蹤設定。", player.color, "Yellow")
         return
     end
     local startMenu = getStartMenuObject()
@@ -746,7 +746,7 @@ end
 function declineTrackingConsent(player, value, id)
     local seat = player and player.color or nil
     if seat ~= "Red" and seat ~= "Blue" then
-        broadcastToColor("Only the seated Red or Blue player can choose tracking.", player.color, "Yellow")
+        broadcastToColor("只有就座的紅方或藍方玩家可以選擇追蹤設定。", player.color, "Yellow")
         return
     end
     local startMenu = getStartMenuObject()
@@ -1153,7 +1153,7 @@ end
 
 function onToggleButtonHotKey(type, target)
     if not target or not target.getGUID then
-        print("No target selected.")
+        print("未選取目標。")
         return
     end
     local target = target

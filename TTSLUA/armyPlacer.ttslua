@@ -16,19 +16,19 @@ redArmyMat="https://steamuserimages-a.akamaihd.net/ugc/961990768472083953/C1D522
 blueArmyMat="https://steamuserimages-a.akamaihd.net/ugc/961990768472085230/0056C98888BE7FE9EFDDD6E6F47319A8254CABB2/"
 
 redBtn={
-    index=1, label="Place for\nRED", click_function="click_Red", function_owner=self,
+    index=1, label="放置至\n紅方", click_function="click_Red", function_owner=self,
     position={btnX,-Yoffset,btnZ}, rotation={0,0,0}, height=btnHeight, width=btnWidth, scale=scaleBtn,
     font_size=btnHeight*0.4, color={0.8,0,0}, font_color={0,0,0}
 }
 
 blueBtn={
-    index=1, label="Place for\nBLUE", click_function="click_Blue", function_owner=self,
+    index=1, label="放置至\n藍方", click_function="click_Blue", function_owner=self,
     position={-btnX,-Yoffset,btnZ}, rotation={0,0,0}, height=btnHeight, width=btnWidth, scale=scaleBtn,
     font_size=btnHeight*0.4, color={0,0.2,0.8}, font_color={1,1,1}
 }
 
 deleteBtn={
-    index=1, label="Delete\nARMY", click_function="click_Delete", function_owner=self,
+    index=1, label="刪除\n軍隊", click_function="click_Delete", function_owner=self,
     position={0,-Yoffset,btnZ+33}, rotation={0,0,0}, height=btnHeight, width=btnWidth, scale=scaleBtn,
     font_size=btnHeight*0.4, color={0.5,0.5,0.5}, font_color={0.8,0,0}
 }

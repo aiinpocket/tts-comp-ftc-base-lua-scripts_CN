@@ -115,21 +115,21 @@ function onLoad(json)
 
 function onScriptingButtonDown(index, color)
   	if index == 9 and color == "Blue" then
-    	broadcastToAll("Time passed by "..Player[color].steam_name, {0,0,1})
+    	broadcastToAll(Player[color].steam_name.." 已交出時間", {0,0,1})
 		Click_1(Player[color],1,0)
 	elseif index == 9 and color == "Red" then
-		broadcastToAll("Use button 7 to pass time")
+		broadcastToAll("使用按鈕 7 來交出時間")
 	end
 
 	if index == 7 and color == "Red" then
-		broadcastToAll("Time passed by "..Player[color].steam_name, {1,0,0})
+		broadcastToAll(Player[color].steam_name.." 已交出時間", {1,0,0})
   		Click_2(Player[color],1,0)
 	elseif index == 7 and color == "Blue" then
-		broadcastToAll("Use button 9 to pass time")
+		broadcastToAll("使用按鈕 9 來交出時間")
 	end
 
 	if index == 8 then
-		broadcastToAll("Time Paused", Table)
+		broadcastToAll("時間已暫停", Table)
 		Click_C(Player[color],1,0)
 	end
 end
@@ -811,14 +811,14 @@ end
 	        if data.DoTurns==false then
 	            data.color_1=holdColor_1
 	            if data.color_2~="" then
-	                broadcastToAll("Color-Mode Enabled.", {0,1,0})
+	                broadcastToAll("顏色模式已啟用。", {0,1,0})
 	                data.DoTurns=true
 	            else
-	                broadcastToAll("Waiting For Player 2...", {1,1,1})
+	                broadcastToAll("等待玩家 2...", {1,1,1})
 	            end
-	            broadcastToAll("Set Player 1 to "..holdPlayer_1.." ("..holdColor_1..")", {0.5,0.5,1})
+	            broadcastToAll("設定玩家 1 為 "..holdPlayer_1.." ("..holdColor_1..")", {0.5,0.5,1})
 	        elseif holdColor_1==data.color_1 or holdColor_1==data.color_2 or holdColor_1=="Black" then
-	            broadcastToAll("Color-Mode Disabled.", {1,0,0})
+	            broadcastToAll("顏色模式已停用。", {1,0,0})
 	            data.DoTurns=false
 	            data.color_1=""
 	            data.color_2=""
@@ -829,14 +829,14 @@ end
 	        if data.DoTurns==false then
 	            data.color_2=holdColor_2
 	            if data.color_1~="" then
-	                broadcastToAll("Color-Mode Enabled.", {0,1,0})
+	                broadcastToAll("顏色模式已啟用。", {0,1,0})
 	                data.DoTurns=true
 	            else
-	                broadcastToAll("Waiting For Player 1...", {1,1,1})
+	                broadcastToAll("等待玩家 1...", {1,1,1})
 	            end
-	            broadcastToAll("Set Player 2 to "..holdPlayer_2.." ("..holdColor_2..")", {0.5,0.5,1})
+	            broadcastToAll("設定玩家 2 為 "..holdPlayer_2.." ("..holdColor_2..")", {0.5,0.5,1})
 	        elseif holdColor_2==data.color_1 or holdColor_2==data.color_2 or holdColor_2=="Black" then
-	            broadcastToAll("Color-Mode Disabled.", {1,0,0})
+	            broadcastToAll("顏色模式已停用。", {1,0,0})
 	            data.DoTurns=false
 	            data.color_1=""
 	            data.color_2=""
