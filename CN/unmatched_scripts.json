@@ -1,0 +1,191 @@
+[
+  {
+    "index": 0,
+    "GUID": "138b06",
+    "Name": "go_game_piece_black",
+    "Nickname": "",
+    "LuaScript_length": 579
+  },
+  {
+    "index": 2,
+    "GUID": "138b05",
+    "Name": "go_game_piece_black",
+    "Nickname": "",
+    "LuaScript_length": 445
+  },
+  {
+    "index": 3,
+    "GUID": "4341c8",
+    "Name": "go_game_piece_black",
+    "Nickname": "",
+    "LuaScript_length": 449
+  },
+  {
+    "index": 11,
+    "GUID": "8c71ab",
+    "Name": "Custom_Token",
+    "Nickname": "互動按鈕 - 區域封鎖",
+    "LuaScript_length": 2044
+  },
+  {
+    "index": 12,
+    "GUID": "9a8b52",
+    "Name": "Custom_Token",
+    "Nickname": "互動按鈕 - 9吋區域",
+    "LuaScript_length": 2628
+  },
+  {
+    "index": 13,
+    "GUID": "7b7ab8",
+    "Name": "Custom_Token",
+    "Nickname": "互動按鈕 - 戰略預備隊",
+    "LuaScript_length": 2827
+  },
+  {
+    "index": 14,
+    "GUID": "8aba11",
+    "Name": "Custom_Token",
+    "Nickname": "互動按鈕 - 部署區",
+    "LuaScript_length": 1093
+  },
+  {
+    "index": 15,
+    "GUID": "59decf",
+    "Name": "Custom_Token",
+    "Nickname": "互動按鈕 - 桌面象限",
+    "LuaScript_length": 2492
+  },
+  {
+    "index": 17,
+    "GUID": "ab9a21",
+    "Name": "Custom_Token",
+    "Nickname": "已推進",
+    "LuaScript_length": 2123
+  },
+  {
+    "index": 18,
+    "GUID": "ad19a7",
+    "Name": "Custom_Token",
+    "Nickname": "行動進行中",
+    "LuaScript_length": 2123
+  },
+  {
+    "index": 19,
+    "GUID": "ca12da",
+    "Name": "Custom_Token",
+    "Nickname": "戰慄 - 點擊切換物件的戰慄狀態",
+    "LuaScript_length": 2123
+  },
+  {
+    "index": 20,
+    "GUID": "3b0476",
+    "Name": "Custom_Token",
+    "Nickname": "已推進 - 點擊切換物件的戰慄狀態",
+    "LuaScript_length": 2123
+  },
+  {
+    "index": 21,
+    "GUID": "a09c4e",
+    "Name": "Custom_Token",
+    "Nickname": "行動進行中 - 點擊切換物件的戰慄狀態",
+    "LuaScript_length": 2123
+  },
+  {
+    "index": 22,
+    "GUID": "ae9056",
+    "Name": "Custom_Token",
+    "Nickname": "戰慄 - 點擊切換物件的戰慄狀態",
+    "LuaScript_length": 2123
+  },
+  {
+    "index": 31,
+    "GUID": "bf09bd",
+    "Name": "Bag",
+    "Nickname": "Marcus Miniatures Rumble 2025",
+    "LuaScript_length": 20660
+  },
+  {
+    "index": 34,
+    "GUID": "5d3485",
+    "Name": "Counter",
+    "Nickname": "清剿敵軍擊殺計數器",
+    "LuaScript_length": 665
+  },
+  {
+    "index": 35,
+    "GUID": "c41f82",
+    "Name": "Counter",
+    "Nickname": "清剿敵軍擊殺計數器",
+    "LuaScript_length": 665
+  },
+  {
+    "index": 36,
+    "GUID": "03286d",
+    "Name": "Bag",
+    "Nickname": "WTC Layout",
+    "LuaScript_length": 20660
+  },
+  {
+    "index": 37,
+    "GUID": "9a7c3c",
+    "Name": "Bag",
+    "Nickname": "UKTC Layout",
+    "LuaScript_length": 20660
+  },
+  {
+    "index": 38,
+    "GUID": "7aca71",
+    "Name": "Bag",
+    "Nickname": "標記袋（紅方）",
+    "LuaScript_length": 20660
+  },
+  {
+    "index": 42,
+    "GUID": "10a26a",
+    "Name": "Bag",
+    "Nickname": "標記袋（藍方）",
+    "LuaScript_length": 20660
+  },
+  {
+    "index": 43,
+    "GUID": "cd649d",
+    "Name": "Bag",
+    "Nickname": "GW Layout",
+    "LuaScript_length": 20660
+  },
+  {
+    "index": 46,
+    "GUID": "ca7711",
+    "Name": "Bag",
+    "Nickname": "Apline Cup Bag",
+    "LuaScript_length": 20660
+  },
+  {
+    "index": 147,
+    "GUID": "fe7926",
+    "Name": "Custom_Token",
+    "Nickname": "增援與預備隊面板",
+    "LuaScript_length": 1342
+  },
+  {
+    "index": 148,
+    "GUID": "85f0cf",
+    "Name": "Custom_Token",
+    "Nickname": "增援與預備隊面板",
+    "LuaScript_length": 1342
+  },
+  {
+    "index": 196,
+    "GUID": "be2cdb",
+    "Name": "Custom_Assetbundle_Bag",
+    "Nickname": "紅方回收桶",
+    "LuaScript_length": 712
+  },
+  {
+    "index": 197,
+    "GUID": "4b1a7b",
+    "Name": "Custom_Assetbundle_Bag",
+    "Nickname": "藍方回收桶",
+    "LuaScript_length": 712
+  }
+]

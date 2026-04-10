@@ -1,4 +1,5 @@
 -- FTC-GUID: 06d627
+-- FTC-GUID: 06d627
 
 startGameObj = getObjectFromGUID(Global.getVar("startMenu_GUID"))
 playerCounter = {}
@@ -568,6 +569,89 @@ function playerSum(pId)
 	return score
 end
 
+function safeScoreNumber(value)
+	local n = tonumber(value)
+	if n == nil then return 0 end
+	return n
+end
+
+function sumScoreComponent(pId, kIndex, cap)
+	local total = 0
+	for j=1,5 do
+		total = total + safeScoreNumber(scores[pId][j][kIndex])
+	end
+	if cap and total > cap then
+		total = cap
+	end
+	return total
+end
+
+function getRoundSummaryForPlayer(pId)
+	local roundSummary = {}
+	for j=1,5 do
+		local primary = safeScoreNumber(scores[pId][j][BTN_K_IX_PRIMARY])
+		local secondary1 = safeScoreNumber(scores[pId][j][BTN_K_IX_SECONDARY_1])
+		local secondary2 = safeScoreNumber(scores[pId][j][BTN_K_IX_SECONDARY_2])
+		local challenger = safeScoreNumber(scores[pId][j][BTN_K_IX_CHALLENGER])
+		table.insert(roundSummary, {
+			round = j,
+			primary = primary,
+			secondary = secondary1 + secondary2,
+			challenger = challenger,
+			total = primary + secondary1 + secondary2 + challenger
+		})
+	end
+	return roundSummary
+end
+
+function getMatchSummary()
+	local params = getParams()
+	local redName = (params and params.P1) or (Player.Red and Player.Red.steam_name) or "Red"
+	local blueName = (params and params.P2) or (Player.Blue and Player.Blue.steam_name) or "Blue"
+
+	local redPrimary = sumScoreComponent(1, BTN_K_IX_PRIMARY, 50)
+	local redSecondary = sumScoreComponent(1, BTN_K_IX_SECONDARY_1, nil) + sumScoreComponent(1, BTN_K_IX_SECONDARY_2, nil)
+	if redSecondary > 40 then redSecondary = 40 end
+	local redChallenger = sumScoreComponent(1, BTN_K_IX_CHALLENGER, 12)
+
+	local bluePrimary = sumScoreComponent(2, BTN_K_IX_PRIMARY, 50)
+	local blueSecondary = sumScoreComponent(2, BTN_K_IX_SECONDARY_1, nil) + sumScoreComponent(2, BTN_K_IX_SECONDARY_2, nil)
+	if blueSecondary > 40 then blueSecondary = 40 end
+	local blueChallenger = sumScoreComponent(2, BTN_K_IX_CHALLENGER, 12)
+
+	local redRounds = getRoundSummaryForPlayer(1)
+	local blueRounds = getRoundSummaryForPlayer(2)
+
+	local roundsPlayed = 0
+	for j=1,5 do
+		if (redRounds[j].total ~= 0) or (blueRounds[j].total ~= 0) then
+			roundsPlayed = j
+		end
+	end
+
+	return {
+		red = {
+			name = redName,
+			primary = redPrimary,
+			secondary = redSecondary,
+			challenger = redChallenger,
+			painted = 10,
+			total = playerSum(1),
+			rounds = redRounds
+		},
+		blue = {
+			name = blueName,
+			primary = bluePrimary,
+			secondary = blueSecondary,
+			challenger = blueChallenger,
+			painted = 10,
+			total = playerSum(2),
+			rounds = blueRounds
+		},
+		roundsPlayed = roundsPlayed
+	}
+end
+
 function getParams()
 	local params = JSON.decode( self.getDescription() )
 
@@ -622,22 +706,163 @@ function pName(p, obj, clicker, alt)
 	self.setDescription(JSON.encode_pretty(params))
 end
 
--- TODO: lock and unlock secondary cards
+fixedCard2Scale = {1.99723673, 0.913603365, 1.99723673}
 
-function drawSecondary1()
-	if #secondary11ZoneObj.getObjects() < 1 then
-		Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary11"})
-	elseif #secondary12ZoneObj.getObjects() < 1 then
-		Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary12"})
-	end
+-- Fixed positions and rotations for Red secondary cards
+redFixedCard1Pos = {32.867672, 0.913603365, 22.1438656}
+redFixedCard1Rot = {0.000001649019, 0, -5.261423e-7}
+redFixedCard2Pos = {36.9046, 0.913603365, 22.14139}
+redFixedCard2Rot = {0.00000158226567, 0, -5.17774538e-7}
+
+-- Fixed positions and rotations for Blue secondary cards (using negatives)
+blueFixedCard1Pos = {-32.867672, 0.913603365, -22.1438656}
+blueFixedCard1Rot = {0.000001649019, 180, -5.261423e-7}
+blueFixedCard2Pos = {-36.9046, 0.913603365, -22.14139}
+blueFixedCard2Rot = {0.00000158226567, 180, -5.17774538e-7}
+
+-- Global variables to hold the center clones separately for each color.
+fixedSecondaryCard1_Red = nil
+fixedSecondaryCard2_Red = nil
+fixedSecondaryCard1_Blue = nil
+fixedSecondaryCard2_Blue = nil
+
+function copySecondaryCardToCenter(card, index, playerColor)
+    if not card then
+        print("copySecondaryCardToCenter: No card provided!")
+        return
+    end
+
+    local cloneParams = {
+        locked = false,
+        snap_to_grid = false,
+    }
+
+    if playerColor == "Red" then
+        if index == 1 then
+            cloneParams.position = redFixedCard1Pos
+            cloneParams.rotation = redFixedCard1Rot
+            cloneParams.scale = fixedCard2Scale
+        elseif index == 2 then
+            cloneParams.position = redFixedCard2Pos
+            cloneParams.rotation = redFixedCard2Rot
+            cloneParams.scale = fixedCard2Scale
+        else
+            print("copySecondaryCardToCenter: Unknown index for Red: " .. index)
+            return
+        end
+    elseif playerColor == "Blue" then
+        if index == 1 then
+            cloneParams.position = blueFixedCard1Pos
+            cloneParams.rotation = blueFixedCard1Rot
+            cloneParams.scale = fixedCard2Scale
+        elseif index == 2 then
+            cloneParams.position = blueFixedCard2Pos
+            cloneParams.rotation = blueFixedCard2Rot
+            cloneParams.scale = fixedCard2Scale
+        else
+            print("copySecondaryCardToCenter: Unknown index for Blue: " .. index)
+            return
+        end
+    else
+        print("copySecondaryCardToCenter: Unknown playerColor: " .. tostring(playerColor))
+        return
+    end
+
+    local clone = card.clone(cloneParams)
+    if not clone then
+        print("copySecondaryCardToCenter: Clone failed!")
+        return
+    end
+
+    -- Explicitly unlock the clone.
+    clone.setLock(false)
+    clone.interactable = true
+
+    if playerColor == "Red" then
+        if index == 1 then
+            if fixedSecondaryCard1_Red then fixedSecondaryCard1_Red.destroy() end
+            fixedSecondaryCard1_Red = clone
+        elseif index == 2 then
+            if fixedSecondaryCard2_Red then fixedSecondaryCard2_Red.destroy() end
+            fixedSecondaryCard2_Red = clone
+        end
+    elseif playerColor == "Blue" then
+        if index == 1 then
+            if fixedSecondaryCard1_Blue then fixedSecondaryCard1_Blue.destroy() end
+            fixedSecondaryCard1_Blue = clone
+        elseif index == 2 then
+            if fixedSecondaryCard2_Blue then fixedSecondaryCard2_Blue.destroy() end
+            fixedSecondaryCard2_Blue = clone
+        end
+    end
 end
 
+
+-- Draw functions:
+-- For Red: use zone "secondary11" for index 1 and "secondary12" for index 2.
+function drawSecondary1()
+    -- If both fixed clones already exist, nothing to do.
+    if fixedSecondaryCard1_Red and fixedSecondaryCard2_Red then
+        return
+    end
+
+    -- If fixed clone for index 1 is missing, draw from zone "secondary11"
+    if not fixedSecondaryCard1_Red then
+        if #secondary11ZoneObj.getObjects() < 1 then
+            Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary11"})
+            Wait.time(function()
+                local objs = secondary11ZoneObj.getObjects()
+                if #objs > 0 then
+                    copySecondaryCardToCenter(objs[1], 1, "Red")
+                end
+            end, 1)
+        end
+    end
+
+    -- If fixed clone for index 2 is missing, draw from zone "secondary12"
+    if not fixedSecondaryCard2_Red then
+        if #secondary12ZoneObj.getObjects() < 1 then
+            Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary12"})
+            Wait.time(function()
+                local objs = secondary12ZoneObj.getObjects()
+                if #objs > 0 then
+                    copySecondaryCardToCenter(objs[1], 2, "Red")
+                end
+            end, 1)
+        end
+    end
+end
+
+
+-- For Blue: use zone "secondary21" for index 1 and "secondary22" for index 2.
 function drawSecondary2()
-	if #secondary21ZoneObj.getObjects() < 1 then
-		Global.call("moveOneFromDeckToZone", {deck = "blueSecondary", zone = "secondary21"})
-	elseif #secondary22ZoneObj.getObjects() < 1 then
-		Global.call("moveOneFromDeckToZone", {deck = "blueSecondary", zone = "secondary22"})
-	end
+    if fixedSecondaryCard1_Blue and fixedSecondaryCard2_Blue then
+        return
+    end
+
+    if not fixedSecondaryCard1_Blue then
+        if #secondary21ZoneObj.getObjects() < 1 then
+            Global.call("moveOneFromDeckToZoneBlue", {deck = "blueSecondary", zone = "secondary21"})
+            Wait.time(function()
+                local objs = secondary21ZoneObj.getObjects()
+                if #objs > 0 then
+                    copySecondaryCardToCenter(objs[1], 1, "Blue")
+                end
+            end, 1)
+        end
+    end
+
+    if not fixedSecondaryCard2_Blue then
+        if #secondary22ZoneObj.getObjects() < 1 then
+            Global.call("moveOneFromDeckToZoneBlue", {deck = "blueSecondary", zone = "secondary22"})
+            Wait.time(function()
+                local objs = secondary22ZoneObj.getObjects()
+                if #objs > 0 then
+                    copySecondaryCardToCenter(objs[1], 2, "Blue")
+                end
+            end, 1)
+        end
+    end
 end
 
 function drawChallenger()
@@ -646,78 +871,153 @@ function drawChallenger()
 	end
 end
 
-function recycleSecondary11()
-	Global.call("moveAllFromZoneToDeck", {zone = "secondary11", deck = "redSecondary"})
-	Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary11"})
+function discardChallenger()
+    local cards = challengerZoneObj.getObjects()
+    for _, card in ipairs(cards) do
+        card.locked = false
+        card.setPositionSmooth(challengerDiscardPosition)
+    end
 end
 
-function recycleSecondary12()
-	Global.call("moveAllFromZoneToDeck", {zone = "secondary12", deck = "redSecondary"})
-	Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary12"})
-end
+function onObjectDestroyed(destroyed_obj)
+    -- Check if a fixed Red secondary clone was deleted
+    if fixedSecondaryCard1_Red and fixedSecondaryCard1_Red == destroyed_obj then
+        fixedSecondaryCard1_Red = nil
+    end
+    if fixedSecondaryCard2_Red and fixedSecondaryCard2_Red == destroyed_obj then
+        fixedSecondaryCard2_Red = nil
+    end
 
-function recycleSecondary21()
-	Global.call("moveAllFromZoneToDeck", {zone = "secondary21", deck = "blueSecondary"})
-	Global.call("moveOneFromDeckToZone", {deck = "blueSecondary", zone = "secondary21"})
+    -- Check if a fixed Blue secondary clone was deleted
+    if fixedSecondaryCard1_Blue and fixedSecondaryCard1_Blue == destroyed_obj then
+        fixedSecondaryCard1_Blue = nil
+    end
+    if fixedSecondaryCard2_Blue and fixedSecondaryCard2_Blue == destroyed_obj then
+        fixedSecondaryCard2_Blue = nil
+    end
 end
-
-function recycleSecondary22()
-	Global.call("moveAllFromZoneToDeck", {zone = "secondary22", deck = "blueSecondary"})
-	Global.call("moveOneFromDeckToZone", {deck = "blueSecondary", zone = "secondary22"})
-end
-
+-- Discard functions:
 function discardSecondary11()
-	local cards = secondary11ZoneObj.getObjects()
-	for _,card in ipairs(cards) do
-		card.locked = false
-		card.setPositionSmooth(redDiscardPosition)
-	end
+    if fixedSecondaryCard1_Red then
+        fixedSecondaryCard1_Red.destroy()
+        fixedSecondaryCard1_Red = nil
+    end
+    local cards = secondary11ZoneObj.getObjects()
+    for _, card in ipairs(cards) do
+        card.locked = false
+        card.setPositionSmooth(redDiscardPosition)
+    end
 end
 
 function discardSecondary12()
-	local cards = secondary12ZoneObj.getObjects()
-	for _,card in ipairs(cards) do
-		card.locked = false
-		card.setPositionSmooth(redDiscardPosition)
-	end
+    if fixedSecondaryCard2_Red then
+        fixedSecondaryCard2_Red.destroy()
+        fixedSecondaryCard2_Red = nil
+    end
+    local cards = secondary12ZoneObj.getObjects()
+    for _, card in ipairs(cards) do
+        card.locked = false
+        card.setPositionSmooth(redDiscardPosition)
+    end
 end
 
 function discardSecondary21()
-	local cards = secondary21ZoneObj.getObjects()
-	for _,card in ipairs(cards) do
-		card.locked = false
-		card.setPositionSmooth(blueDiscardPosition)
-	end
+    if fixedSecondaryCard1_Blue then
+        fixedSecondaryCard1_Blue.destroy()
+        fixedSecondaryCard1_Blue = nil
+    end
+    local cards = secondary21ZoneObj.getObjects()
+    for _, card in ipairs(cards) do
+        card.locked = false
+        card.setPositionSmooth(blueDiscardPosition)
+    end
 end
 
 function discardSecondary22()
-	local cards = secondary22ZoneObj.getObjects()
-	for _,card in ipairs(cards) do
-		card.locked = false
-		card.setPositionSmooth(blueDiscardPosition)
-	end
+    if fixedSecondaryCard2_Blue then
+        fixedSecondaryCard2_Blue.destroy()
+        fixedSecondaryCard2_Blue = nil
+    end
+    local cards = secondary22ZoneObj.getObjects()
+    for _, card in ipairs(cards) do
+        card.locked = false
+        card.setPositionSmooth(blueDiscardPosition)
+    end
 end
 
-function discardChallenger()
-	local cards = challengerZoneObj.getObjects()
-	for _,card in ipairs(cards) do
-		card.locked = false
-		card.setPositionSmooth(challengerDiscardPosition)
-	end
+-- Recycle functions:
+function recycleSecondary11()
+    if fixedSecondaryCard1_Red then
+        fixedSecondaryCard1_Red.destroy()
+        fixedSecondaryCard1_Red = nil
+    end
+    Global.call("moveAllFromZoneToDeck", {zone = "secondary11", deck = "redSecondary"})
+    Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary11"})
+    Wait.time(function()
+        local objs = secondary11ZoneObj.getObjects()
+        if #objs > 0 then
+            copySecondaryCardToCenter(objs[1], 1, "Red")
+        end
+    end, 1)
+end
+
+function recycleSecondary12()
+    if fixedSecondaryCard2_Red then
+        fixedSecondaryCard2_Red.destroy()
+        fixedSecondaryCard2_Red = nil
+    end
+    Global.call("moveAllFromZoneToDeck", {zone = "secondary12", deck = "redSecondary"})
+    Global.call("moveOneFromDeckToZone", {deck = "redSecondary", zone = "secondary12"})
+    Wait.time(function()
+        local objs = secondary12ZoneObj.getObjects()
+        if #objs > 0 then
+            copySecondaryCardToCenter(objs[1], 2, "Red")
+        end
+    end, 1)
+end
+
+function recycleSecondary21()
+    if fixedSecondaryCard1_Blue then
+        fixedSecondaryCard1_Blue.destroy()
+        fixedSecondaryCard1_Blue = nil
+    end
+    Global.call("moveAllFromZoneToDeck", {zone = "secondary21", deck = "blueSecondary"})
+    Global.call("moveOneFromDeckToZoneBlue", {deck = "blueSecondary", zone = "secondary21"})
+    Wait.time(function()
+        local objs = secondary21ZoneObj.getObjects()
+        if #objs > 0 then
+            copySecondaryCardToCenter(objs[1], 1, "Blue")
+        end
+    end, 1)
+end
+
+function recycleSecondary22()
+    if fixedSecondaryCard2_Blue then
+        fixedSecondaryCard2_Blue.destroy()
+        fixedSecondaryCard2_Blue = nil
+    end
+    Global.call("moveAllFromZoneToDeck", {zone = "secondary22", deck = "blueSecondary"})
+    Global.call("moveOneFromDeckToZoneBlue", {deck = "blueSecondary", zone = "secondary22"})
+    Wait.time(function()
+        local objs = secondary22ZoneObj.getObjects()
+        if #objs > 0 then
+            copySecondaryCardToCenter(objs[1], 2, "Blue")
+        end
+    end, 1)
 end
 
 function handleInitialSecondary(zone, discardPosition)
-	local fixedObjective = false
-	local cards = zone.getObjects()
-	for _,card in ipairs(cards) do
-		if card.getGMNotes() == "TacticalObjectives" then
-			card.setPositionSmooth(discardPosition)
-		else
-			card.locked = true
-			fixedObjective = true
-		end
-	end
-	return fixedObjective
+    local fixedObjective = false
+    local cards = zone.getObjects()
+    for _, card in ipairs(cards) do
+        if card.getGMNotes() == "TacticalObjectives" then
+            card.setPositionSmooth(discardPosition)
+        else
+            -- Removed: card.locked = true (so new cards stay unlocked)
+            fixedObjective = true
+        end
+    end
+    return fixedObjective
 end
 
 function startGame()
@@ -752,6 +1052,8 @@ function checkChallenger()
 	elseif playerSum(1) - playerSum(2) > 5 then
 		-- Red winning by 6+ - blue is the challenger
 		broadcastToAll(Player.Blue.steam_name .. " is the challenger!", {0,0,1})
+	elseif getObjectFromGUID("fe7926") ~= nil then
+		broadcastToAll("Gonna credit me this time Jamie? ;-)", {1,1,1})
 	end
 end
 

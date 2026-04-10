@@ -1,4 +1,5 @@
 -- FTC-GUID: 70b9f6
+-- FTC-GUID: 70b9f6
 keepForTerrainEditor = true
 
 playZone=nil
@@ -268,12 +269,12 @@ function createDebugMat()
         type              = "Custom_Model",
         position          = mat.getPosition(),
 
-        params            = {mesh="http://cloud-3.steamusercontent.com/ugc/879750610978796176/4A5A65543B98BCFBF57E910D06EC984208223D38/",diffuse="http://cloud-3.steamusercontent.com/ugc/786374678935692054/F32489A74087FB9D9E26AC5F9461841B8C40B37A/"},
+        params            = {mesh="https://steamusercontent-a.akamaihd.net/ugc/879750610978796176/4A5A65543B98BCFBF57E910D06EC984208223D38/",diffuse="https://steamusercontent-a.akamaihd.net/ugc/786374678935692054/F32489A74087FB9D9E26AC5F9461841B8C40B37A/"},
 
     })
     clone.setLuaScript("")
     --clone.setCustomObject(mat.getCustomObject())
-    clone.setCustomObject({mesh="http://cloud-3.steamusercontent.com/ugc/879750610978796176/4A5A65543B98BCFBF57E910D06EC984208223D38/", diffuse=mat.getCustomObject().diffuse, material = 3})
+    clone.setCustomObject({mesh="https://steamusercontent-a.akamaihd.net/ugc/879750610978796176/4A5A65543B98BCFBF57E910D06EC984208223D38/", diffuse=mat.getCustomObject().diffuse, material = 3})
     clone.setScale(mat.getScale())
     clone.setLock(true)
     --clone.interactable=false

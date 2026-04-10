@@ -1,0 +1,2062 @@
+{
+  "7c7c20": {
+    "Name": "Chip_100",
+    "Nickname": "紅方戰鎚數據輔助",
+    "Description": "這是由 Ricu 製作的戰鎚數據輔助工具。\n\n它會顯示你選擇的武器數據。\n\n你也可以繪製射程來查看距離。"
+  },
+  "b7ac7a": {
+    "Name": "Chip_100",
+    "Nickname": "藍方戰鎚數據輔助",
+    "Description": "這是由 Ricu 製作的戰鎚數據輔助工具。\n\n它會顯示你選擇的武器數據。\n\n你也可以繪製射程來查看距離。"
+  },
+  "8c71ab": {
+    "Name": "Custom_Token",
+    "Nickname": "互動按鈕 - 區域封鎖",
+    "Description": ""
+  },
+  "9a8b52": {
+    "Name": "Custom_Token",
+    "Nickname": "互動按鈕 - 9吋區域",
+    "Description": ""
+  },
+  "7b7ab8": {
+    "Name": "Custom_Token",
+    "Nickname": "互動按鈕 - 戰略預備隊",
+    "Description": ""
+  },
+  "8aba11": {
+    "Name": "Custom_Token",
+    "Nickname": "互動按鈕 - 部署區",
+    "Description": ""
+  },
+  "59decf": {
+    "Name": "Custom_Token",
+    "Nickname": "互動按鈕 - 桌面象限",
+    "Description": ""
+  },
+  "d26e9c": {
+    "Name": "Deck",
+    "Nickname": "主要任務卡牌",
+    "Description": ""
+  },
+  "6860de": {
+    "Name": "CardCustom",
+    "Nickname": "焦土",
+    "Description": "[b]棄民連結主要任務[/b]\n\n從第二戰鬥回合開始：\n在每個指揮階段結束時，當回合玩家每控制一個目標標記得4VP（每回合最多8VP）。\n\n[b]焦土行動：[/b]\n在每位玩家的射擊階段中，當回合玩家可以從其軍隊中選擇一個未處於交戰狀態且符合射擊資格的單位執行焦土行動。直到該回合結束，該單位不可射擊或宣告衝鋒。\n在該回合結束時，若該單位在無人地帶的一個你所控制的目標標記範圍內，移除該目標標記並得3"
+  },
+  "7fa6d0": {
+    "Name": "CardCustom",
+    "Nickname": "改造地形",
+    "Description": "[b]CA 2025 主要任務[/b]\n\n從第二戰鬥回合開始：\n在每個指揮階段結束時，當回合玩家每控制一個目標標記得4VP（每回合最多8VP）。\n\n[b]改造地形行動：[/b]\n在每位玩家的射擊階段中，當回合玩家可以從其軍隊中選擇一個未處於戰慄狀態且符合射擊資格的單位執行改造行動。直到該回合結束，該單位不可射擊或宣告衝鋒。\n在該回合結束時，若該單位在無人地帶中你所控制的一個目標標記範圍內，你可以將"
+  },
+  "981226": {
+    "Name": "CardCustom",
+    "Nickname": "補給投放",
+    "Description": "[b]CA 2025 主要任務[/b]\n\n戰鬥開始時，隨機選擇無人地帶中的兩個不同目標標記：第一個為Alpha目標，第二個為Omega目標。\n\n[b]在第二、三戰鬥回合：[/b]\n在每個指揮階段結束時，當回合玩家每控制一個補給目標（Alpha或Omega）得5VP（每回合最多10VP）。\n\n[b]在第四戰鬥回合開始時：[/b]\nAlpha目標從戰場移除。\n\n[b]在第四戰鬥回合：[/b]\n在每個指"
+  },
+  "bffd57": {
+    "Name": "CardCustom",
+    "Nickname": "奪取並固守",
+    "Description": "[b]棄民連結主要任務[/b]\n\n從第二戰鬥回合開始：\n在每個指揮階段結束時，當回合玩家每控制一個目標標記得5VP（每回合最多15VP）。"
+  },
+  "85718e": {
+    "Name": "CardCustom",
+    "Nickname": "信任重擔",
+    "Description": "[b]CA 2025 主要任務[/b]\n\n戰鬥開始前，每位玩家秘密將3個重擔標記（分別標記為1、2、3）分配到3個不同的目標標記上。同時公開所有標記。\n\n[b]守衛行動：[/b]\n從第一戰鬥回合開始，在每位玩家的射擊階段中，當回合玩家可以從其軍隊中選擇一個未處於戰慄狀態且符合射擊資格的單位執行守衛行動。直到該回合結束，該單位不可射擊或宣告衝鋒。\n\n[b]計分（從第二戰鬥回合開始）：[/b]\n在每個"
+  },
+  "85718f": {
+    "Name": "CardCustom",
+    "Nickname": "隱藏補給",
+    "Description": "[b]棄民連結主要任務[/b]\n\n設置戰場後，移除無人地帶中的所有目標標記。\n\n從第一戰鬥回合開始：\n在每位玩家的射擊階段中，當回合玩家可以從其軍隊中選擇一個未處於交戰狀態且符合射擊資格的單位執行搜索行動。直到該回合結束，該單位不可射擊或宣告衝鋒。\n在該回合結束時，若該單位完全在無人地帶內，在該單位1\"範圍內放置一個新的目標標記（不可放置在任何其他目標標記6\"範圍內）。\n\n從第二戰鬥回合開始：\n在"
+  },
+  "540fd0": {
+    "Name": "CardCustom",
+    "Nickname": "關鍵要地",
+    "Description": "[b]棄民連結主要任務[/b]\n\n最靠近戰場中心的無人地帶目標標記為「關鍵要地」。\n\n從第二戰鬥回合開始：\n在每個指揮階段結束時，當回合玩家每控制一個目標標記得4VP（每回合最多8VP）。\n若你同時控制關鍵要地，額外得3VP。"
+  },
+  "7067e2": {
+    "Name": "CardCustom",
+    "Nickname": "儀式",
+    "Description": "[b]棄民連結主要任務[/b]\n\n設置戰場時，移除無人地帶中除最靠近戰場中心的目標標記外的所有目標標記。\n\n在每位玩家的射擊階段中，當回合玩家可以從其軍隊中選擇一個未處於交戰狀態且符合射擊資格的單位執行儀式行動。直到該回合結束，該單位不可射擊或宣告衝鋒。\n\n從第二戰鬥回合開始：\n在每個指揮階段結束時，當回合玩家每控制一個目標標記得5VP（每回合最多15VP）。\n若你在此回合完成了儀式行動且執行單位"
+  },
+  "41f293": {
+    "Name": "CardCustom",
+    "Nickname": "未爆彈藥",
+    "Description": "[b]棄民連結主要任務[/b]\n\n無人地帶中的所有目標標記皆為「未爆彈藥」。\n\n[b]危險區域：[/b]每次有單位在未爆彈藥目標2\"範圍內結束移動時，擲一顆D6：1=該目標爆炸（對該單位造成D3致命傷害並移除該目標標記）。\n\n從第二戰鬥回合開始：\n在每個指揮階段結束時，當回合玩家每控制一個目標標記得5VP（每回合最多15VP）。"
+  },
+  "d9d35a": {
+    "Name": "CardCustom",
+    "Nickname": "清剿敵軍",
+    "Description": "[b]棄民連結主要任務[/b]\n\n從第二戰鬥回合開始：\n在每個指揮階段結束時，當回合玩家若控制一個或多個目標標記得4VP。\n若你控制的目標標記數量多於對手，額外得4VP。\n\n每回合最多8VP。"
+  },
+  "ab9a21": {
+    "Name": "Custom_Token",
+    "Nickname": "已推進",
+    "Description": ""
+  },
+  "ad19a7": {
+    "Name": "Custom_Token",
+    "Nickname": "行動進行中",
+    "Description": ""
+  },
+  "ca12da": {
+    "Name": "Custom_Token",
+    "Nickname": "戰慄 - 點擊切換物件的戰慄狀態",
+    "Description": ""
+  },
+  "3b0476": {
+    "Name": "Custom_Token",
+    "Nickname": "已推進 - 點擊切換物件的戰慄狀態",
+    "Description": ""
+  },
+  "a09c4e": {
+    "Name": "Custom_Token",
+    "Nickname": "行動進行中 - 點擊切換物件的戰慄狀態",
+    "Description": ""
+  },
+  "ae9056": {
+    "Name": "Custom_Token",
+    "Nickname": "戰慄 - 點擊切換物件的戰慄狀態",
+    "Description": ""
+  },
+  "cda0b3": {
+    "Name": "Custom_Token",
+    "Nickname": "死亡標記",
+    "Description": ""
+  },
+  "c09349": {
+    "Name": "Custom_Assetbundle",
+    "Nickname": "藍方骰子鏡頭",
+    "Description": ""
+  },
+  "7ac8ba": {
+    "Name": "Custom_Tile",
+    "Nickname": "紅方致命命中區域",
+    "Description": "紅方致命命中偵測區域"
+  },
+  "71ab21": {
+    "Name": "Custom_Tile",
+    "Nickname": "藍方致命命中區域",
+    "Description": "藍方致命命中偵測區域"
+  },
+  "ff8a74": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰 3.1",
+    "Description": ""
+  },
+  "5ae8bc": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - 1.4",
+    "Description": ""
+  },
+  "beafc2": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - 1.3",
+    "Description": ""
+  },
+  "349e18": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - 1.2",
+    "Description": ""
+  },
+  "c1da86": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - 1.1",
+    "Description": ""
+  },
+  "5d3485": {
+    "Name": "Counter",
+    "Nickname": "清剿敵軍擊殺計數器",
+    "Description": "紅方玩家\n"
+  },
+  "c41f82": {
+    "Name": "Counter",
+    "Nickname": "清剿敵軍擊殺計數器",
+    "Description": "藍方玩家\n"
+  },
+  "3fc012": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - 1",
+    "Description": ""
+  },
+  "b15763": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - 2",
+    "Description": ""
+  },
+  "c2cd85": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - 3",
+    "Description": ""
+  },
+  "6e6df1": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - 4 - 5",
+    "Description": ""
+  },
+  "a959e1": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - 6",
+    "Description": ""
+  },
+  "095609": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - 7",
+    "Description": ""
+  },
+  "6b5633": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - 8",
+    "Description": ""
+  },
+  "458628": {
+    "Name": "CardCustom",
+    "Nickname": "戰爭黎明 - 1",
+    "Description": ""
+  },
+  "832272": {
+    "Name": "CardCustom",
+    "Nickname": "戰爭黎明 - 2",
+    "Description": ""
+  },
+  "77b419": {
+    "Name": "CardCustom",
+    "Nickname": "戰爭黎明 - 3",
+    "Description": ""
+  },
+  "d21023": {
+    "Name": "CardCustom",
+    "Nickname": "戰爭黎明 - 4",
+    "Description": ""
+  },
+  "d20316": {
+    "Name": "CardCustom",
+    "Nickname": "戰爭黎明 - 5",
+    "Description": ""
+  },
+  "f0d63c": {
+    "Name": "CardCustom",
+    "Nickname": "戰爭黎明 - 6",
+    "Description": ""
+  },
+  "c8d537": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧 - 1",
+    "Description": ""
+  },
+  "406b41": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧 - 2",
+    "Description": ""
+  },
+  "92a16e": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧 - 3",
+    "Description": ""
+  },
+  "d5fde1": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧 - 4 - 5",
+    "Description": ""
+  },
+  "fa21d0": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧 - 6",
+    "Description": ""
+  },
+  "8c1f64": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧 - 7",
+    "Description": ""
+  },
+  "bdc099": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧 - 8",
+    "Description": ""
+  },
+  "9c11d1": {
+    "Name": "CardCustom",
+    "Nickname": "搜索與殲滅 - 1",
+    "Description": ""
+  },
+  "1bb358": {
+    "Name": "CardCustom",
+    "Nickname": "搜索與殲滅 - 2",
+    "Description": ""
+  },
+  "52c6fe": {
+    "Name": "CardCustom",
+    "Nickname": "搜索與殲滅 - 3",
+    "Description": ""
+  },
+  "4b00f3": {
+    "Name": "CardCustom",
+    "Nickname": "搜索與殲滅 - 4 - 5",
+    "Description": ""
+  },
+  "ef3f6a": {
+    "Name": "CardCustom",
+    "Nickname": "搜索與殲滅 - 6",
+    "Description": ""
+  },
+  "fd84f6": {
+    "Name": "CardCustom",
+    "Nickname": "搜索與殲滅 - 7",
+    "Description": ""
+  },
+  "9ba3c6": {
+    "Name": "CardCustom",
+    "Nickname": "搜索與殲滅 - 8",
+    "Description": ""
+  },
+  "cf295e": {
+    "Name": "CardCustom",
+    "Nickname": "轉捩點 - 1",
+    "Description": ""
+  },
+  "e436d0": {
+    "Name": "CardCustom",
+    "Nickname": "轉捩點 - 2",
+    "Description": ""
+  },
+  "1956ef": {
+    "Name": "CardCustom",
+    "Nickname": "轉捩點 - 3",
+    "Description": ""
+  },
+  "126e24": {
+    "Name": "CardCustom",
+    "Nickname": "轉捩點 - 4 - 5",
+    "Description": ""
+  },
+  "fd9b44": {
+    "Name": "CardCustom",
+    "Nickname": "轉捩點 - 6",
+    "Description": ""
+  },
+  "ec6d5e": {
+    "Name": "CardCustom",
+    "Nickname": "轉捩點 - 7",
+    "Description": ""
+  },
+  "8a0534": {
+    "Name": "CardCustom",
+    "Nickname": "轉捩點 - 8",
+    "Description": ""
+  },
+  "428d22": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰 - 1",
+    "Description": ""
+  },
+  "7994eb": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰 - 2",
+    "Description": ""
+  },
+  "71612b": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰 - 3",
+    "Description": ""
+  },
+  "cae503": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰 - 4",
+    "Description": ""
+  },
+  "595f1c": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰 - 5",
+    "Description": ""
+  },
+  "11a3b3": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰 - 6",
+    "Description": ""
+  },
+  "282eef": {
+    "Name": "CardCustom",
+    "Nickname": "U - UKTC singles R1 轉捩點/改造地形",
+    "Description": ""
+  },
+  "684897": {
+    "Name": "CardCustom",
+    "Nickname": "V - UKTC singles R4 戰鬥坩堝/清剿敵軍",
+    "Description": ""
+  },
+  "29b7f4": {
+    "Name": "CardCustom",
+    "Nickname": "W - UKTC singles R3 搜索與殲滅/隱藏補給",
+    "Description": ""
+  },
+  "57ec5b": {
+    "Name": "CardCustom",
+    "Nickname": "X - UKTC singles R2 戰鬥坩堝/關鍵要地",
+    "Description": ""
+  },
+  "7cdd34": {
+    "Name": "CardCustom",
+    "Nickname": "Y - UKTC singles R5 搜索與殲滅/奪取並固守",
+    "Description": ""
+  },
+  "d257a9": {
+    "Name": "CardCustom",
+    "Nickname": "Z - UKTC singles R6 轉捩點/改造地形",
+    "Description": ""
+  },
+  "7aca71": {
+    "Name": "Bag",
+    "Nickname": "標記袋（紅方）",
+    "Description": ""
+  },
+  "e205d6": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]已撤退[/i][/b]",
+    "Description": ""
+  },
+  "3e4f69": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]已撤退[/i][/b]",
+    "Description": ""
+  },
+  "6222a0": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]隱匿[/i][/b]",
+    "Description": ""
+  },
+  "3c9222": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]隱匿[/i][/b]",
+    "Description": ""
+  },
+  "e593f6": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]無法獲得掩蔽效益[/i][/b]",
+    "Description": ""
+  },
+  "3f807f": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]無法獲得掩蔽效益[/i][/b]",
+    "Description": ""
+  },
+  "2591a2": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]先攻[/i][/b]",
+    "Description": ""
+  },
+  "345d26": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]先攻[/i][/b]",
+    "Description": ""
+  },
+  "71509d": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]致命命中[/i][/b]",
+    "Description": ""
+  },
+  "de62af": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]狀態變更[/i][/b]",
+    "Description": ""
+  },
+  "6e9642": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]持續命中[/i][/b]",
+    "Description": ""
+  },
+  "2ebd59": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]忽略命中骰修正[/i][/b]",
+    "Description": ""
+  },
+  "380dbe": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]忽略命中骰修正[/i][/b]",
+    "Description": ""
+  },
+  "bd356a": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]隱匿[/i][/b]",
+    "Description": ""
+  },
+  "eaf1dc": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]毀滅性傷害[/i][/b]",
+    "Description": ""
+  },
+  "22a40b": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]重骰命中1[/i][/b]",
+    "Description": ""
+  },
+  "9c9e41": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]重骰命中1[/i][/b]",
+    "Description": ""
+  },
+  "1feb11": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]命中骰+1[/i][/b]",
+    "Description": ""
+  },
+  "4d3cf4": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]命中骰+1[/i][/b]",
+    "Description": ""
+  },
+  "5a6642": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]命中骰-1[/i][/b]",
+    "Description": ""
+  },
+  "2c9222": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]命中骰-1[/i][/b]",
+    "Description": ""
+  },
+  "852dec": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]重骰命中骰[/i][/b]",
+    "Description": ""
+  },
+  "0fe174": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]重骰命中骰[/i][/b]",
+    "Description": ""
+  },
+  "91a1ba": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]重骰傷害骰[/i][/b]",
+    "Description": ""
+  },
+  "d6a6c9": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]重骰傷害骰[/i][/b]",
+    "Description": ""
+  },
+  "467efc": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]重骰傷害1[/i][/b]",
+    "Description": ""
+  },
+  "d21baf": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]重骰傷害1[/i][/b]",
+    "Description": ""
+  },
+  "9f1d70": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]韌性-1[/i][/b]",
+    "Description": ""
+  },
+  "5a61ce": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]韌性-1[/i][/b]",
+    "Description": ""
+  },
+  "5bc61d": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]韌性+1[/i][/b]",
+    "Description": ""
+  },
+  "85116a": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]力量+1[/i][/b]",
+    "Description": ""
+  },
+  "60b24f": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]力量-1[/i][/b]",
+    "Description": ""
+  },
+  "234560": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]攻擊+1[/i][/b]",
+    "Description": ""
+  },
+  "2dc321": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]攻擊+1[/i][/b]",
+    "Description": ""
+  },
+  "e6d4c7": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]攻擊-1[/i][/b]",
+    "Description": ""
+  },
+  "2dc221": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]攻擊-1[/i][/b]",
+    "Description": ""
+  },
+  "48f8c9": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]力量-1[/i][/b]",
+    "Description": ""
+  },
+  "e1e1e9": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]穿甲值提升1[/i][/b]",
+    "Description": ""
+  },
+  "13c4ac": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]豁免骰+1[/i][/b]",
+    "Description": ""
+  },
+  "8ac546": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]移動增強[/i][/b]",
+    "Description": ""
+  },
+  "911363": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]移動增強[/i][/b]",
+    "Description": ""
+  },
+  "a0ff43": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]傷害骰+1[/i][/b]",
+    "Description": ""
+  },
+  "31d14d": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]傷害骰+1[/i][/b]",
+    "Description": ""
+  },
+  "74b3e7": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]傷害骰-1[/i][/b]",
+    "Description": ""
+  },
+  "4ae26f": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]傷害骰-1[/i][/b]",
+    "Description": ""
+  },
+  "5ee87a": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]穿甲值降低1[/i][/b]",
+    "Description": ""
+  },
+  "39a561": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]豁免骰-1[/i][/b]",
+    "Description": ""
+  },
+  "fbf1d6": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]移動削弱[/i][/b]",
+    "Description": ""
+  },
+  "cb3cc2": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]移動削弱[/i][/b]",
+    "Description": ""
+  },
+  "103a0e": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]戰慄[/i][/b]",
+    "Description": ""
+  },
+  "b20417": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]已推進[/i][/b]",
+    "Description": ""
+  },
+  "98e463": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]行動進行中[/i][/b]",
+    "Description": ""
+  },
+  "1c0491": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]已推進[/i][/b]",
+    "Description": ""
+  },
+  "9b9a9a": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]戰慄[/i][/b]",
+    "Description": ""
+  },
+  "aba7a1": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]行動進行中[/i][/b]",
+    "Description": ""
+  },
+  "8a7d71": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]已推進[/i][/b]",
+    "Description": ""
+  },
+  "10a26a": {
+    "Name": "Bag",
+    "Nickname": "標記袋（藍方）",
+    "Description": ""
+  },
+  "c15e43": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]戰慄[/i][/b]",
+    "Description": ""
+  },
+  "cbbff6": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]已撤退[/i][/b]",
+    "Description": ""
+  },
+  "b43316": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]隱匿[/i][/b]",
+    "Description": ""
+  },
+  "0c536a": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]無法獲得掩蔽效益[/i][/b]",
+    "Description": ""
+  },
+  "e3707e": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]忽略命中骰修正[/i][/b]",
+    "Description": ""
+  },
+  "24c450": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]先攻[/i][/b]",
+    "Description": ""
+  },
+  "38b87c": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]致命命中[/i][/b]",
+    "Description": ""
+  },
+  "e7c017": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]毀滅性傷害[/i][/b]",
+    "Description": ""
+  },
+  "2fce45": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]隱匿[/i][/b]",
+    "Description": ""
+  },
+  "02ebc4": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]持續命中[/i][/b]",
+    "Description": ""
+  },
+  "bf22a5": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]重骰命中1[/i][/b]",
+    "Description": ""
+  },
+  "6a76c1": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]重骰傷害1[/i][/b]",
+    "Description": ""
+  },
+  "d01b30": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]重骰傷害骰[/i][/b]",
+    "Description": ""
+  },
+  "d1e9cb": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]重骰命中骰[/i][/b]",
+    "Description": ""
+  },
+  "ee4cb1": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]命中骰-1[/i][/b]",
+    "Description": ""
+  },
+  "f5a0f3": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]命中骰+1[/i][/b]",
+    "Description": ""
+  },
+  "1a4215": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]已推進[/i][/b]",
+    "Description": ""
+  },
+  "6ae1c4": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]戰慄[/i][/b]",
+    "Description": ""
+  },
+  "70af5a": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]力量+1[/i][/b]",
+    "Description": ""
+  },
+  "e4b032": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]韌性+1[/i][/b]",
+    "Description": ""
+  },
+  "39a367": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]攻擊+1[/i][/b]",
+    "Description": ""
+  },
+  "aa0f7e": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]攻擊-1[/i][/b]",
+    "Description": ""
+  },
+  "2924aa": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]力量-1[/i][/b]",
+    "Description": ""
+  },
+  "4930e4": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]韌性-1[/i][/b]",
+    "Description": ""
+  },
+  "ccd8a9": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]傷害骰+1[/i][/b]",
+    "Description": ""
+  },
+  "c233ef": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]穿甲值提升1[/i][/b]",
+    "Description": ""
+  },
+  "c60778": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]移動增強[/i][/b]",
+    "Description": ""
+  },
+  "34e075": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]傷害骰-1[/i][/b]",
+    "Description": ""
+  },
+  "5a4941": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]穿甲值降低1[/i][/b]",
+    "Description": ""
+  },
+  "a9d027": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]移動削弱[/i][/b]",
+    "Description": ""
+  },
+  "4cedbe": {
+    "Name": "Notecard",
+    "Nickname": "佈局牌組",
+    "Description": "\n- 根據任務選擇一組牌組\n\n- 洗牌並抽1張\n\n- 翻面並點擊「載入地圖」\n\n- 享受遊戲！\n"
+  },
+  "6f7f88": {
+    "Name": "Notecard",
+    "Nickname": "任務概要 團隊賽",
+    "Description": "• [Hammer & Anvil] Fog of War / Linchpin\r\n• [Search & Destroy] Swift Action / Scorched Earth\r\n• [Crucible of Battle] Raise Banners / Purge the Foe\r\n• [Tipping Point] Inspired Leadership / Burden of Tr"
+  },
+  "517692": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰 - TABLE 1",
+    "Description": ""
+  },
+  "9df98a": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰 - TABLE 2-3",
+    "Description": ""
+  },
+  "3e89fe": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰 - TABLE 4-5",
+    "Description": ""
+  },
+  "eb5420": {
+    "Name": "CardCustom",
+    "Nickname": "轉捩點 - TABLE 1",
+    "Description": ""
+  },
+  "4bfac3": {
+    "Name": "CardCustom",
+    "Nickname": "轉捩點 - TABLE 2-3",
+    "Description": ""
+  },
+  "47f078": {
+    "Name": "CardCustom",
+    "Nickname": "轉捩點 - TABLE 4-5",
+    "Description": ""
+  },
+  "a28b10": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧 - TABLE 1",
+    "Description": ""
+  },
+  "2e2eee": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧 - TABLE 2-3",
+    "Description": ""
+  },
+  "64a91b": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧 - TABLE 4-5",
+    "Description": ""
+  },
+  "7ca927": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - TABLE 1",
+    "Description": ""
+  },
+  "05e79e": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - TABLE 2-3",
+    "Description": ""
+  },
+  "49caea": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝 - TABLE 4-5",
+    "Description": ""
+  },
+  "f41b2c": {
+    "Name": "CardCustom",
+    "Nickname": "搜索與殲滅 - TABLE 1",
+    "Description": ""
+  },
+  "954527": {
+    "Name": "CardCustom",
+    "Nickname": "搜索與殲滅 - TABLE 2-3",
+    "Description": ""
+  },
+  "286bc7": {
+    "Name": "CardCustom",
+    "Nickname": "搜索與殲滅 - TABLE 4-5",
+    "Description": ""
+  },
+  "ffe3cf": {
+    "Name": "Notecard",
+    "Nickname": "任務概要 個人賽",
+    "Description": "• [Hammer & Anvil] Fog of War / Linchpin\r\n• [Search & Destroy] Swift Action / Scored Earth\r\n• [Crucible of Battle] Raise Banners / Purge the Foe\r\n• [Tipping Point] Inspired Leadership / Burden of Trus"
+  },
+  "21aa0e": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]戰慄[/i][/b]",
+    "Description": ""
+  },
+  "98e221": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]行動進行中[/i][/b]",
+    "Description": ""
+  },
+  "32ed4c": {
+    "Name": "Custom_Model",
+    "Nickname": "紅方控制面板",
+    "Description": ""
+  },
+  "83ab2a": {
+    "Name": "Custom_Model",
+    "Nickname": "藍方控制面板",
+    "Description": ""
+  },
+  "839fcc": {
+    "Name": "Custom_Tile",
+    "Nickname": "藍方自定骰子桌",
+    "Description": "{\n  \"Cumulative\": \"no\",\n  \"Update_Frequency\": \"0.2\"\n}"
+  },
+  "e446f7": {
+    "Name": "Counter",
+    "Nickname": "指揮點",
+    "Description": ""
+  },
+  "61c2f8": {
+    "Name": "Counter",
+    "Nickname": "指揮點",
+    "Description": ""
+  },
+  "25fc4a": {
+    "Name": "Counter",
+    "Nickname": "指揮點",
+    "Description": ""
+  },
+  "8b0541": {
+    "Name": "Counter",
+    "Nickname": "勝利分數",
+    "Description": ""
+  },
+  "a77a54": {
+    "Name": "Counter",
+    "Nickname": "勝利分數",
+    "Description": ""
+  },
+  "deb9f2": {
+    "Name": "Counter",
+    "Nickname": "指揮點",
+    "Description": ""
+  },
+  "ee92cf": {
+    "Name": "Counter",
+    "Nickname": "遊戲回合",
+    "Description": ""
+  },
+  "055302": {
+    "Name": "Counter",
+    "Nickname": "紅方回合",
+    "Description": "ee92cf"
+  },
+  "021302": {
+    "Name": "Counter",
+    "Nickname": "紅方自定計數器",
+    "Description": "ee92cf"
+  },
+  "7e4111": {
+    "Name": "Counter",
+    "Nickname": "藍方回合",
+    "Description": "ee92cf"
+  },
+  "42c164": {
+    "Name": "Custom_Token",
+    "Nickname": "標記計數器",
+    "Description": "Blue"
+  },
+  "42c161": {
+    "Name": "Custom_Token",
+    "Nickname": "標記計數器",
+    "Description": "Red"
+  },
+  "70b9f6": {
+    "Name": "Custom_Model_Bag",
+    "Nickname": "提取地形",
+    "Description": ""
+  },
+  "27de4f": {
+    "Name": "Quarter",
+    "Nickname": "紅方選取標記",
+    "Description": ""
+  },
+  "84c3a4": {
+    "Name": "Quarter",
+    "Nickname": "藍方選取標記",
+    "Description": ""
+  },
+  "acae21": {
+    "Name": "Custom_Tile",
+    "Nickname": "紅方自定骰子桌",
+    "Description": "{\n  \"Cumulative\": \"no\",\n  \"Update_Frequency\": \"0.2\"\n}"
+  },
+  "738804": {
+    "Name": "BlockRectangle",
+    "Nickname": "開始選單",
+    "Description": ""
+  },
+  "2671c8": {
+    "Name": "Digital_Clock",
+    "Nickname": "計時器",
+    "Description": ""
+  },
+  "f4ee71": {
+    "Name": "Custom_Model",
+    "Nickname": "碼錶",
+    "Description": ""
+  },
+  "8b7aa6": {
+    "Name": "BlockSquare",
+    "Nickname": "軍隊放置器",
+    "Description": ""
+  },
+  "5c328f": {
+    "Name": "go_game_piece_white",
+    "Nickname": "注入偵測器",
+    "Description": ""
+  },
+  "1fcbf0": {
+    "Name": "Digital_Clock",
+    "Nickname": "時鐘",
+    "Description": ""
+  },
+  "cff35b": {
+    "Name": "BlockRectangle",
+    "Nickname": "紅方任務管理器",
+    "Description": ""
+  },
+  "5549a7": {
+    "Name": "Bag",
+    "Nickname": "40K 道具",
+    "Description": ""
+  },
+  "13440b": {
+    "Name": "Custom_Model",
+    "Nickname": "俘虜敵軍",
+    "Description": ""
+  },
+  "7cc8c7": {
+    "Name": "Custom_Model",
+    "Nickname": "俘虜敵軍",
+    "Description": ""
+  },
+  "949424": {
+    "Name": "Custom_Model",
+    "Nickname": "俘虜敵軍",
+    "Description": ""
+  },
+  "d6c5ea": {
+    "Name": "Custom_Model",
+    "Nickname": "俘虜敵軍",
+    "Description": ""
+  },
+  "e0052f": {
+    "Name": "Custom_Model",
+    "Nickname": "俘虜敵軍",
+    "Description": ""
+  },
+  "bd69bd": {
+    "Name": "Chinese_Checkers_Piece",
+    "Nickname": "彈性桌面控制",
+    "Description": ""
+  },
+  "a76485": {
+    "Name": "BlockRectangle",
+    "Nickname": "生成遊戲工具",
+    "Description": ""
+  },
+  "229946": {
+    "Name": "BlockSquare",
+    "Nickname": "小隊啟動",
+    "Description": ""
+  },
+  "ad63ba": {
+    "Name": "BlockSquare",
+    "Nickname": "剩餘傷害",
+    "Description": ""
+  },
+  "fe7926": {
+    "Name": "Custom_Token",
+    "Nickname": "增援與預備隊面板",
+    "Description": ""
+  },
+  "85f0cf": {
+    "Name": "Custom_Token",
+    "Nickname": "增援與預備隊面板",
+    "Description": ""
+  },
+  "573333": {
+    "Name": "Custom_Model",
+    "Nickname": "目標",
+    "Description": ""
+  },
+  "06d627": {
+    "Name": "Custom_Model",
+    "Nickname": "第十版計分板",
+    "Description": "{\n  \"P1\": \"Player 1\",\n  \"P2\": \"Player 2\"\n}"
+  },
+  "d618cb": {
+    "Name": "BlockSquare",
+    "Nickname": "空白目標卡",
+    "Description": "無說明"
+  },
+  "471de1": {
+    "Name": "BlockRectangle",
+    "Nickname": "藍方任務管理器",
+    "Description": ""
+  },
+  "37e995": {
+    "Name": "BlockSquare",
+    "Nickname": "小隊啟動",
+    "Description": ""
+  },
+  "5fd19f": {
+    "Name": "BlockSquare",
+    "Nickname": "剩餘傷害",
+    "Description": ""
+  },
+  "2e4f26": {
+    "Name": "BlockSquare",
+    "Nickname": "剩餘傷害",
+    "Description": ""
+  },
+  "bcf2a4": {
+    "Name": "BlockSquare",
+    "Nickname": "小隊啟動",
+    "Description": ""
+  },
+  "f8ddf5": {
+    "Name": "Bag",
+    "Nickname": "舊版標記",
+    "Description": ""
+  },
+  "cb19c0": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]行動進行中（藍方）[/i][/b]",
+    "Description": ""
+  },
+  "30b17c": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]行動進行中（紅方）[/i][/b]",
+    "Description": ""
+  },
+  "cb09c0": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]行動進行中（紅方）[/i][/b]",
+    "Description": ""
+  },
+  "cb09c1": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]行動完成（紅方）[/i][/b]",
+    "Description": ""
+  },
+  "f6ea90": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]行動完成（紅方）[/i][/b]",
+    "Description": ""
+  },
+  "cb09c2": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]行動完成（藍方）[/i][/b]",
+    "Description": ""
+  },
+  "23c297": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]行動完成（藍方）[/i][/b]",
+    "Description": ""
+  },
+  "cb09c3": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]不可攔截射擊[/i][/b]",
+    "Description": ""
+  },
+  "19835b": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]不可攔截射擊[/i][/b]",
+    "Description": ""
+  },
+  "cb09c4": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]獲得確保目標[/i][/b]",
+    "Description": ""
+  },
+  "48d1bd": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]獲得確保目標[/i][/b]",
+    "Description": ""
+  },
+  "cb09c6": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]不可執行行動[/i][/b]",
+    "Description": ""
+  },
+  "15b82f": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]不可執行行動[/i][/b]",
+    "Description": ""
+  },
+  "cb09c8": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]後手攻擊[/i][/b]",
+    "Description": ""
+  },
+  "8d2873": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]後手攻擊[/i][/b]",
+    "Description": ""
+  },
+  "cb09a5": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]煙霧[/i][/b]",
+    "Description": ""
+  },
+  "b89bcc": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]煙霧[/i][/b]",
+    "Description": ""
+  },
+  "47aa54": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]可穿越[/i][/b]",
+    "Description": "僅限步兵、野獸、蟲群，可如入無物般穿越牆壁和植被"
+  },
+  "16d61d": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]密集掩體[/i][/b]",
+    "Description": "至少5\"高，命中-1。\n若攻擊方模型可從其底座（或船體）到目標底座劃出一條不經過地形的線，則失去此加成。\n若攻擊方在地形上，或攻擊方與目標在同一地形3\"內，則失去此加成。\n飛行器忽略此效果"
+  },
+  "f3a885": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]重型掩體[/i][/b]",
+    "Description": "+1豁免骰（非無敵豁免）對近戰攻擊（模型未衝鋒時）"
+  },
+  "be54f5": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]輕型掩體[/i][/b]",
+    "Description": "+1豁免骰（非無敵豁免）對遠程攻擊"
+  },
+  "b1dec5": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]激勵[/i][/b]",
+    "Description": "單位完全在6\"內時領導力+1"
+  },
+  "32f9c3": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]困難地形[/i][/b]",
+    "Description": "移動、衝鋒、推進、撤退時最大移動距離-2\"（最低0），若單位任何部分在任何時刻穿過地形。飛行忽略此效果"
+  },
+  "52eee6": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]遮蔽[/i][/b]",
+    "Description": "al least 5\" tall terrain, can't see THRU this piece, except AIRCRAFTS and models with 18+ wounds.\nif even 1 point of the attacker model see the enemy model without going over terrain in between you lo"
+  },
+  "d98ed9": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]可防禦[/i][/b]",
+    "Description": "僅限步兵，攔截射擊+1 或 放棄攔截射擊且近戰命中+1"
+  },
+  "f721bb": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]可攀爬[/i][/b]",
+    "Description": "僅限步兵、野獸、蟲群，可上樓並穿越地板和天花板"
+  },
+  "1ecb9e": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]防禦線[/i][/b]",
+    "Description": "你可以衝鋒到地形1\"內並攻擊同一地形1\"內的單位，因此可在2\"內而非正常的1\"內近戰"
+  },
+  "00d002": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]不穩定位置[/i][/b]",
+    "Description": "不能將任何東西放在上面，就是不行，別用搖搖欲墜症候群作弊"
+  },
+  "67cf07": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]暴露位置[/i][/b]",
+    "Description": "此地形不提供掩體"
+  },
+  "f7e1ad": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]自動通過士氣[/i][/b]",
+    "Description": ""
+  },
+  "3e3127": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]命中[/i] +2[/b]",
+    "Description": ""
+  },
+  "617bcb": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]豁免[/i] +2[/b]",
+    "Description": ""
+  },
+  "c4dea3": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]傷害[/i] +2[/b]",
+    "Description": ""
+  },
+  "159c1e": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]命中[/i] +3[/b]",
+    "Description": ""
+  },
+  "66611c": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]傷害[/i] +3[/b]",
+    "Description": ""
+  },
+  "f6ef0e": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]豁免[/i] +3[/b]",
+    "Description": ""
+  },
+  "cb09b0": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]狀態變更[/i][/b]",
+    "Description": ""
+  },
+  "cb09d6": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]未修正命中骰1、2或3自動失敗[/i][/b]",
+    "Description": ""
+  },
+  "43b732": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]未修正命中骰1、2或3自動失敗[/i][/b]",
+    "Description": ""
+  },
+  "cb09d7": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]不可重骰命中骰[/i][/b]",
+    "Description": ""
+  },
+  "854146": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]不可重骰命中骰[/i][/b]",
+    "Description": ""
+  },
+  "cb09e4": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]不可重骰傷害骰[/i][/b]",
+    "Description": ""
+  },
+  "fc21a7": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]不可重骰傷害骰[/i][/b]",
+    "Description": ""
+  },
+  "cb09e5": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]未修正傷害骰1、2或3自動失敗[/i][/b]",
+    "Description": ""
+  },
+  "5aab8d": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]未修正傷害骰1、2或3自動失敗[/i][/b]",
+    "Description": ""
+  },
+  "cb09e6": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]已獲得掩體加成[/i][/b]",
+    "Description": ""
+  },
+  "9353c6": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]已獲得掩體加成[/i][/b]",
+    "Description": ""
+  },
+  "cb09e7": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]目標不獲得掩體加成[/i][/b]",
+    "Description": ""
+  },
+  "909f7a": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]目標不獲得掩體加成[/i][/b]",
+    "Description": ""
+  },
+  "cb09e9": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]豁免骰+1[/i][/b]",
+    "Description": ""
+  },
+  "cb09ea": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]豁免骰-1[/i][/b]",
+    "Description": ""
+  },
+  "cb09f0": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]4+無敵豁免[/i][/b]",
+    "Description": ""
+  },
+  "d85a29": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]4+無敵豁免[/i][/b]",
+    "Description": ""
+  },
+  "cb09f1": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]5+無敵豁免[/i][/b]",
+    "Description": ""
+  },
+  "11ccc6": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]5+無敵豁免[/i][/b]",
+    "Description": ""
+  },
+  "cb09f2": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]6+無敵豁免[/i][/b]",
+    "Description": ""
+  },
+  "f79e45": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]6+無敵豁免[/i][/b]",
+    "Description": ""
+  },
+  "cb09f3": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]4+忽略傷害[/i][/b]",
+    "Description": ""
+  },
+  "9532af": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]4+忽略傷害[/i][/b]",
+    "Description": ""
+  },
+  "cb09f4": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]5+忽略傷害[/i][/b]",
+    "Description": ""
+  },
+  "18335e": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]5+忽略傷害[/i][/b]",
+    "Description": ""
+  },
+  "cb09f5": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]6+忽略傷害[/i][/b]",
+    "Description": ""
+  },
+  "fd7c68": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]6+忽略傷害[/i][/b]",
+    "Description": ""
+  },
+  "cb09a4": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]需要戰慄測試[/i][/b]",
+    "Description": ""
+  },
+  "b6fbbd": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]需要戰慄測試[/i][/b]",
+    "Description": ""
+  },
+  "cb09a6": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]懸停[/i][/b]",
+    "Description": ""
+  },
+  "1aac5d": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]懸停[/i][/b]",
+    "Description": ""
+  },
+  "cb09a7": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]已推進[/i][/b]",
+    "Description": ""
+  },
+  "3b9426": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]已推進[/i][/b]",
+    "Description": ""
+  },
+  "cb09a8": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]已衝鋒[/i][/b]",
+    "Description": ""
+  },
+  "3f613b": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]已衝鋒[/i][/b]",
+    "Description": ""
+  },
+  "cb09b4": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]推進增強[/i][/b]",
+    "Description": ""
+  },
+  "4b68bf": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]推進增強[/i][/b]",
+    "Description": ""
+  },
+  "cb09b5": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]推進削弱[/i][/b]",
+    "Description": ""
+  },
+  "9f3fd3": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]推進削弱[/i][/b]",
+    "Description": ""
+  },
+  "cb09b6": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]衝鋒削弱[/i][/b]",
+    "Description": ""
+  },
+  "e94248": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]衝鋒削弱[/i][/b]",
+    "Description": ""
+  },
+  "cb09b7": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]衝鋒增強[/i][/b]",
+    "Description": ""
+  },
+  "a90e97": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]衝鋒增強[/i][/b]",
+    "Description": ""
+  },
+  "cb09ba": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]領導力增強[/i][/b]",
+    "Description": ""
+  },
+  "84b44e": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]目標控制削弱[/i][/b]",
+    "Description": ""
+  },
+  "cb09bb": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]領導力削弱[/i][/b]",
+    "Description": ""
+  },
+  "a968aa": {
+    "Name": "Custom_Token",
+    "Nickname": "[b][i]領導力削弱[/i][/b]",
+    "Description": ""
+  },
+  "cb19ba": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]目標控制增強[/i][/b]",
+    "Description": ""
+  },
+  "cb29ba": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "[b][i]目標控制削弱[/i][/b]",
+    "Description": ""
+  },
+  "5737cd": {
+    "Name": "Custom_Assetbundle",
+    "Nickname": "藍方骰子鏡頭",
+    "Description": ""
+  },
+  "96a319": {
+    "Name": "Custom_Assetbundle",
+    "Nickname": "藍方骰子鏡頭",
+    "Description": ""
+  },
+  "19b9bf": {
+    "Name": "Custom_Assetbundle",
+    "Nickname": "紅方骰子鏡頭",
+    "Description": ""
+  },
+  "48dcae": {
+    "Name": "Custom_Assetbundle",
+    "Nickname": "紅方骰子鏡頭",
+    "Description": ""
+  },
+  "0dd963": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "黏性目標控制（紅方）",
+    "Description": "目標由紅方持有，直到藍方在任一階段開始時取得控制"
+  },
+  "ea92de": {
+    "Name": "Figurine_Custom",
+    "Nickname": "黏性目標控制（紅方）",
+    "Description": "目標由紅方持有，直到藍方在任一階段開始時取得控制"
+  },
+  "635548": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "黏性目標控制（藍方）",
+    "Description": "目標由藍方持有，直到紅方在任一階段開始時取得控制"
+  },
+  "862b29": {
+    "Name": "Figurine_Custom",
+    "Nickname": "黏性目標控制（藍方）",
+    "Description": "目標由藍方持有，直到紅方在任一階段開始時取得控制"
+  },
+  "0dd964": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "旗幟（紅方）",
+    "Description": ""
+  },
+  "470248": {
+    "Name": "Custom_Model",
+    "Nickname": "旗幟（紅方）",
+    "Description": ""
+  },
+  "0dd965": {
+    "Name": "Custom_Model_Infinite_Bag",
+    "Nickname": "旗幟（藍方）",
+    "Description": ""
+  },
+  "d279f4": {
+    "Name": "Custom_Model",
+    "Nickname": "旗幟（藍方）",
+    "Description": ""
+  },
+  "a847c1": {
+    "Name": "CardCustom",
+    "Nickname": "戰術目標",
+    "Description": "選擇這兩張卡來表示你在此場遊戲中使用[b]戰術任務[/b]而非固定任務。\n\n戰術任務：每回合從次要任務牌組隨機抽取，完成後棄置並抽新卡。\n固定任務：遊戲開始時選擇兩張固定次要任務，整場使用。"
+  },
+  "7ee8c9": {
+    "Name": "CardCustom",
+    "Nickname": "戰術目標",
+    "Description": "選擇這兩張卡來表示你在此場遊戲中使用[b]戰術任務[/b]而非固定任務。\n\n戰術任務：每回合從次要任務牌組隨機抽取，完成後棄置並抽新卡。\n固定任務：遊戲開始時選擇兩張固定次要任務，整場使用。"
+  },
+  "838a9b": {
+    "Name": "CardCustom",
+    "Nickname": "戰術目標",
+    "Description": "選擇這兩張卡來表示你在此場遊戲中使用[b]戰術任務[/b]而非固定任務。\n\n戰術任務：每回合從次要任務牌組隨機抽取，完成後棄置並抽新卡。\n固定任務：遊戲開始時選擇兩張固定次要任務，整場使用。"
+  },
+  "89fa29": {
+    "Name": "CardCustom",
+    "Nickname": "戰術目標",
+    "Description": "選擇這兩張卡來表示你在此場遊戲中使用[b]戰術任務[/b]而非固定任務。\n\n戰術任務：每回合從次要任務牌組隨機抽取，完成後棄置並抽新卡。\n固定任務：遊戲開始時選擇兩張固定次要任務，整場使用。"
+  },
+  "a30deb": {
+    "Name": "Deck",
+    "Nickname": "巨獸 部署卡",
+    "Description": ""
+  },
+  "117c77": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧",
+    "Description": "[b]巨獸版 部署類型[/b]\n\n雙方部署區位於戰場的長邊兩側。\n部署區深度：12\"，從各自桌邊延伸。\n無人地帶寬度：24\"（戰場中央區域）。\n\n經典部署方式，適合遠程交火。"
+  },
+  "7e4b95": {
+    "Name": "CardCustom",
+    "Nickname": "戰爭黎明",
+    "Description": "[b]巨獸版 部署類型[/b]\n\n雙方部署區位於戰場的短邊兩側。\n側翼空間較大，適合迂迴包抄戰術。"
+  },
+  "381d7c": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰",
+    "Description": "[b]巨獸版 部署類型[/b]\n\n雙方部署區位於戰場對角，呈斜對角佈局。\n交戰線較長，需要分散兵力防守多個方向。"
+  },
+  "ad4220": {
+    "Name": "CardCustom",
+    "Nickname": "搜索殲滅",
+    "Description": "[b]巨獸版 部署類型[/b]\n\n雙方部署區位於戰場的四分之一區域（對角象限）。\n部署區較寬但深度適中，適合正面推進和集中打擊。"
+  },
+  "3c0679": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥試煉",
+    "Description": "[b]巨獸版 部署類型[/b]\n\n雙方部署區位於戰場對角。\n交戰距離不對稱，可利用斜角佈署創造局部優勢。"
+  },
+  "2c6243": {
+    "Name": "Deck",
+    "Nickname": "巨獸 次要任務卡牌",
+    "Description": ""
+  },
+  "7bd3d5": {
+    "Name": "CardCustom",
+    "Nickname": "誘人目標",
+    "Description": "當此次要任務卡被抽出時，你的對手必須選擇無人地帶中的一個目標標記。\r\n\r\n在你的回合結束時，若你控制該被選擇的目標標記，此次要任務達成，你得5VP。\r"
+  },
+  "ae011c": {
+    "Name": "CardCustom",
+    "Nickname": "奪取敵方前哨",
+    "Description": "在你的回合結束時，若你控制對手部署區中的一個或多個目標標記，此次要任務達成，你得8VP。"
+  },
+  "d4b26c": {
+    "Name": "CardCustom",
+    "Nickname": "區域封鎖",
+    "Description": "在你的回合結束時，若你軍隊中有一個或多個單位（不含戰慄單位）完全在戰場中心6\"範圍內，且沒有敵方單位完全在戰場中心6\"範圍內，此次要任務達成，你得5VP。\r\n\r\n若在你的回合結束時，有一個或多個敵方單位完全在戰場中心6\"範圍內，但沒有敵方單位在戰場中心3\"範圍內，此次要任務仍然達成，但此時你得3VP而非5VP。\r\n"
+  },
+  "9e0c36": {
+    "Name": "CardCustom",
+    "Nickname": "防守要塞",
+    "Description": "在你對手的回合結束時，或戰鬥結束時（以先到者為準），若你控制己方部署區中的一個或多個目標標記，此次要任務達成，你得3VP。\r\n\r\n此次要任務無法在第一戰鬥回合達成。若你在第一戰鬥回合隨機抽到此次要任務卡，抽一張新的次要任務卡，並將此卡洗回你的次要任務牌組。\r\n"
+  },
+  "b77db7": {
+    "Name": "CardCustom",
+    "Nickname": "延伸戰線",
+    "Description": "在你的回合結束時，若你控制己方部署區中的一個或多個目標標記，且同時控制無人地帶中的一個或多個目標標記，此次要任務達成，你得5VP。\r\n\r\n若你軍隊中只剩一個單位，則在你的回合結束時，若該單位控制無人地帶中的一個目標標記，此次要任務達成，但此時你得2VP而非5VP。\r\n"
+  },
+  "4aaae8": {
+    "Name": "CardCustom",
+    "Nickname": "調查信號",
+    "Description": "在你的射擊階段中，你可以從你的軍隊中選擇一個或多個未處於戰慄狀態且符合射擊資格的單位。直到你的回合結束，被選擇的單位不符合射擊或宣告衝鋒的資格。\r\n\r\n在你的回合結束時，戰場上每個有一個或多個被選擇單位完全在其9\"範圍內的角落，被你的軍隊掃描。\r\n\r\n若有一個或多個角落被你的軍隊掃描，此次要任務達成，你在此回合每掃描一個角落得2VP。\r\n"
+  },
+  "db9e6a": {
+    "Name": "CardCustom",
+    "Nickname": "不留活口",
+    "Description": "當此次要任務生效期間，每次敵方單位被消滅，你得2VP（最多5VP）。\r\n\r\n注意：即使該單位被消滅後因任何原因復活，仍然計分。若你在一個回合中從此次要任務獲得任何VP，則在該回合結束時此次要任務達成。\r\n"
+  },
+  "d76c92": {
+    "Name": "CardCustom",
+    "Nickname": "壓倒性武力",
+    "Description": "當此次要任務生效期間，每次在回合開始時位於目標標記範圍內的敵方單位被消滅，你得3VP（最多5VP）。\r\n\r\n注意：即使該單位被消滅後因任何原因復活，仍然計分。若你在一個回合中從此次要任務獲得任何VP，則在該回合結束時此次要任務達成。\r\n"
+  },
+  "84800d": {
+    "Name": "CardCustom",
+    "Nickname": "確保無人地帶",
+    "Description": "在你的回合結束時，若你控制無人地帶中兩個或以上的目標標記，此次要任務達成，你得5VP。\r\n\r\n若在你的回合結束時，你只控制無人地帶中的一個目標標記，此次要任務仍然達成，但此時你得2VP而非5VP。\r"
+  },
+  "30c8fe": {
+    "Name": "Deck",
+    "Nickname": "巨獸 固定次要任務卡牌",
+    "Description": ""
+  },
+  "bffd29": {
+    "Name": "CardCustom",
+    "Nickname": "暗殺",
+    "Description": "若你使用固定任務，當此次要任務生效期間，每次敵方[b]角色[/b]模型被消滅，你得4VP。\r\n\r\n若你使用戰術任務，在回合結束時，若以下任一條件滿足，此次要任務達成，你得5VP：\r\n\r\n* 本回合有一個或多個敵方[b]角色[/b]單位被消滅。\r\n* 對手軍隊名冊中所有[b]角色[/b]單位在戰鬥中已全部被消滅。\r\n\r\n注意：若你使用戰術任務，即使該單位被消滅後因任何原因復活，此次要任務仍然達成。\r"
+  },
+  "b1703e": {
+    "Name": "CardCustom",
+    "Nickname": "深入敵後",
+    "Description": "在你的回合結束時，若你軍隊中有兩個或以上的單位（不含[b]飛行器[/b]）完全在對手的部署區內，此次要任務達成，你得4VP（若使用戰術任務則得5VP）。\r\n\r\n若在你的回合結束時，你軍隊中只有一個單位（不含[b]飛行器[/b]）完全在對手的部署區內，此次要任務仍然達成，但此時你得3VP而非4VP（或5VP）。\r\n"
+  },
+  "eb37ca": {
+    "Name": "CardCustom",
+    "Nickname": "擊落巨物",
+    "Description": "當此次要任務生效期間，每次敵方[b]怪獸[/b]或[b]載具[/b]模型被消滅，你得2VP，且以下每個滿足的條件額外得1VP（全部可累計）：\r\n\r\n* 被消滅的模型擁有10+的傷害特徵值\r\n* 被消滅的模型擁有15+的傷害特徵值\r\n* 被消滅的模型擁有20+的傷害特徵值\r\n\r\n注意：即使該模型被消滅後因任何原因復活，仍然計分。若你在一個回合中從此次要任務獲得任何VP，則在該回合結束時此次要任務達成"
+  },
+  "91343e": {
+    "Name": "CardCustom",
+    "Nickname": "淨化",
+    "Description": "在你的射擊階段中，你可以從你的軍隊中選擇一個或多個未處於戰慄狀態且符合射擊資格的單位。直到你的回合結束，被選擇的單位不符合射擊或宣告衝鋒的資格。\r\n\r\n在你的回合結束時，你控制的、不在你部署區內的、且有一個或多個被選擇單位在範圍內的每個目標標記，被你的軍隊淨化。\r\n\r\n若此回合有一個或多個目標標記被你的軍隊淨化，此次要任務達成，得分取決於被淨化的目標標記數量：\r\n\r\n淨化1個目標標記 = 使用固定"
+  },
+  "10a8c9": {
+    "Name": "CardCustom",
+    "Nickname": "全面交戰",
+    "Description": "在你的回合結束時，若你軍隊中有一個或多個合格單位（見下方）完全在三個或更多不同的桌面象限內，且這些單位都距離任何其他桌面象限超過3\"，此次要任務達成：若你在四個不同桌面象限有合格單位，得4VP；若在三個不同桌面象限有合格單位，得2VP。\r\n\r\n處於戰慄狀態的單位不是合格單位。\r\n\r\n若當你抽到此次要任務卡時，你軍隊中只剩一或兩個合格單位，你可以棄置此次要任務卡並抽一張新的次要任務卡。\r\n\r\n若你使"
+  },
+  "d2a572": {
+    "Name": "CardCustom",
+    "Nickname": "突襲敵方目標",
+    "Description": "在你的回合結束時，若以下任一條件滿足，此次要任務達成，使用固定任務得4VP，使用戰術任務得5VP：\r\n\r\n你控制了一個或多個在你回合開始時由對手控制的目標標記。\r\n\r\n你的對手在你回合開始時未控制任何目標標記，且你控制了一個或多個在你回合開始時你未控制的目標標記。\r\n\r\n此次要任務無法在第一戰鬥回合達成。若你在第一戰鬥回合隨機抽到此次要任務卡，抽一張新的次要任務卡，並將此卡洗回你的次要任務牌組。\r"
+  },
+  "439c3b": {
+    "Name": "CardCustom",
+    "Nickname": "部署傳送信標",
+    "Description": "在你的射擊階段中，你可以從你的軍隊中選擇一個未處於戰慄狀態且符合射擊資格的單位。直到你的回合結束，該單位不符合射擊或宣告衝鋒的資格。\r\n\r\n在你的回合結束時，若該單位在對手的部署區內，或在戰場中心6\"範圍內，它在該位置部署一個傳送信標，此次要任務達成，得分取決於傳送信標部署的位置：\r\n\r\n戰場中心 = 3VP\r\n\r\n對手部署區 = 使用固定任務得4VP，使用戰術任務得5VP。\r\n"
+  },
+  "3ca4a6": {
+    "Name": "Deck",
+    "Nickname": "巨獸 主要任務卡牌",
+    "Description": ""
+  },
+  "ec78cd": {
+    "Name": "CardCustom",
+    "Nickname": "力量聖地",
+    "Description": "無人地帶中的目標標記為力量聖地。在每個指揮階段結束時，當回合玩家賦能其所控制的、且其軍隊中有一個或多個[b]角色[/b]模型在範圍內的所有力量聖地；只要該玩家的[b]角色[/b]模型仍在範圍內，該力量聖地就持續被該玩家賦能。\r\n\r\n[b]在第二、三、四戰鬥回合：[/b]\r\n\r\n在每個指揮階段結束時，當回合玩家按以下規則得分（每回合最多15VP）：\r\n\r\n* 每控制一個目標標記得3VP。\r\n* 每個"
+  },
+  "3ad5a3": {
+    "Name": "CardCustom",
+    "Nickname": "焦土",
+    "Description": "從第二戰鬥回合開始，在每位玩家的射擊階段中，當回合玩家可以從其軍隊中選擇一個未處於戰慄狀態且符合射擊資格的單位。直到該回合結束，該單位不符合射擊或宣告衝鋒的資格。在其控制玩家的下一個指揮階段開始時，若該單位在當回合玩家所控制的目標標記1\"範圍內，該目標標記將被焚燬並從戰場上移除。\r\n\r\n[b]在第二、三、四戰鬥回合：[/b]\r\n\r\n在每個指揮階段結束時，當回合玩家每控制一個目標標記得5VP（每回合"
+  },
+  "5444d4": {
+    "Name": "CardCustom",
+    "Nickname": "清剿敵軍",
+    "Description": "[b]在第二、三、四戰鬥回合：[/b]\r\n\r\n在每個指揮階段結束時，當回合玩家若控制一個或多個目標標記得4VP，若控制的目標標記數量多於對手則額外得4VP。\r\n\r\n[b]在第五戰鬥回合：[/b]\r\n\r\n先手玩家按上述規則得分。\r\n\r\n後手玩家按上述規則得分，但在其回合結束時而非指揮階段結束時計分。\r\n\r\n[b]在每個戰鬥回合：[/b]\r\n\r\n在戰鬥回合結束時，若該回合有一個或多個敵方單位被消滅，每"
+  },
+  "f97708": {
+    "Name": "CardCustom",
+    "Nickname": "優先目標",
+    "Description": "[b]在第二、三、四、五戰鬥回合：[/b]\r\n\r\n在每個指揮階段結束時，當回合玩家每控制一個目標標記得5VP（每回合最多10VP）。\r\n\r\n[b]戰鬥結束時：[/b]\r\n\r\n每位玩家每控制一個目標標記得5VP（每位玩家最多15VP）。\r\n"
+  },
+  "44ff29": {
+    "Name": "CardCustom",
+    "Nickname": "部署伺服頭骨",
+    "Description": "戰鬥開始時位於無人地帶的目標標記為伺服頭骨。在每個回合結束時，控制該目標標記的玩家可以將其向任意方向移動最多6\"。移動目標標記時，它們不能停在任何其他目標標記或模型上方，也不能停在地形特徵的不可通過部分內（如廢墟的牆壁）。\r\n\r\n[b]在第二、三、四、五戰鬥回合：[/b]\r\n\r\n在每個回合結束時，當回合玩家按以下規則得分：\r\n\r\n\r\n* 每個完全在對手部署區12\"範圍內的伺服頭骨得2VP。\r\n* "
+  },
+  "884291": {
+    "Name": "CardCustom",
+    "Nickname": "奪取並固守",
+    "Description": "[b]在第二、三、四戰鬥回合：[/b]\r\n\r\n在每個指揮階段結束時，當回合玩家每控制一個目標標記得5VP（每回合最多15VP）。\r\n\r\n[b]在第五戰鬥回合：[/b]\r\n\r\n先手玩家按上述規則得分。\r\n\r\n後手玩家按上述規則得分，但在其回合結束時而非指揮階段結束時計分。\r\n"
+  },
+  "a34ae1": {
+    "Name": "CardCustom",
+    "Nickname": "補給投放",
+    "Description": "在戰鬥開始時，玩家從無人地帶隨機選擇兩個不同的目標標記：第一個被選中的為Alpha目標，第二個為Omega目標。在第四戰鬥回合開始時，Alpha目標從戰場移除。在第五戰鬥回合開始時，無人地帶中除Omega目標外的所有目標標記也被移除。\r\n\r\n[b]在第二、三戰鬥回合：[/b]\r\n\r\n在每個指揮階段結束時，當回合玩家在無人地帶每控制一個目標標記得5VP。\r\n\r\n[b]在第四戰鬥回合：[/b]\r\n\r\n"
+  },
+  "646b49": {
+    "Name": "CardCustom",
+    "Nickname": "儀式",
+    "Description": "設置戰場時，移除無人地帶中除最靠近戰場中心的目標標記外的所有目標標記。\r\n\r\n在每位玩家的射擊階段中，當回合玩家可以從其軍隊中選擇一個未處於戰慄狀態且符合射擊資格的單位。直到該回合結束，該單位不符合射擊或宣告衝鋒的資格。在該回合結束時，當回合玩家可以在無人地帶內、該單位1\"範圍內放置一個目標標記，前提是該目標標記能被放置在距離另一個目標標記正好9\"且不在任何其他目標標記6\"範圍內的位置。\r\n\r\n["
+  },
+  "6fc1c2": {
+    "Name": "CardCustom",
+    "Nickname": "要地",
+    "Description": "若你同時抽到此卡和隱藏補給任務規則卡，棄置此卡並抽一張新的主要任務卡。\r\n\r\n設置戰場後，移除無人地帶中最靠近戰場中心的目標標記。\r\n\r\n[b]在第二、三、四戰鬥回合：[/b]\r\n\r\n在每個指揮階段結束時，當回合玩家按以下規則得分：\r\n\r\n* 若控制己方部署區中的目標標記，得2VP。\r\n* 在無人地帶中每控制一個目標標記，得5VP。\r\n* 若控制對手部署區中的目標標記，得6VP。\r\n\r\n[b]在第"
+  },
+  "731ec4": {
+    "Name": "Custom_PDF",
+    "Nickname": "戰鬥巡邏任務",
+    "Description": "僅適用於44\"x30\"棋盤。在部署管理器中標記為(CP)的設置。"
+  },
+  "be2cdb": {
+    "Name": "Custom_Assetbundle_Bag",
+    "Nickname": "紅方回收桶",
+    "Description": "點擊開啟或關閉。"
+  },
+  "4b1a7b": {
+    "Name": "Custom_Assetbundle_Bag",
+    "Nickname": "藍方回收桶",
+    "Description": "點擊開啟或關閉。"
+  },
+  "c0fb49": {
+    "Name": "Deck",
+    "Nickname": "紅方 次要任務卡牌",
+    "Description": ""
+  },
+  "124dbd": {
+    "Name": "CardCustom",
+    "Nickname": "區域封鎖",
+    "Description": "[b]戰術次要任務[/b]\n\n在你的回合結束時，若你軍隊中有一個或多個單位（不含[b]戰慄[/b]單位）完全在戰場中心6\"範圍內，且沒有敵方單位完全在戰場中心6\"範圍內，此次要任務達成，你得5VP。"
+  },
+  "205d90": {
+    "Name": "CardCustom",
+    "Nickname": "確保無人地帶",
+    "Description": "[b]戰術次要任務[/b]\n\n在你的回合結束時，若你控制無人地帶中兩個或以上的目標標記，此次要任務達成，你得5VP。\n\n若在你的回合結束時，你只控制無人地帶中一個目標標記，你得2VP。"
+  },
+  "1dcc05": {
+    "Name": "CardCustom",
+    "Nickname": "破壞行動",
+    "Description": "[b]戰術次要任務[/b]\n\n在你的射擊階段中，你可以從你的軍隊中選擇一個未處於戰慄狀態且符合射擊資格的單位執行破壞行動。直到你的回合結束，該單位不可射擊或宣告衝鋒。\n\n在你對手的回合結束時，若該單位不在你的部署區內，且在一個區域地形特徵範圍內，此次要任務達成。\n\n[b]計分：[/b]\n• 基本完成：得3VP\n• 若該單位同時在對手的部署區內：得6VP\n\n注意：僅要求你的單位不在己方部署區內。地形"
+  },
+  "2cb755": {
+    "Name": "CardCustom",
+    "Nickname": "死亡標記",
+    "Description": "[b]戰術次要任務[/b]\n\n[b]抽出此卡時：[/b]\n你的對手必須從其軍隊中選擇3個單位（Alpha、Beta、Gamma）。然後你也選擇1個敵方單位作為你的目標。\n\n當此次要任務生效期間：\n• 每次Alpha、Beta或Gamma單位被消滅，你得2VP\n• 若你選擇的目標單位被消滅，你得2VP\n• 每回合最多5VP\n\n若你在一個回合中從此次要任務獲得任何VP，則在該回合結束時此次要任務達成。"
+  },
+  "cccff1": {
+    "Name": "CardCustom",
+    "Nickname": "延伸戰線",
+    "Description": "[b]戰術次要任務[/b]\n\n在你的回合結束時，若你控制己方部署區中的一個或多個目標標記，且同時控制無人地帶中的一個或多個目標標記，此次要任務達成，你得5VP。"
+  },
+  "6ab973": {
+    "Name": "CardCustom",
+    "Nickname": "防守要塞",
+    "Description": "[b]戰術次要任務[/b]\n\n在你對手的回合結束時，或戰鬥結束時（以先到者為準），若你控制己方部署區中的所有目標標記，此次要任務達成，你得5VP。\n\n若你只控制其中部分目標標記，你得3VP。\n\n此次要任務無法在第一戰鬥回合達成。若你在第一戰鬥回合隨機抽到此次要任務卡，抽一張新的次要任務卡，並將此卡洗回你的次要任務牌組。"
+  },
+  "453f71": {
+    "Name": "CardCustom",
+    "Nickname": "壓倒性武力",
+    "Description": "[b]戰術次要任務[/b]\n\n當此次要任務生效期間，每次在回合開始時位於目標標記範圍內的敵方單位被消滅，你得3VP（最多5VP）。\n\n注意：即使該單位被消滅後因任何原因復活，仍然計分。"
+  },
+  "4a4bae": {
+    "Name": "CardCustom",
+    "Nickname": "誘人目標",
+    "Description": "[b]戰術次要任務[/b]\n\n當此次要任務卡被抽出時，你的對手必須選擇無人地帶中的一個目標標記。\n\n在你的回合結束時，若你控制該被選擇的目標標記，此次要任務達成，你得8VP。"
+  },
+  "90873b": {
+    "Name": "CardCustom",
+    "Nickname": "回收資產",
+    "Description": "[b]戰術次要任務[/b]\n\n若你正在進行突擊任務，或你軍隊中戰場上少於3個單位，你可以棄掉此卡並抽一張新的次要任務卡。\n\n在你的射擊階段中，你可以選擇2個或以上未處於戰慄狀態且符合射擊資格的單位執行回收行動。直到你的回合結束，被選擇的單位不可射擊或宣告衝鋒。\n\n在你的回合結束時，若這些單位都在同一個目標標記範圍內，你控制該目標標記，且每個單位分別位於以下不同區域之一：己方部署區、無人地帶、對手部"
+  },
+  "90873c": {
+    "Name": "CardCustom",
+    "Nickname": "展示力量",
+    "Description": "[b]戰術次要任務[/b]\n\n在你的回合結束時，若你軍隊中完全在無人地帶內的單位數量多於對手完全在無人地帶內的單位數量，此次要任務達成，你得4VP。\n\n此次要任務無法在第一戰鬥回合達成。若你在第一戰鬥回合隨機抽到此次要任務卡，抽一張新的次要任務卡，並將此卡洗回你的次要任務牌組。"
+  },
+  "b55459": {
+    "Name": "Deck",
+    "Nickname": "CA 2025 固定次要任務卡牌",
+    "Description": ""
+  },
+  "363896": {
+    "Name": "CardCustom",
+    "Nickname": "突襲敵方目標",
+    "Description": "[b]固定次要任務[/b]\n\n在你的回合結束時，若以下任一條件滿足，此次要任務達成：\n• 你控制了一個或多個在戰鬥開始時由對手控制的目標標記\n• 你控制了對手部署區中的一個或多個目標標記\n\n使用固定任務得4VP，使用戰術任務得5VP。"
+  },
+  "ca45de": {
+    "Name": "CardCustom",
+    "Nickname": "建立據點",
+    "Description": "[b]固定次要任務[/b]\n\n在你的射擊階段中，你可以從你的軍隊中選擇一個未處於戰慄狀態且符合射擊資格的單位執行建立據點行動。直到你的回合結束，該單位不可射擊或宣告衝鋒。\n\n在你的回合結束時，若該單位在對手的部署區內或在戰場中心6\"範圍內，它在該位置建立一個據點，此次要任務達成。\n\n[b]計分：[/b]\n• 據點位於戰場中心6\"範圍內：得2VP\n• 據點位於對手部署區內：得4VP\n\n使用戰術任務時"
+  },
+  "a939ff": {
+    "Name": "CardCustom",
+    "Nickname": "淨化",
+    "Description": "[b]固定次要任務[/b]\n\n在你的射擊階段中，你可以從你的軍隊中選擇一個或多個未處於戰慄狀態且符合射擊資格的單位執行淨化行動。直到你的回合結束，被選擇的單位不可射擊或宣告衝鋒。\n\n在你的回合結束時，你控制的、不在你部署區內的、且有一個或多個被選擇單位在範圍內的每個目標標記，被你的軍隊淨化。\n\n[b]使用固定任務：[/b]\n• 1個目標被淨化：得2VP\n• 2個以上目標被淨化：得4VP\n\n[b]使"
+  },
+  "2b8096": {
+    "Name": "CardCustom",
+    "Nickname": "擊落巨物",
+    "Description": "[b]固定次要任務[/b]\n\n當此次要任務生效期間，每次敵方[b]怪獸[/b]或[b]載具[/b]模型被消滅，你得2VP，且以下每個滿足的條件額外得1VP：\n• 被消滅的模型傷害值為10+\n• 被消滅的模型起始傷害值為20+\n\n使用固定任務每回合最多4VP，使用戰術任務最多5VP。"
+  },
+  "534687": {
+    "Name": "CardCustom",
+    "Nickname": "全面交戰",
+    "Description": "[b]固定次要任務[/b]\n\n在你的回合結束時，若你軍隊中有一個或多個合格單位完全在三個或更多不同的桌面象限內，且這些單位都距離任何其他桌面象限邊緣6\"以上，此次要任務達成。\n\n使用固定任務得4VP，使用戰術任務得5VP。\n若僅在兩個象限滿足條件，得2VP。"
+  },
+  "bb4f55": {
+    "Name": "CardCustom",
+    "Nickname": "暗殺",
+    "Description": "[b]固定次要任務[/b]\n\n若你使用固定任務，當此次要任務生效期間，每次敵方[b]角色[/b]模型被消滅：\n• 該角色傷害特徵值為4+：你得4VP\n• 該角色傷害特徵值低於4：你得3VP\n\n若你使用戰術任務，在回合結束時，若有敵方[b]角色[/b]模型在此回合被消滅，你得5VP。"
+  },
+  "b963c2": {
+    "Name": "CardCustom",
+    "Nickname": "深入敵後",
+    "Description": "[b]固定次要任務[/b]\n\n在你的回合結束時，若你軍隊中有兩個或以上的單位（不含[b]飛行器[/b]）完全在對手的部署區內，此次要任務達成。\n\n使用固定任務得4VP，使用戰術任務得5VP。\n若僅有一個單位完全在對手部署區內，得2VP。"
+  },
+  "348122": {
+    "Name": "CardCustom",
+    "Nickname": "屠戮群敵",
+    "Description": "[b]固定次要任務[/b]\n\n在回合結束時，若本回合中有一個或多個包含5個以上模型的敵方單位被消滅，此次要任務達成。\n\n使用固定任務得4VP，使用戰術任務得5VP。"
+  },
+  "81d031": {
+    "Name": "CardCustom",
+    "Nickname": "不留活口",
+    "Description": "[b]固定次要任務[/b]\n\n[b]使用固定任務時：[/b]\n當此次要任務生效期間，每次敵方[b]護衛[/b]單位或敵方非[b]角色[/b]單位被消滅，你得2VP（最多5VP）。\n\n[b]使用戰術任務時：[/b]\n當此次要任務生效期間，每次敵方單位被消滅，你得2VP（最多5VP）。\n\n注意：即使該單位被消滅後因任何原因復活，仍然計分。\n\n[b]錦標賽修正：[/b]此次要任務不可在錦標賽中作為固定任"
+  },
+  "2dc2e8": {
+    "Name": "Deck",
+    "Nickname": "棄民連結 部署卡",
+    "Description": ""
+  },
+  "97f3f0": {
+    "Name": "CardCustom",
+    "Nickname": "鐵鎚與鐵砧",
+    "Description": "[b]部署類型[/b]\n\n雙方部署區位於戰場的長邊兩側。\n部署區深度：12\"，從各自桌邊延伸。\n無人地帶寬度：24\"（戰場中央區域）。\n\n適合遠程交火，需要穿越較寬的無人地帶才能接觸敵方。"
+  },
+  "7f45dc": {
+    "Name": "CardCustom",
+    "Nickname": "戰爭黎明",
+    "Description": "[b]部署類型[/b]\n\n雙方部署區位於戰場的短邊兩側。\n部署區深度：24\"，從各自桌邊延伸。\n無人地帶寬度：24\"（戰場中央區域）。\n\n側翼空間較大，適合迂迴包抄戰術。"
+  },
+  "e96d18": {
+    "Name": "CardCustom",
+    "Nickname": "戰鬥坩堝",
+    "Description": "[b]部署類型[/b]\n\n雙方部署區位於戰場對角。\n部署區為矩形區域，覆蓋各自角落。\n\n交戰距離不對稱，可利用斜角佈署創造局部優勢。"
+  },
+  "77cde6": {
+    "Name": "CardCustom",
+    "Nickname": "轉捩點",
+    "Description": "[b]部署類型[/b]\n\n雙方部署區位於戰場中部的長邊兩側，但偏移。\n部署區不完全對稱，向一側偏斜。\n\n不對稱佈署，考驗玩家的適應能力和空間控制。"
+  },
+  "c6edf3": {
+    "Name": "CardCustom",
+    "Nickname": "掃蕩交戰",
+    "Description": "[b]部署類型[/b]\n\n雙方部署區位於戰場對角，呈斜對角佈局。\n部署區為較窄的斜角區域。\n\n交戰線較長，需要分散兵力防守多個方向。"
+  },
+  "09c961": {
+    "Name": "CardCustom",
+    "Nickname": "搜索與殲滅",
+    "Description": "[b]部署類型[/b]\n\n雙方部署區位於戰場的四分之一區域（對角象限）。\n部署區為正方形象限。\n\n部署區較寬但深度適中，適合正面推進和集中打擊。"
+  },
+  "ffdf05": {
+    "Name": "Deck",
+    "Nickname": "挑戰者卡牌",
+    "Description": ""
+  },
+  "c4fe8c": {
+    "Name": "CardCustom",
+    "Nickname": "消耗戰 / 關鍵時刻",
+    "Description": "[b]挑戰者卡[/b]\n\n[u]消耗戰（正面）：[/u]\n在你的回合結束時，若本回合你消滅了比對手消滅你更多的單位，得3VP。\n\n[u]關鍵時刻（反面）：[/u]\n在你的回合結束時，若本回合你消滅了兩個或以上的敵方單位，得5VP。"
+  },
+  "dc273c": {
+    "Name": "CardCustom",
+    "Nickname": "堅守陣地 / 蓄積力量",
+    "Description": "[b]挑戰者卡[/b]\n\n[u]堅守陣地（正面）：[/u]\n在你的回合結束時，若你控制的目標標記數量等於或多於對手，得3VP。\n\n[u]蓄積力量（反面）：[/u]\n在你的回合結束時，若你控制的目標標記比對手多兩個以上，得5VP。"
+  },
+  "499169": {
+    "Name": "CardCustom",
+    "Nickname": "建立通訊 / 重新聚焦",
+    "Description": "[b]挑戰者卡[/b]\n\n[u]建立通訊（正面）：[/u]\n在你的回合結束時，若你軍隊中有一個或多個單位完全在距離己方桌邊6\"以上的位置，且有一個或多個單位完全在距離對手桌邊6\"以上的位置，得3VP。\n\n[u]重新聚焦（反面）：[/u]\n在你的回合結束時，若你控制了至少一個在你上一回合結束時未控制的目標標記，得5VP。"
+  },
+  "9789b7": {
+    "Name": "CardCustom",
+    "Nickname": "集中火力 / 急速衝刺",
+    "Description": "[b]挑戰者卡[/b]\n\n[u]集中火力（正面）：[/u]\n在你的回合結束時，若本回合你消滅了一個或多個敵方單位，且這些單位在被消滅前位於同一個目標標記範圍內，得3VP。\n\n[u]急速衝刺（反面）：[/u]\n在你的回合結束時，若你軍隊中有三個或以上的單位本回合進行了推進移動或衝鋒移動，得5VP。"
+  },
+  "62e744": {
+    "Name": "CardCustom",
+    "Nickname": "突破防線 / 全速推進",
+    "Description": "[b]挑戰者卡[/b]\n\n[u]突破防線（正面）：[/u]\n在你的回合結束時，若你軍隊中有一個或多個單位完全在對手的半場內，得3VP。\n\n[u]全速推進（反面）：[/u]\n在你的回合結束時，若你軍隊中有一個或多個單位完全在對手的部署區內，得5VP。"
+  },
+  "9650f1": {
+    "Name": "CardCustom",
+    "Nickname": "確保撤離區 / 強行突破",
+    "Description": "[b]挑戰者卡[/b]\n\n[u]確保撤離區（正面）：[/u]\n在你的回合結束時，若你控制己方部署區內的所有目標標記，得3VP。\n\n[u]強行突破（反面）：[/u]\n在你的回合結束時，若你控制對手部署區內的一個或多個目標標記，得5VP。"
+  },
+  "c58f11": {
+    "Name": "CardCustom",
+    "Nickname": "自我保全 / 孤注一擲",
+    "Description": "[b]挑戰者卡[/b]\n\n[u]自我保全（正面）：[/u]\n在你的回合結束時，若本回合你沒有任何單位被消滅，得3VP。\n\n[u]孤注一擲（反面）：[/u]\n在你的回合結束時，若本回合你消滅了敵方總戰力值最高的單位，得5VP。"
+  },
+  "d35008": {
+    "Name": "CardCustom",
+    "Nickname": "散播混亂 / 伺機打擊",
+    "Description": "[b]挑戰者卡[/b]\n\n[u]散播混亂（正面）：[/u]\n在你的回合結束時，若有一個或多個敵方單位處於戰慄狀態，得3VP。\n\n[u]伺機打擊（反面）：[/u]\n在你的回合結束時，若本回合你消滅了一個在回合開始時處於戰慄狀態的敵方單位，得5VP。"
+  },
+  "25b5a6": {
+    "Name": "CardCustom",
+    "Nickname": "區域防禦 / 戰略撤退",
+    "Description": "[b]挑戰者卡[/b]\n\n[u]區域防禦（正面）：[/u]\n在你對手的回合結束時，若對手的部署區內沒有敵方單位（你的單位不計），得3VP。\n\n[u]戰略撤退（反面）：[/u]\n在你的回合結束時，若你軍隊中有兩個或以上的單位在本回合脫離了近戰，得5VP。"
+  }
+}
