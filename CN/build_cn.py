@@ -3,19 +3,31 @@
 Build script for the CN TTS mod.
 
 Compiles TTSLUA scripts, XmlUI, and metadata into a single TTS save JSON.
+Also versions card image URLs and syncs them on GCP so TTS clients
+always fetch the latest images.
 
 Usage:
     python3 CN/build_cn.py <project_root> <version>
 
 Example:
-    python3 CN/build_cn.py . v1.2
+    python3 CN/build_cn.py . v1.3
 """
 
 import json
 import glob
 import os
+import re
+import subprocess
 import sys
 from datetime import datetime
+
+# GCP bucket config
+GCS_BUCKET = "steam-40k"
+GCS_CARDS_BASE = f"gs://{GCS_BUCKET}/cards/"
+GCS_PUBLIC_BASE = f"https://storage.googleapis.com/{GCS_BUCKET}/cards/"
+
+# On Windows, gcloud must be invoked via its .cmd wrapper for subprocess
+GCLOUD = "gcloud.cmd" if sys.platform == "win32" else "gcloud"
 
 
 def parse_ttslua_file(filepath):
@@ -90,6 +102,65 @@ def fix_deck_ids(data):
     return count
 
 
+def sync_card_images_to_version(version):
+    """Copy all card images from gs://steam-40k/cards/ to gs://steam-40k/cards/<version>/.
+
+    This ensures each build version has its own set of image URLs,
+    forcing TTS clients to re-download when the version changes.
+    """
+    src = GCS_CARDS_BASE
+    dst = f"gs://{GCS_BUCKET}/cards/{version}/"
+
+    # Check if version folder already exists
+    result = subprocess.run(
+        [GCLOUD, "storage", "ls", dst],
+        capture_output=True, text=True
+    )
+    if result.returncode == 0 and result.stdout.strip():
+        print(f"  GCS: {dst} already exists, skipping copy")
+        return True
+
+    # Copy all images from cards/ root to cards/<version>/
+    print(f"  GCS: Copying {src}*.png -> {dst}")
+    result = subprocess.run(
+        [GCLOUD, "storage", "cp", f"{src}*.png", dst],
+        capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        print(f"  WARNING: GCS copy failed: {result.stderr}")
+        return False
+
+    # Count copied files
+    count_result = subprocess.run(
+        [GCLOUD, "storage", "ls", dst],
+        capture_output=True, text=True
+    )
+    count = len([l for l in count_result.stdout.strip().split("\n") if l])
+    print(f"  GCS: Copied {count} images to {dst}")
+    return True
+
+
+def version_card_urls(data, version):
+    """Replace all steam-40k/cards/ URLs with steam-40k/cards/<version>/ URLs.
+
+    This applies to FaceURL and BackURL in CustomDeck entries throughout the JSON.
+    Only rewrites URLs that point to our GCS bucket (steam-40k), not Steam UGC URLs.
+    """
+    old_base = f"storage.googleapis.com/{GCS_BUCKET}/cards/"
+    new_base = f"storage.googleapis.com/{GCS_BUCKET}/cards/{version}/"
+    count = 0
+
+    for obj, path in find_all_objects(data):
+        for dk_id, dk_data in obj.get("CustomDeck", {}).items():
+            for key in ("FaceURL", "BackURL"):
+                url = dk_data.get(key, "")
+                if old_base in url and f"/cards/{version}/" not in url:
+                    dk_data[key] = url.replace(old_base, new_base)
+                    count += 1
+
+    return count
+
+
 def main():
     if len(sys.argv) < 3:
         print("Usage: python3 CN/build_cn.py <project_root> <version>")
@@ -159,9 +230,16 @@ def main():
     deck_fixes = fix_deck_ids(data)
     print(f"Fixed {deck_fixes} deck DeckIDs")
 
-    # 6. Update metadata
+    # 6. Version card image URLs and sync to GCP
+    print(f"Versioning card images to {version}...")
+    url_count = version_card_urls(data, version)
+    print(f"  Rewrote {url_count} image URLs to cards/{version}/")
+    if url_count > 0:
+        print(f"Syncing card images to GCS...")
+        sync_card_images_to_version(version)
+
+    # 7. Update metadata
     now = datetime.now()
-    # Format without leading zeros: M/D/YYYY H:MM:SS AM/PM
     hour_12 = now.hour % 12 or 12
     am_pm = "AM" if now.hour < 12 else "PM"
     data["Date"] = f"{now.month}/{now.day}/{now.year} {hour_12}:{now.minute:02d}:{now.second:02d} {am_pm}"
@@ -169,7 +247,7 @@ def main():
     print(f"Set VersionNumber: {version}")
     print(f"Set Date: {data['Date']}")
 
-    # 7. Save output
+    # 8. Save output
     print(f"Saving to: {output_path}")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
