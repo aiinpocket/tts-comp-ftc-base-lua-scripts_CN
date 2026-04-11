@@ -216,6 +216,15 @@ sustainedLethalHitsBtn = {
     position={lethalButtonsOffset + 1.61, Yoffset ,1.1}, rotation={0,0,0}, height=1000, width=4800, scale={0.1,0.1,0.1},
     font_size=500, color="White", font_color={0,0,0}
 }
+
+measureLosLabel = "測距/視線"
+measureLosTip   = "選取 2 個模型，顯示放射線與最短距離。視線由玩家自行判斷。"
+measureLosBtn = {
+    label=measureLosLabel, tooltip=measureLosTip, click_function="measureDistanceAndLos", function_owner=self,
+    position={lethalButtonsOffset + 2.62, Yoffset ,1.1}, rotation={0,0,0}, height=1000, width=4800, scale={0.1,0.1,0.1},
+    font_size=500, color="White", font_color={0,0,0}
+}
+
 copyOthersDiceBtn = {
     tooltip="複製對方骰子",
     click_function = "importOpposDice",
@@ -1732,6 +1741,7 @@ function onload()
     self.createButton(lethalHitsBtn)
     self.createButton(sustainedHitsBtn)
     self.createButton(sustainedLethalHitsBtn)
+    self.createButton(measureLosBtn)
     self.createButton(copyOthersDiceBtn)
     self.createButton(auto1D6)
     self.createButton(auto2D6)
@@ -2861,4 +2871,116 @@ function clearMeasuringCircles(obj, playerColor, alt)
         end
     end
     printToAll("已清除 "..clearedAll.." 個物件上的向量線。", {1,1,1})
+end
+
+--------------------------------------------------------------------------------
+-- 測距 / 視線輔助（放射線視覺化）
+--------------------------------------------------------------------------------
+
+local losLineCleanupID = nil
+
+function getSelectedPair(playerColor)
+    local player = Player[playerColor]
+    if not player then return nil end
+    local sel = player.getSelectedObjects()
+    if #sel ~= 2 then
+        printToColor("請先選取恰好 2 個模型（按住 Shift 框選或點選）。", playerColor, {1, 0.5, 0})
+        return nil
+    end
+    return sel[1], sel[2]
+end
+
+function calcEdgeDistance(objA, objB)
+    local posA = objA.getBounds().center
+    local posB = objB.getBounds().center
+    local sizeA = objA.getBounds().size
+    local sizeB = objB.getBounds().size
+    local dx = posB.x - posA.x
+    local dz = posB.z - posA.z
+    local centerDist = math.sqrt(dx * dx + dz * dz)
+    local radiusA = math.max(sizeA.x, sizeA.z) / 2
+    local radiusB = math.max(sizeB.x, sizeB.z) / 2
+    local edgeDist = centerDist - radiusA - radiusB
+    if edgeDist < 0 then edgeDist = 0 end
+    return edgeDist
+end
+
+function getBoundsSamplePoints(obj)
+    local b = obj.getBounds()
+    local c = b.center
+    local hx = b.size.x / 2
+    local hy = b.size.y / 2
+    local hz = b.size.z / 2
+    local points = {}
+    table.insert(points, {x = c.x, y = c.y, z = c.z})
+    for _, sx in ipairs({-1, 1}) do
+        for _, sy in ipairs({-1, 1}) do
+            for _, sz in ipairs({-1, 1}) do
+                table.insert(points, {
+                    x = c.x + sx * hx,
+                    y = c.y + sy * hy,
+                    z = c.z + sz * hz
+                })
+            end
+        end
+    end
+    table.insert(points, {x = c.x + hx, y = c.y, z = c.z})
+    table.insert(points, {x = c.x - hx, y = c.y, z = c.z})
+    table.insert(points, {x = c.x, y = c.y + hy, z = c.z})
+    table.insert(points, {x = c.x, y = c.y - hy, z = c.z})
+    table.insert(points, {x = c.x, y = c.y, z = c.z + hz})
+    table.insert(points, {x = c.x, y = c.y, z = c.z - hz})
+    return points
+end
+
+function clearLosLines()
+    Global.setVectorLines({})
+    losLineCleanupID = nil
+end
+
+-- 畫放射線 + 顯示最短距離，視線由玩家自行判斷
+function measureDistanceAndLos(_, playerColor, _)
+    local objA, objB = getSelectedPair(playerColor)
+    if not objA then return end
+
+    if losLineCleanupID then
+        Wait.stop(losLineCleanupID)
+        losLineCleanupID = nil
+    end
+    Global.setVectorLines({})
+
+    local pointsA = getBoundsSamplePoints(objA)
+    local pointsB = getBoundsSamplePoints(objB)
+    local centerA = pointsA[1]
+    local centerB = pointsB[1]
+
+    local lines = {}
+    local lineColor = {0, 1, 0.3}
+
+    -- 從 A 中心向 B 的所有取樣點畫線
+    for _, pB in ipairs(pointsB) do
+        table.insert(lines, {
+            points    = {centerA, pB},
+            color     = lineColor,
+            thickness = 0.12,
+            rotation  = {0, 0, 0}
+        })
+    end
+
+    -- 從 B 中心向 A 的所有取樣點畫線
+    for _, pA in ipairs(pointsA) do
+        table.insert(lines, {
+            points    = {centerB, pA},
+            color     = lineColor,
+            thickness = 0.12,
+            rotation  = {0, 0, 0}
+        })
+    end
+
+    Global.setVectorLines(lines)
+
+    local dist = calcEdgeDistance(objA, objB)
+    printToAll("📏 距離：" .. string.format("%.1f\"", dist) .. "（邊緣到邊緣）", {0.2, 0.8, 1})
+
+    losLineCleanupID = Wait.time(clearLosLines, 10)
 end

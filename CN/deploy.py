@@ -17,7 +17,7 @@ def deploy(repo_root="."):
     docs = os.path.expanduser("~")
     tts_workshop = os.path.join(docs, "Documents", "My Games",
                                 "Tabletop Simulator", "Mods", "Workshop")
-    dest = os.path.join(tts_workshop, "3398190636_CN.json")
+    dest = os.path.join(tts_workshop, os.path.basename(source))
 
     print(f"Deploying: {os.path.basename(source)}")
     print(f"  -> {dest}")

@@ -419,6 +419,11 @@ function onLoad(saved_data)
     --startPolling()
 end
 
+-- 外部匯入或複製產生的物件自動啟用移動軌跡線（顯示移動距離）
+function onObjectSpawn(obj)
+    obj.measure_movement = true
+end
+
 function setMissionPack(params)
     packSelected = params.pack
     redSecondaryDeck = getObjectFromGUID(missionPackData[packSelected].redSecondaryDeck_GUID)

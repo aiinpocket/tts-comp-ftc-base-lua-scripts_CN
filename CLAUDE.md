@@ -93,6 +93,10 @@ python CN/deploy.py .
 ### 從 TTS 反向提取
 如果在 TTS 中直接修改了 mod 並存檔，可以反向提取回源碼：
 ```bash
-cp "Workshop目錄/3398190636_CN.json" cn_source.json
+cp "Workshop目錄/<compiled>.json" cn_source.json
 python CN/extract_from_json.py cn_source.json .
 ```
+
+### 部署注意
+- deploy.py 不再產出 `3398190636_CN.json`，而是直接部署最新的 `ftc_base_<version>_compiled.json` 到 TTS Workshop 目錄
+- release 資料夾保留所有歷史版本的 compiled JSON，不刪除舊版
