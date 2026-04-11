@@ -54,7 +54,7 @@ spawnWoundsBtnB={label=spawnWBtnLbl, click_function="spawnWounds", function_owne
 
 XposHideArmy = XposReset+3
 ZposHideArmy = ZposReset-2.5
-hideShowArmyBtnLbl="ARMY\nfor reserves/embarked"
+hideShowArmyBtnLbl="部隊\n預備隊/搭載中"
 hideArmyBtnR={ label="隱藏 "..hideShowArmyBtnLbl, click_function="hideArmyR", function_owner=self,
             position={XposHideArmy,Ypos,ZposHideArmy}, rotation={0,0,0},
             height=500, width=2400,

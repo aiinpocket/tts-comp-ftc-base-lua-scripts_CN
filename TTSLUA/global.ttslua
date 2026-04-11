@@ -426,6 +426,24 @@ function setMissionPack(params)
     missionPackData[packSelected].blueSecondaryDeck_GUID = blueSecondaryDeck.getGUID()
 end
 
+-- 當地形卡片的「Load Map」按鈕被點擊時，顯示載入提示和賽前準備流程
+function onTerrainLoadMap()
+    -- 顯示載入中提示
+    UI.setAttribute("loadingPanel", "active", "true")
+    UI.setValue("loadingTitle", "地圖生成中...")
+    UI.setValue("loadingBody", "正在載入地形物件，請稍候...\n完成後將自動關閉此提示")
+    broadcastToAll("地圖生成中，請稍候...", {1, 0.84, 0})
+
+    -- 延遲檢查：等物件生成完畢後關閉提示並顯示賽前流程
+    Wait.time(function()
+        UI.setAttribute("loadingPanel", "active", "false")
+        local startMenu = getObjectFromGUID(startMenu_GUID)
+        if startMenu then
+            startMenu.call("showPregameGuide")
+        end
+    end, 5)
+end
+
 function autoSeatPerson(_person)
     if _person.steam_id == redPlayerID then
         if Player.Red.seated then
@@ -1171,4 +1189,26 @@ end
 -- === CN Pregame Panel close handler (Global) ===
 function closePregamePanel()
     UI.setAttribute("pregamePanel", "active", "false")
+    -- 關閉賽前流程面板後，啟動新手引導教學
+    local startMenu = getObjectFromGUID(startMenu_GUID)
+    if startMenu then
+        startMenu.call("showTutorial")
+    end
 end
+
+-- === CN Tutorial handlers (Global -> startMenu) ===
+function tutorialNext()
+    local startMenu = getObjectFromGUID(startMenu_GUID)
+    if startMenu then startMenu.call("tutorialNext") end
+end
+
+function tutorialPrev()
+    local startMenu = getObjectFromGUID(startMenu_GUID)
+    if startMenu then startMenu.call("tutorialPrev") end
+end
+
+function tutorialClose()
+    local startMenu = getObjectFromGUID(startMenu_GUID)
+    if startMenu then startMenu.call("tutorialClose") end
+end
+

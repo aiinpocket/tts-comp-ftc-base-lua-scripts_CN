@@ -1,5 +1,5 @@
 *_compiled.json
-*_compiled.json
+!release/*_compiled.json
 cn_source.json
 __pycache__/
 *.pyc

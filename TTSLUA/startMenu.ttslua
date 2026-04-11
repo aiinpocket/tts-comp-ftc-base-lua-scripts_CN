@@ -126,6 +126,29 @@ function onLoad(saved_data)
     end
     if not inGame then
         makeAnnouncement()
+        -- 預先移動牌組到可見位置，觸發 TTS 下載卡牌圖片資源
+        -- 只做位置移動，不呼叫 selectMissionPack 以避免初始化錯誤
+        if not packSelected then
+            Wait.time(function()
+                Global.UI.setAttribute("loadingPanel", "active", "true")
+                local missionPackTable = Global.getTable("missionPackData")
+                if missionPackTable and missionPackTable[MISSION_PACK_PARIAH_NEXUS] then
+                    local mpData = missionPackTable[MISSION_PACK_PARIAH_NEXUS]
+                    local dd = getObjectFromGUID(mpData.deploymentDeck_GUID)
+                    local pd = getObjectFromGUID(mpData.primaryDeck_GUID)
+                    local rd = getObjectFromGUID(mpData.redSecondaryDeck_GUID)
+                    local fd = getObjectFromGUID(mpData.fixedSecondaryDeck_GUID)
+                    -- 移動牌組到可見位置讓 TTS 開始下載圖片
+                    if dd then dd.setPosition({85, 0.94, 11}) end
+                    if pd then pd.setPosition({85, 0.94, 5.6}) end
+                    if rd then rd.setPosition({85, 0.94, 2}) end
+                    if fd then fd.setPosition({85, 0.94, -1.5}) end
+                end
+                Wait.time(function()
+                    Global.UI.setAttribute("loadingPanel", "active", "false")
+                end, 3)
+            end, 2)
+        end
     end
 end
 
@@ -767,7 +790,6 @@ function confirmForSingles()
 end
 
 function confirmSizeGame()
-    showPregameGuide()
     spawnInteractiveObject()
     confirmSizeMat("game")
     --deleting the Combat Patrol Mission book unless on the appropriate map size
@@ -1088,6 +1110,7 @@ arrowOffset = 7.5
 
 defaultDeployHeight=2
 deployOffset = 0
+objectivesOffset = 0
 
 secondRowOffset= 1.2
 deployBtn = {
@@ -2537,6 +2560,69 @@ end
 
 
 
+-- 部署卡 GUID -> DeployZonesStrikeForce 基礎索引的映射
+deployGuidToZoneIndex = {
+    ["77cde6"] = 6,  -- Tipping Point
+    ["97f3f0"] = 1,  -- Hammer and Anvil
+    ["09c961"] = 4,  -- Search and Destroy
+    ["e96d18"] = 5,  -- Crucible of Battle
+    ["c6edf3"] = 3,  -- Sweeping Engagement
+    ["7f45dc"] = 2,  -- Dawn of War
+}
+-- Hidden Supplies 主要任務 GUID（需選擇 HS 變體的部署區）
+hiddenSuppliesPrimaryGuid = "85718f"
+-- 基礎索引 -> Hidden Supplies 變體索引的映射
+deployZoneHSOffset = {
+    [1] = 7,   -- Hammer and Anvil -> Hammer and Anvil (HS)
+    [2] = 9,   -- Dawn of War -> Dawn of War (HS)
+    [3] = 11,  -- Sweeping Engagement -> Sweeping Engagement (HS)
+    [4] = 13,  -- Search and Destroy -> Search and Destroy (HS)
+    [5] = 15,  -- Crucible of Battle -> Crucible of Battle (HS)
+    [6] = 17,  -- Tipping Point -> Tipping Point (HS)
+}
+
+-- 根據部署卡 GUID 和主要任務 GUID 自動切換部署區和標的物
+function syncDeployZone(deployGuid, primaryGuid)
+    local baseIndex = deployGuidToZoneIndex[deployGuid]
+    if not baseIndex or not DeployZonesData[baseIndex] then return end
+
+    local targetIndex = baseIndex
+    if primaryGuid == hiddenSuppliesPrimaryGuid and deployZoneHSOffset[baseIndex] then
+        targetIndex = deployZoneHSOffset[baseIndex]
+    end
+    if not DeployZonesData[targetIndex] then return end
+
+    if DeployZonesData[deploySelected] and DeployZonesData[deploySelected].objectivesID then
+        destroyAllObjectives()
+    end
+    deployOffset = 0
+    objectivesOffset = 0
+    deploySelected = targetIndex
+    placeDeploy()
+end
+
+-- 從卡片區域讀取隨機抽到的卡片，自動連動部署區
+function syncDeployZoneFromCardZones()
+    local deployZone = getObjectFromGUID(Global.getVar("deploymentCardZone_GUID"))
+    local primaryZone = getObjectFromGUID(Global.getVar("primaryCardZone_GUID"))
+    if not deployZone then return end
+
+    local deployObjs = deployZone.getObjects()
+    if #deployObjs == 0 then return end
+
+    local deployGuid = deployObjs[1].getGUID()
+    local primaryGuid = nil
+    if primaryZone then
+        local primaryObjs = primaryZone.getObjects()
+        if #primaryObjs > 0 then
+            primaryGuid = primaryObjs[1].getGUID()
+        end
+    end
+
+    syncDeployZone(deployGuid, primaryGuid)
+    writeMenus()
+end
+
 function updateMission()
     canChangeMission = false
     Global.call("moveAllFromZoneToDeck", {zone = "deployment", deck = "deployment"})
@@ -2545,11 +2631,15 @@ function updateMission()
         missionSelectionDispBtn.label = "?"
         Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment"})
         Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary"})
+        -- 隨機抽卡：延遲等卡片落位後再連動部署區
+        Wait.time(syncDeployZoneFromCardZones, 0.8)
     else
         mission = missionPackData.tournamentMissions[selectedMission]
         missionSelectionDispBtn.label = mission.name
         Global.call("moveOneFromDeckToZone", {deck = "deployment", zone = "deployment", card = mission.deployment})
         Global.call("moveOneFromDeckToZone", {deck = "primary", zone = "primary", card = mission.primary})
+        -- 指定任務：直接用已知 GUID 連動部署區
+        syncDeployZone(mission.deployment, mission.primary)
     end
     writeMenus()
 
@@ -2785,6 +2875,229 @@ function hidePregameGuide()
 end
 -- === END CN Pregame Guide ===
 
+-- === CN 新手引導教學 ===
+tutorialCurrentStep = 0
+tutorialBlinkId = nil
+
+tutorialStepsData = {
+    {
+        title = "第一步：選擇任務",
+        body = "使用「任務選擇」區域的\n"..
+               "◀ ▶ 箭頭選擇任務字母（A-T）\n"..
+               "或點擊「完全隨機」自動抽取\n\n"..
+               "部署卡和主要任務卡會自動翻出\n"..
+               "部署區線條和標的物也會自動繪製",
+    },
+    {
+        title = "第二步：確認任務卡內容",
+        body = "桌面上方會出現兩張卡：\n"..
+               "【DEPLOYMENT 部署卡】\n"..
+               "  決定雙方部署區形狀\n"..
+               "【PRIMARY 主要任務卡】\n"..
+               "  決定得分方式與特殊規則\n\n"..
+               "請閱讀卡片內容確認規則",
+    },
+    {
+        title = "第三步：擲骰決定攻守方",
+        body = "雙方各擲 1 顆 D6 骰子對決\n"..
+               "（使用左右兩側的骰子桌）\n\n"..
+               "贏家為「攻方」，選擇桌邊\n"..
+               "輸家為「防守方」，部署時先放",
+    },
+    {
+        title = "第四步：選擇次要任務",
+        body = "次要任務卡已發到畫面下方的手牌區\n"..
+               "                    ▼▼▼\n\n"..
+               "你有兩種模式可以選擇：\n\n"..
+               "【固定模式】\n"..
+               "  從手牌中選 2 張固定次要任務卡\n"..
+               "  整場遊戲都使用這 2 張得分\n\n"..
+               "【戰術模式】\n"..
+               "  選擇 2 張「戰術目標」卡\n"..
+               "  每回合指揮階段抽取新的戰術任務\n"..
+               "  更靈活但不可預期\n\n"..
+               "選擇方式：滑鼠指向卡片，按 F 翻面\n"..
+               "將你要的 2 張翻為「面朝下」",
+    },
+    {
+        title = "第五步：鎖定次要任務",
+        body = "選好 2 張（已翻為面朝下）後，\n"..
+               "點擊左下角的「鎖定次要任務」按鈕\n\n"..
+               "★ 雙方都必須鎖定後才能開始遊戲 ★\n\n"..
+               "鎖定後：\n"..
+               "  • 選中的卡會移到次要任務區\n"..
+               "  • 未選的卡自動洗回牌組\n"..
+               "  • 雙方都鎖定後卡片自動翻開",
+    },
+    {
+        title = "第六步：部署與決定先攻",
+        body = "1. 宣告戰鬥編制\n"..
+               "   護衛附屬、載具搭乘、預備隊\n\n"..
+               "2. 交替部署單位\n"..
+               "   防守方先放，每次放一個單位\n\n"..
+               "3. 擲骰 D6 決定先攻\n"..
+               "   贏家決定先攻或後攻\n"..
+               "   用中央按鈕切換先手方",
+    },
+    {
+        title = "第七步：開始戰鬥！",
+        body = "一切就緒後，點擊綠色的\n"..
+               "「開始遊戲」按鈕\n\n"..
+               "遊戲將進入第一回合指揮階段\n"..
+               "使用「下一階段」按鈕推進流程\n\n"..
+               "祝你好運，指揮官！",
+    },
+}
+
+-- 教學高亮：直接在目標物件上畫框線，不做任何座標轉換
+tutorialHighlightedObjects = {}
+
+function highlightObj(obj, cx, cy, cz, hw, hd, color, thick)
+    if not obj then return end
+    obj.setVectorLines({
+        {points = {{cx-hw, cy, cz-hd}, {cx+hw, cy, cz-hd}}, color = color, thickness = thick},
+        {points = {{cx+hw, cy, cz-hd}, {cx+hw, cy, cz+hd}}, color = color, thickness = thick},
+        {points = {{cx+hw, cy, cz+hd}, {cx-hw, cy, cz+hd}}, color = color, thickness = thick},
+        {points = {{cx-hw, cy, cz+hd}, {cx-hw, cy, cz-hd}}, color = color, thickness = thick},
+    })
+    table.insert(tutorialHighlightedObjects, obj)
+end
+
+function drawTutorialHighlight(stepIndex)
+    local gold = {1, 0.84, 0}
+
+    if stepIndex == 1 then
+        -- 任務選擇區：直接在 startMenu (self) 上畫，用按鈕的本地座標
+        highlightObj(self, 2, 5.5, -16.5, 6, 1.8, gold, 0.2)
+
+    elseif stepIndex == 2 then
+        -- DEPLOYMENT + PRIMARY 卡片區：分別框住兩個 zone
+        local dp = getObjectFromGUID(Global.getVar("deploymentCardZone_GUID"))
+        local pp = getObjectFromGUID(Global.getVar("primaryCardZone_GUID"))
+        highlightObj(dp, 0, 1, 0, 3, 4, gold, 0.3)
+        highlightObj(pp, 0, 1, 0, 3, 4, gold, 0.3)
+
+    elseif stepIndex == 3 or stepIndex == 6 then
+        -- 骰子墊（有「清除骰墊」按鈕的物件）
+        local rd = getObjectFromGUID(Global.getVar("redCustomDiceMat_GUID"))
+        local bd = getObjectFromGUID(Global.getVar("blueCustomDiceMat_GUID"))
+        highlightObj(rd, 0, 2, 0, 5, 4, gold, 0.2)
+        highlightObj(bd, 0, 2, 0, 5, 4, gold, 0.2)
+        if stepIndex == 6 then
+            highlightObj(self, 0, 5.5, 0, 5, 2, gold, 0.2)
+        end
+
+    elseif stepIndex == 4 then
+        -- 手牌區：直接在 hand zone 物件上畫（zone 有大 scale，用小的本地座標）
+        local rh = getObjectFromGUID(Global.getVar("redHandZone_GUID"))
+        local bh = getObjectFromGUID(Global.getVar("blueHandZone_GUID"))
+        highlightObj(rh, 0, 0, 0, 0.5, 0.5, gold, 0.02)
+        highlightObj(bh, 0, 0, 0, 0.5, 0.5, gold, 0.02)
+
+    elseif stepIndex == 5 then
+        -- 鎖定次要任務按鈕：跟第四步一樣框住手牌區（按鈕在附近）
+        local rh = getObjectFromGUID(Global.getVar("redHandZone_GUID"))
+        local bh = getObjectFromGUID(Global.getVar("blueHandZone_GUID"))
+        highlightObj(rh, 0, 0, 0, 0.5, 0.5, gold, 0.02)
+        highlightObj(bh, 0, 0, 0, 0.5, 0.5, gold, 0.02)
+
+    elseif stepIndex == 7 then
+        -- 開始遊戲按鈕：在 startMenu 上畫
+        highlightObj(self, 0, 5.5, 0, 5, 2.5, gold, 0.2)
+    end
+end
+
+function clearTutorialHighlight()
+    for _, obj in ipairs(tutorialHighlightedObjects) do
+        if obj then
+            obj.setVectorLines({})
+        end
+    end
+    tutorialHighlightedObjects = {}
+end
+
+-- 閃爍高亮框
+function startHighlightBlink(stepIndex)
+    stopHighlightBlink()
+    local showFrame = true
+    tutorialBlinkId = Wait.time(function()
+        showFrame = not showFrame
+        if showFrame then
+            drawTutorialHighlight(stepIndex)
+        else
+            clearTutorialHighlight()
+        end
+    end, 0.7, -1)
+end
+
+function stopHighlightBlink()
+    if tutorialBlinkId then
+        Wait.stop(tutorialBlinkId)
+        tutorialBlinkId = nil
+    end
+end
+
+function showTutorial()
+    tutorialCurrentStep = 1
+    updateTutorialPanel()
+    Global.UI.setAttribute("tutorialPanel", "active", "true")
+    drawTutorialHighlight(1)
+    startHighlightBlink(1)
+end
+
+function updateTutorialPanel()
+    local step = tutorialStepsData[tutorialCurrentStep]
+    if not step then return end
+
+    Global.UI.setValue("tutorialStep", "步驟 " .. tutorialCurrentStep .. " / " .. #tutorialStepsData)
+    Global.UI.setValue("tutorialTitle", step.title)
+    Global.UI.setValue("tutorialBody", step.body)
+
+    if tutorialCurrentStep <= 1 then
+        Global.UI.setAttribute("tutorialPrevBtn", "active", "false")
+    else
+        Global.UI.setAttribute("tutorialPrevBtn", "active", "true")
+    end
+    if tutorialCurrentStep >= #tutorialStepsData then
+        Global.UI.setValue("tutorialNextBtn", "完成 ✓")
+        Global.UI.setAttribute("tutorialNextBtn", "color", "#FFD700")
+    else
+        Global.UI.setValue("tutorialNextBtn", "下一步 ▶")
+        Global.UI.setAttribute("tutorialNextBtn", "color", "#4CAF50")
+    end
+end
+
+function tutorialNext()
+    if tutorialCurrentStep >= #tutorialStepsData then
+        tutorialClose()
+        return
+    end
+    stopHighlightBlink()
+    clearTutorialHighlight()
+    tutorialCurrentStep = tutorialCurrentStep + 1
+    updateTutorialPanel()
+    drawTutorialHighlight(tutorialCurrentStep)
+    startHighlightBlink(tutorialCurrentStep)
+end
+
+function tutorialPrev()
+    if tutorialCurrentStep <= 1 then return end
+    stopHighlightBlink()
+    clearTutorialHighlight()
+    tutorialCurrentStep = tutorialCurrentStep - 1
+    updateTutorialPanel()
+    drawTutorialHighlight(tutorialCurrentStep)
+    startHighlightBlink(tutorialCurrentStep)
+end
+
+function tutorialClose()
+    stopHighlightBlink()
+    clearTutorialHighlight()
+    tutorialCurrentStep = 0
+    Global.UI.setAttribute("tutorialPanel", "active", "false")
+end
+-- === END CN 新手引導教學 ===
+
 startBtn = {
     index = 1, label = "開 始 遊 戲", click_function = "startGame", function_owner = self,
     position = {0, 5, - 1}, rotation = {0, 0, 0}, height = 750, width = 5000,
@@ -2819,7 +3132,22 @@ IncrementBlueCpBtn = {
     font_size = 600, color = {0, 0, 1}, font_color = {1, 1, 1}
 }
 position = {menuX, 5, menuZ}
-notePadTxt = "This is the Hutber version of the brilliant FTC Competitive 40k Map Base 10th. Only Grand Tournament play is supported. Everything is taken from him and I just wanted to see some new features. \n\nPlease raise issues at https://github.com/hutber/hutber-tts/issues.\nOr file issues with the original base map project: https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts\n\nInstructions can be found in the Notebook.\n\nIf any of the maps need updating please let me know via the github issues.\n\n\nJoin the TTS 40K Discord server: https://discord.gg/Drpzcwwmm6"
+notePadTxt = "【40K 10e 競技模組 繁體中文版】\n\n"..
+    "本模組基於 Hutber 的 FTC Competitive 40k Map Base 10th 英文版翻譯而成，\n"..
+    "僅支援 Grand Tournament 競技賽制。\n\n"..
+    "═══ 原始出處 ═══\n"..
+    "原作者：ThePants999\n"..
+    "  https://github.com/ThePants999/tts-comp-ftc-base-lua-scripts\n"..
+    "功能增強版：Hutber\n"..
+    "  https://github.com/hutber/hutber-tts/issues\n\n"..
+    "═══ 中文版 ═══\n"..
+    "翻譯與維護：aiinpocket\n"..
+    "如果您在使用中文版時遇到任何問題（翻譯錯誤、功能異常等），\n"..
+    "請到中文版的 GitHub 提交 Issue：\n"..
+    "  https://github.com/aiinpocket/tts-comp-ftc-base-lua-scripts_CN/issues\n\n"..
+    "若問題屬於原版功能（非翻譯相關），也可到上方原版連結回報。\n\n"..
+    "═══ 社群 ═══\n"..
+    "加入 TTS 40K Discord 伺服器：https://discord.gg/Drpzcwwmm6"
 
 
 function writeMenus()
@@ -3912,9 +4240,9 @@ function resetTrackedDiceRollerByGuidVar(guidVarName)
     if not rollerObj then
         return
     end
-    pcall(function()
+    if rollerObj.getVar("resetRollTracking") then
         rollerObj.call("resetRollTracking")
-    end)
+    end
 end
 
 function resetTrackedDiceRollers()

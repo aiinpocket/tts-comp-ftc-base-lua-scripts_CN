@@ -16,11 +16,11 @@ lockInSecondariesBtn = {
     font_size = 200,
     color = {0, 0, 0},
     font_color = {1, 1, 1},
-    tooltip = "With the initial set of secondary missions in your hand, select two of them by flipping them face down with the F key, then press this button. To use Tactical Missions, flip the two Tactical cards. To use Fixed Missions, flip your choice of two other cards."
+    tooltip = "從手牌中的次要任務卡中選擇兩張，將滑鼠移到卡片上方按 F 鍵翻為面朝下，然後點擊此按鈕。\n使用戰術任務：翻轉兩張戰術卡。\n使用固定任務：翻轉你選擇的兩張其他卡片。"
 }
 
 -- Same removal of extra spaces
-lockGambitBtnPariahNexusTooltip = "After pressing Prepare Secrets and then selecting one by flipping it face down with the F key, press this button to lock in your choice."
+lockGambitBtnPariahNexusTooltip = "按下「準備秘密」後，選擇一張將其翻為面朝下（按 F 鍵），然後點擊此按鈕鎖定你的選擇。"
 
 missionPackData = nil
 selectedPack = nil

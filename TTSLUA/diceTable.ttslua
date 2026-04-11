@@ -2123,8 +2123,7 @@ function moveDiceBackToBoard(color)
     if color then
         moveDiceForColor(color)
     else
-        moveDiceForColor("Red")
-        moveDiceForColor("Blue")
+        moveDiceForColor(currentMat)
     end
     originalPositions = {}  -- Add this line to clear the originalPositions table
 end
