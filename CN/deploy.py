@@ -7,7 +7,7 @@ import os
 import glob
 
 def deploy(repo_root="."):
-    pattern = os.path.join(repo_root, "ftc_base_*_compiled.json")
+    pattern = os.path.join(repo_root, "release", "ftc_base_*_compiled.json")
     files = sorted(glob.glob(pattern), key=os.path.getmtime, reverse=True)
     if not files:
         print("No compiled JSON found. Run build_cn.py first.")

@@ -66,9 +66,9 @@ local RedControlBoard = {
         },
         {
             name = "Stat Helper",
-            state = false,
+            state = true,
             title = "Auto generate dice for selected units",
-            customHiddenPosition = {-4.078736, 0.87, 34.7377625}
+            customHiddenPosition = {-10.16, 1.5, 83.4}
         },
         {
             name = "Vortex",
@@ -139,9 +139,9 @@ local BlueControlBoard = {
         },
         {
             name = "Stat Helper",
-            state = false,
+            state = true,
             title = "Auto generate dice for selected units",
-            customHiddenPosition = {4.078736, 0.86, -34.7377625}
+            customHiddenPosition = {10.16, 1.5, -82.65}
         },
         {
             name = "Vortex",
@@ -935,6 +935,14 @@ function onLoad()
             counter.interactable = false
         else
             print(color .. " CustomCounter object not found during onLoad: " .. board.CustomCounter)
+        end
+
+        -- Initialize Stat Helper according to default option state
+        for _, opt in ipairs(board.options) do
+            if opt.name == "Stat Helper" then
+                toggleObjectState(board.StatHelper_GUID, opt.state, opt.customHiddenPosition)
+                break
+            end
         end
     end
 end

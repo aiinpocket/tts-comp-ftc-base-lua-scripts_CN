@@ -8,7 +8,9 @@ spawnedDiceCount = 0
 savedPositions = {}
 spawnPosition = nil
 customDieData = nil
-
+targetData = nil
+currentWeaponMap = {}
+combatGuideText = nil
 function onSave()
   return JSON.encode({
     spawnPosition = spawnPosition,
@@ -157,8 +159,18 @@ function onCleanClicked(player)
 end
 
 function cleanUpWeaponsData()
-  drawWeaponData({})
+  currentWeaponMap = {}
+  targetData = nil
+  combatGuideText = nil
+  refreshUI()
   spawnedDiceCount = 0
+end
+
+function clearCombatGuide()
+  if combatGuideText then
+    combatGuideText = nil
+    refreshUI()
+  end
 end
 
 function drawFiguresRange(figures, range)
@@ -174,12 +186,31 @@ function cleanCurrentVectorLines()
 end
 
 function drawWeaponData(figures)
-  drawWeaponsDataUI(createWeaponsMap(createFiguresData(figures)))
+  currentWeaponMap = createWeaponsMap(createFiguresData(figures))
+  refreshUI()
 end
 
-function drawWeaponsDataUI(weaponMap)
+function refreshUI()
   local ui = self.UI.getXmlTable()
-  ui[2].children[3].children = createWeaponTableRows(weaponMap)
+  local rows = createWeaponTableRows(currentWeaponMap)
+  ui[2].children[3].children = rows
+  -- Resize body table to fit all weapon rows (each row preferredHeight=130, +20 margin)
+  local rowCount = 0
+  for _ in pairs(rows) do rowCount = rowCount + 1 end
+  local bodyHeight = math.max(150, rowCount * 140 + 20)
+  ui[2].children[3].attributes.preferredHeight = tostring(bodyHeight)
+  -- Remove dynamic elements (target info, combat guide) beyond index 3
+  while #ui[2].children > 3 do
+    table.remove(ui[2].children)
+  end
+  -- Add target info if set
+  if targetData then
+    table.insert(ui[2].children, createTargetInfoUI())
+  end
+  -- Add combat guide if set
+  if combatGuideText then
+    table.insert(ui[2].children, createCombatGuideUI(combatGuideText))
+  end
   self.UI.setXmlTable(ui)
 end
 
@@ -203,6 +234,7 @@ function createWeaponRowUI(weaponData)
       createTextCell(weaponData.count),
       createButtonCell(getAttackInfo(weaponData), getAttackButtonId(weaponData), "onAttackClicked", weaponData.side),
       createButtonCell(getRangeText(weaponData.data.range), "rangeButton_"..weaponData.data.name, "onRangeClicked"),
+      createCalcButtonCell(getCalcButtonId(weaponData)),
     }
   }
 end
@@ -797,3 +829,270 @@ end
   function CombineAttack(a1, a2)
     return ComposeAttack(DecomposeAttackStr(a1.."+"..a2))
   end
+
+-- ============================================================
+-- 戰鬥輔助計算器
+-- ============================================================
+
+function onSetTargetClicked(player)
+  if #player.getSelectedObjects() == 0 then
+    printMessage("請先選擇目標模型！", {1, 0.3, 0.3})
+    return
+  end
+  targetData = parseDefenderData(player.getSelectedObjects())
+  if targetData then
+    printMessage("目標已設定：" .. targetData.name .. "  T:" .. (targetData.t or "?") .. "  SV:" .. (targetData.sv or "?"), {1, 0.84, 0})
+  end
+  refreshUI()
+end
+
+function parseDefenderData(figures)
+  if #figures == 0 then return nil end
+  local figure = figures[1]
+  local name = figure.getName()
+  if name == "" then name = "未知單位" end
+
+  local trimmed = removeEmptyLines(figure.getDescription())
+  local arr = splitStr(trimmed, "\n")
+
+  local statsValues = findStatsValues(arr)
+  if not statsValues then
+    printMessage("無法解析目標數據！請確認模型有正確的數據格式。", {1, 0, 0})
+    return nil
+  end
+
+  -- M T SV W LD OC (indices 1-6)
+  local t = tonumber(statsValues[2]:match("(%d+)"))
+  local sv = statsValues[3]
+  local w = tonumber(statsValues[4]:match("(%d+)"))
+
+  return {
+    name = name,
+    t = t,
+    sv = sv,
+    w = w
+  }
+end
+
+function findStatsValues(arr)
+  for i = 2, math.min(#arr, 5) do
+    local parts = splitStr(arr[i], " ")
+    if #parts >= 6 and parts[1]:match("%d") then
+      return parts
+    end
+  end
+  return nil
+end
+
+function getWoundThreshold(s, t)
+  if s >= t * 2 then return 2 end
+  if s > t then return 3 end
+  if s == t then return 4 end
+  if s * 2 <= t then return 6 end
+  return 5
+end
+
+function getSaveThreshold(sv, ap)
+  local saveVal = tonumber(sv:match("(%d+)")) or 7
+  local apVal = tonumber(ap) or 0
+  return saveVal - apVal
+end
+
+function getWoundConditionText(s, t)
+  if s >= t * 2 then return "S 是 T 的兩倍以上" end
+  if s > t then return "S 大於 T" end
+  if s == t then return "S 等於 T" end
+  if s * 2 <= t then return "S 是 T 的一半以下" end
+  return "S 小於 T"
+end
+
+function getCalcButtonId(weaponData)
+  local acc = weaponData.data.accuracy
+  local str = weaponData.data.strength
+  local ap = weaponData.data.ap
+  local d = weaponData.data.damage
+  return "calcButton__" .. weaponData.data.name .. "__" .. acc .. "__" .. str .. "__" .. ap .. "__" .. d
+end
+
+function getWeaponDataFromCalcButtonId(id)
+  local arr = splitStr(id, "__")
+  return {
+    name = arr[2],
+    accuracy = arr[3],
+    strength = arr[4],
+    ap = arr[5],
+    damage = arr[6]
+  }
+end
+
+function createCalcButtonCell(id)
+  local hasTarget = targetData ~= nil
+  return {
+    tag = "Cell",
+    children = {
+      {
+        tag = "Button",
+        attributes = {
+          text = hasTarget and "3.計算擲骰" or "-",
+          id = id,
+          onClick = "onCalcClicked",
+          color = hasTarget and "#90EE90" or "#666666",
+          interactable = hasTarget and "true" or "false",
+          tooltip = hasTarget and "計算戰鬥結果" or "請先設定目標",
+          tooltipBackgroundColor = "#141414FB",
+          tooltipTextColor = "#CCCCCC",
+          tooltipFontSize = "60"
+        }
+      }
+    }
+  }
+end
+
+function onCalcClicked(player, _, id)
+  if not targetData then
+    printMessage("請先設定目標！", {1, 0.3, 0.3})
+    return
+  end
+  local weaponInfo = getWeaponDataFromCalcButtonId(id)
+  local weaponMapData = findWeaponByStats(currentWeaponMap, weaponInfo)
+  local totalAttacks = 0
+  local modelCount = 0
+  local perModelAttack = weaponInfo.accuracy or "?"
+  if weaponMapData then
+    totalAttacks = weaponMapData.attack or 0
+    modelCount = weaponMapData.count or 0
+    perModelAttack = weaponMapData.data.attack or 0
+  end
+  combatGuideText = buildCombatGuideText(weaponInfo, targetData, totalAttacks, modelCount, perModelAttack)
+  refreshUI()
+end
+
+function buildCombatGuideText(weapon, target, totalAttacks, modelCount, perModelAttack)
+  local s = tonumber(weapon.strength) or 0
+  local t = target.t or 0
+  local ap = weapon.ap or "0"
+  local d = weapon.damage or "?"
+  local accuracy = weapon.accuracy or "?"
+
+  local woundThreshold = getWoundThreshold(s, t)
+  local saveThreshold = getSaveThreshold(target.sv, ap)
+  local woundCondition = getWoundConditionText(s, t)
+
+  local attackBreakdown = modelCount .. " 模型 × A:" .. perModelAttack .. " = " .. totalAttacks
+
+  local lines = {}
+  table.insert(lines, "<color=#FFD700>═══ " .. weapon.name .. " → " .. target.name .. " ═══</color>")
+  table.insert(lines, "<color=#FFD700>【命中】</color>投 " .. totalAttacks .. " 顆 D6（" .. attackBreakdown .. "），需 " .. accuracy .. "+ 命中，<color=#00BFFF>自然 6 = 致命命中</color>")
+  table.insert(lines, "<color=#FFD700>【致傷】</color>每個命中投 1 顆 D6，S:" .. s .. " vs T:" .. t .. "（" .. woundCondition .. "）→ 需 " .. woundThreshold .. "+，<color=#00BFFF>自然 6 = 致命致傷</color>")
+
+  if saveThreshold <= 6 then
+    table.insert(lines, "<color=#FFD700>【豁免】</color>每個致傷投 1 顆 D6，需 " .. saveThreshold .. "+（SV:" .. target.sv .. " - AP:" .. ap .. "），<color=#FF6666>自然 1 = 失敗</color>")
+  else
+    table.insert(lines, "<color=#FFD700>【豁免】</color><color=#FF4444>SV:" .. target.sv .. " 被 AP:" .. ap .. " 修正 → 無法通過護甲豁免</color>")
+  end
+
+  local dmgText = "每次失敗豁免造成 " .. d .. " 點傷害"
+  if string.find(d, "[dD]") then
+    dmgText = dmgText .. "（需投骰）"
+  end
+  table.insert(lines, "<color=#FFD700>【傷害】</color>" .. dmgText .. "。<color=#88FF88>指向模型按 2 扣血 / 3 加血</color>")
+  table.insert(lines, "<color=#FF8800>⚠ 僅為基礎數值，特殊能力（無敵護甲/重擲/修正等）請自行加減</color>")
+
+  return table.concat(lines, "\n")
+end
+
+function createCombatGuideUI(text)
+  return {
+    tag = "Text",
+    attributes = {
+      id = "combatGuide",
+      text = text,
+      fontSize = "65",
+      color = "#FFFFFF",
+      preferredHeight = "700",
+      resizeTextForBestFit = "false",
+      alignment = "UpperLeft",
+      richText = "true"
+    }
+  }
+end
+
+function broadcastCombatGuide(weapon, target, totalAttacks, modelCount, perModelAttack)
+  local s = tonumber(weapon.strength) or 0
+  local t = target.t or 0
+  local ap = weapon.ap or "0"
+  local d = weapon.damage or "?"
+  local accuracy = weapon.accuracy or "?"
+
+  local woundThreshold = getWoundThreshold(s, t)
+  local saveThreshold = getSaveThreshold(target.sv, ap)
+  local woundCondition = getWoundConditionText(s, t)
+
+  local attackBreakdown = modelCount .. " 模型 × A:" .. perModelAttack .. " = " .. totalAttacks
+
+  local gold = {1, 0.84, 0}
+  local cyan = {0, 0.75, 1}
+  local red = {1, 0.27, 0.27}
+  local green = {0.53, 1, 0.53}
+  local orange = {1, 0.53, 0}
+  local white = {1, 1, 1}
+
+  -- Header
+  broadcastToAll("══════════════════════════════", gold)
+  broadcastToAll("戰鬥輔助：" .. weapon.name .. " → " .. target.name, gold)
+  broadcastToAll("══════════════════════════════", gold)
+
+  -- Step 1: Hit Roll
+  broadcastToAll("【第一步：命中判定（攻擊方投擲）】", gold)
+  broadcastToAll("投擲 " .. totalAttacks .. " 顆 D6（" .. attackBreakdown .. "），需要 " .. accuracy .. " 命中", white)
+  broadcastToAll("自然 6 = 致命命中（無條件命中）", cyan)
+
+  -- Step 2: Wound Roll
+  broadcastToAll("【第二步：致傷判定（攻擊方投擲）】", gold)
+  broadcastToAll("每個命中投 1 顆 D6 | S:" .. s .. " vs T:" .. t .. "（" .. woundCondition .. "）→ 需要 " .. woundThreshold .. "+ 致傷", white)
+  broadcastToAll("自然 6 = 致命致傷（無條件致傷）", cyan)
+
+  -- Step 3: Save Roll
+  broadcastToAll("【第三步：護甲豁免（防禦方投擲）】", gold)
+  if saveThreshold <= 6 then
+    broadcastToAll("每個致傷投 1 顆 D6，投到 " .. saveThreshold .. "+ 即豁免（SV:" .. target.sv .. " 被 AP:" .. ap .. " 修正）", white)
+  else
+    broadcastToAll("SV:" .. target.sv .. " 被 AP:" .. ap .. " 修正 → 無法通過護甲豁免", red)
+  end
+  broadcastToAll("注意：自然 1 = 無條件失敗", red)
+
+  -- Step 4: Inflict Damage
+  broadcastToAll("【第四步：造成傷害】", gold)
+  local dmgText = "每個失敗的豁免造成 " .. d .. " 點傷害"
+  if string.find(d, "[dD]") then
+    dmgText = dmgText .. "（需投骰決定）"
+  end
+  broadcastToAll(dmgText, white)
+  broadcastToAll("先扣完同一模型的血量才能扣下一隻，不能優先分配給隊長（除非特殊能力）", white)
+  broadcastToAll("操作：滑鼠指向目標模型，按數字鍵 2 扣血 / 3 加血", green)
+
+  -- Warning
+  broadcastToAll("⚠ 此為基礎數值，特殊能力（無敵護甲、重擲、+1修正等）須自行加減", orange)
+end
+
+function createTargetInfoUI()
+  local text = "<color=#FFD700>目標：" .. targetData.name ..
+    "    T:" .. (targetData.t or "?") ..
+    "    SV:" .. (targetData.sv or "?") ..
+    "    W:" .. (targetData.w or "?") .. "</color>"
+
+  return {
+    tag = "Text",
+    attributes = {
+      id = "targetInfo",
+      text = text,
+      fontSize = "55",
+      color = "#FFFFFF",
+      preferredHeight = "80",
+      resizeTextForBestFit = "false",
+      alignment = "MiddleLeft",
+      richText = "true"
+    }
+  }
+end
+

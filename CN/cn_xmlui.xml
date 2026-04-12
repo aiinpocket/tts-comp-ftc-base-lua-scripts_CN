@@ -117,11 +117,11 @@
 <Button id="pregameCloseBtn" offsetXY="600 505" color="#FFFFFF22" textColor="#AAAAAA" width="120" height="50" fontSize="28" onClick="closePregamePanel">✕</Button>
 </Panel>
 
-<Panel id="tutorialPanel" active="false" position="-520 280 0" scale="0.5 0.5 0.5" color="#1A1A1AEE" width="750" height="620" rectAlignment="MiddleCenter" allowDragging="true" restrictDraggingToParentBounds="false" returnToOriginalPositionWhenReleased="false" outline="#FFD700" outlineSize="3">
-<Text id="tutorialStep" offsetXY="0 280" fontSize="28" color="#888888" fontStyle="Bold" alignment="MiddleCenter">步驟 1 / 7</Text>
-<Text id="tutorialTitle" offsetXY="0 230" fontSize="40" color="#FFD700" fontStyle="Bold" alignment="MiddleCenter">選擇任務</Text>
-<Text id="tutorialBody" offsetXY="0 -10" fontSize="26" color="#ECECECEE" alignment="MiddleCenter" width="700" height="420">說明文字</Text>
-<Button id="tutorialNextBtn" offsetXY="160 -280" color="#4CAF50" textColor="#FFFFFF" width="220" height="60" fontSize="30" fontStyle="Bold" onClick="tutorialNext" roundEdges="true">下一步 ▶</Button>
-<Button id="tutorialPrevBtn" offsetXY="-160 -280" color="#607D8B" textColor="#FFFFFF" width="220" height="60" fontSize="30" fontStyle="Bold" onClick="tutorialPrev" roundEdges="true">◀ 上一步</Button>
-<Button id="tutorialSkipBtn" offsetXY="340 280" color="#FFFFFF22" textColor="#AAAAAA" width="80" height="40" fontSize="24" onClick="tutorialClose">✕</Button>
+<Panel id="tutorialPanel" active="false" position="-520 280 0" scale="0.5 0.5 0.5" color="#1A1A1AEE" width="750" height="720" rectAlignment="MiddleCenter" allowDragging="true" restrictDraggingToParentBounds="false" returnToOriginalPositionWhenReleased="false" outline="#FFD700" outlineSize="3">
+<Text id="tutorialStep" offsetXY="0 330" fontSize="28" color="#888888" fontStyle="Bold" alignment="MiddleCenter">步驟 1 / 7</Text>
+<Text id="tutorialTitle" offsetXY="0 280" fontSize="40" color="#FFD700" fontStyle="Bold" alignment="MiddleCenter">選擇任務</Text>
+<Text id="tutorialBody" offsetXY="0 -10" fontSize="26" color="#ECECECEE" alignment="MiddleCenter" width="700" height="520">說明文字</Text>
+<Button id="tutorialNextBtn" offsetXY="160 -330" color="#4CAF50" textColor="#FFFFFF" width="220" height="60" fontSize="30" fontStyle="Bold" onClick="tutorialNext" roundEdges="true">下一步 ▶</Button>
+<Button id="tutorialPrevBtn" offsetXY="-160 -330" color="#607D8B" textColor="#FFFFFF" width="220" height="60" fontSize="30" fontStyle="Bold" onClick="tutorialPrev" roundEdges="true">◀ 上一步</Button>
+<Button id="tutorialSkipBtn" offsetXY="340 330" color="#FFFFFF22" textColor="#AAAAAA" width="80" height="40" fontSize="24" onClick="tutorialClose">✕</Button>
 </Panel>

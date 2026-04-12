@@ -4948,6 +4948,11 @@ function nextPhase(obj, player_color_click, alt_click)
     broadcastToAll(phases[currentPhase].." 階段", "Yellow")
     showPhaseGuide(phases[currentPhase])
     writeMenus()
+    -- Clear combat guide text on both stat helpers when phase changes
+    local redStats = getObjectFromGUID("7c7c20")
+    local blueStats = getObjectFromGUID("b7ac7a")
+    if redStats then redStats.call("clearCombatGuide") end
+    if blueStats then blueStats.call("clearCombatGuide") end
 end
 
 function passTurn(obj, player_color_click, alt_click)

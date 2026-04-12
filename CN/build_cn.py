@@ -174,7 +174,7 @@ def main():
     base_json_path = os.path.join(project_root, "TTSJSON", "ftc_base.json")
     xmlui_path = os.path.join(project_root, "CN", "cn_xmlui.xml")
     ttslua_dir = os.path.join(project_root, "TTSLUA")
-    output_path = os.path.join(project_root, f"ftc_base_{version}_compiled.json")
+    output_path = os.path.join(project_root, "release", f"ftc_base_{version}_compiled.json")
 
     # 1. Load base JSON
     print(f"Loading base JSON: {base_json_path}")
