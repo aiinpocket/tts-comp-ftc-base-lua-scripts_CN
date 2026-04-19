@@ -5,7 +5,7 @@
 這是 Warhammer 40K 第十版 Tabletop Simulator (TTS) 競技地圖模組的繁體中文版。
 Fork 自 ThePants999 的原始 repo，基於 Hutber 的 v1.7.4 (EN v14.2.1) 分支。
 
-- Steam Workshop ID: `3398190636`
+- Steam Workshop ID: `3706079312`
 - GitHub: `aiinpocket/tts-comp-ftc-base-lua-scripts_CN`
 
 ## 建構流程
@@ -98,5 +98,5 @@ python CN/extract_from_json.py cn_source.json .
 ```
 
 ### 部署注意
-- deploy.py 不再產出 `3398190636_CN.json`，而是直接部署最新的 `ftc_base_<version>_compiled.json` 到 TTS Workshop 目錄
+- deploy.py 會將最新的 compiled JSON 部署為 `3706079312.json` 到 TTS Workshop 目錄
 - release 資料夾保留所有歷史版本的 compiled JSON，不刪除舊版

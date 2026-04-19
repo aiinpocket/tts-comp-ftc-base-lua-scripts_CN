@@ -17,9 +17,9 @@ def deploy(repo_root="."):
     docs = os.path.expanduser("~")
     tts_workshop = os.path.join(docs, "Documents", "My Games",
                                 "Tabletop Simulator", "Mods", "Workshop")
-    dest = os.path.join(tts_workshop, os.path.basename(source))
+    dest = os.path.join(tts_workshop, "3706079312.json")
 
-    print(f"Deploying: {os.path.basename(source)}")
+    print(f"Deploying: {os.path.basename(source)} -> 3706079312.json")
     print(f"  -> {dest}")
     shutil.copy2(source, dest)
     print("Done! Restart TTS or reload the mod to see changes.")
